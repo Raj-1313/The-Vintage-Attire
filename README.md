@@ -8,14 +8,14 @@
  * change to main 
  * pull ===> repeat
 ## Available Scripts
-### Chakra
-### React-Router-Dom
-### Redux 
-### Thunk
-### Styled Components
-### Framer Motion
-### Axios
-### SASS
+* Chakra
+* React-Router-Dom
+* Redux 
+* Thunk
+* Styled Components
+* Framer Motion
+* Axios
+* SASS
 
 ### `npm start`
 
