@@ -274,5 +274,221 @@
       "tile__detail": "(21% Off)",
       "description": "Inspired by vintage mountain gear, the J.Crew Nordic Collection is engineered to keep you frost-free on the chilliest days. Built to endure everything from flurries to blizzards, our warmest layers are designed to look sharp in all conditions, whether you're hiking a mountain or trekking closer to home. This shirt-jacket is built in high-pile fleece with a smooth mesh interior for easy layering. Earth-friendly tip: Use a microfilter bag when you wash this garment to protect the fabric and prevent microfibers from entering our waterways.",
       "type": "coat"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/BJ862_BL8133?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+      "name": "Honeycomb waffle jogger pant",
+      "price": "INR 12,385",
+      "discounted_price": " 9,685",
+      "tile__detail": "(22% Off)",
+      "type": "pajama_pants",
+      "description": "The perfect jogger for a quick trip to the store or just lounging around the house, made in a waffle pattern for added texture and warmth. By buying cotton products from J.Crew, you're supporting our investment in Better Cotton's mission to help cotton communities survive and thrive while protecting and restoring the environment. This product is sourced through a system of mass balance and therefore may not contain Better",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AT380_PT3536?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+      "name": "Double-knit jogger lounge pant",
+      "price": "INR 9,617-INR 11,001",
+      "discounted_price": " 3,667",
+      "type": "pajama_pants",
+      "description": "Originally developed in the early 1900s, the double-layer fabric of this pant traps heat, making it ideal for layering. In fact, this style of duo-knit fabric was worn by the first Everest expedition to reach the summit.",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AZ665_YD2560_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+      "name": "Flannel pajama pant",
+      "price": "INR 9,617",
+  
+      "discounted_price": " 6,918",
+  
+      "type": "pajama_pants",
+      "description": "Originally developed in the early 1900s, the double-layer fabric of this pant traps heat, making it ideal for layering. In fact, this style of duo-knit fabric was worn by the first Everest expedition to reach the summit.",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AZ665_KA2286_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+      "name": "Flannel pajama pant",
+      "price": "INR 9,617",
+  
+      "discounted_price": " 6,918",
+  
+      "type": "pajama_pants",
+      "description": "Originally developed in the early 1900s, the double-layer fabric of this pant traps heat, making it ideal for layering. In fact, this style of duo-knit fabric was worn by the first Everest expedition to reach the summit.",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AT380_WZ0710_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+      "name": "Double-knit jogger lounge pant",
+      "price": "INR 9,617-INR 11,001",
+      "discounted_price": " 3,667",
+  
+      "type": "pajama_pants",
+      "description": "The perfect jogger for a quick trip to the store or just lounging around the house, made in a waffle pattern for added texture and warmth. By buying cotton products from J.Crew, you're supporting our investment in Better Cotton's mission to help cotton communities survive and thrive while protecting and restoring the environment. This product is sourced through a system of mass balance and therefore may not contain Better",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/BB876_PT2953_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+      "name": "Flannel pajama pant in print",
+      "price": "INR 9,617",
+      "discounted_price": " 6,918",
+      "type": "pajama_pants",
+      "description": "Originally developed in the early 1900s, the double-layer fabric of this pant traps heat, making it ideal for layering. In fact, this style of duo-knit fabric was worn by the first Everest expedition to reach the summit.",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AZ665_WX2987?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+      "name": "Flannel pajama pant",
+      "price": "INR 9,617",
+      "discounted_price": " 6,918",
+  
+      "type": "pajama_pants",
+      "description": "The perfect jogger for a quick trip to the store or just lounging around the house, made in a waffle pattern for added texture and warmth. By buying cotton products from J.Crew, you're supporting our investment in Better Cotton's mission to help cotton communities survive and thrive while protecting and restoring the environment. This product is sourced through a system of mass balance and therefore may not contain Betterr",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AZ665_WZ1599_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=540&hei=540",
+      "name": "Flannel pajama pant",
+      "price": "INR 9,617",
+      "discounted_price": " 6,918",
+  
+      "type": "pajama_pants",
+      "description": "Originally developed in the early 1900s, the double-layer fabric of this pant traps heat, making it ideal for layering. In fact, this style of duo-knit fabric was worn by the first Everest expedition to reach the summit.",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/BM002_GR5673?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+      "name": "Double-knit jogger lounge pant",
+      "price": "INR 9,617-INR 11,001",
+      "discounted_price": " 3,667",
+  
+      "type": "pajama_pants",
+      "description": "Originally developed in the early 1900s, the double-layer fabric of this pant traps heat, making it ideal for layering. In fact, this style of duo-knit fabric was worn by the first Everest expedition to reach the summit.",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AT380_WZ0713_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=540&hei=540",
+      "name": "Double-knit jogger pant",
+      "price": "INR 9,617-INR 11,001",
+      "discounted_price": " 3,667",
+  
+      "type": "pajama_pants",
+      "description": "Originally developed in the early 1900s, the double-layer fabric of this pant traps heat, making it ideal for layering. In fact, this style of duo-knit fabric was worn by the first Everest expedition to reach the summit.",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AZ665_YD0290_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=540&hei=540",
+      "name": "Double-knit jogger lounge pant",
+      "price": "INR 9,617-INR 11,001",
+      "discounted_price": " 3,667",
+      "type": "pajama_pants",
+      "description": "The perfect jogger for a quick trip to the store or just lounging around the house, made in a waffle pattern for added texture and warmth. By buying cotton products from J.Crew, you're supporting our investment in Better Cotton's mission to help cotton communities survive and thrive while protecting and restoring the environment. This product is sourced through a system of mass balance and therefore may not contain Better",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AT380_PT2729?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=540&hei=540",
+      "name": "Double-knit jogger lounge pant",
+      "price": "INR 9,617-INR 11,001",
+      "discounted_price": " 3,667",
+  
+      "type": "pajama_pants",
+      "description": "Originally developed in the early 1900s, the double-layer fabric of this pant traps heat, making it ideal for layering. In fact, this style of duo-knit fabric was worn by the first Everest expedition to reach the summit.",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AT380_WZ0713?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=540&hei=540",
+      "name": "Double-knit jogger lounge pant",
+      "price": "INR 9,617-INR 11,001",
+  
+      "discounted_price": " 3,667",
+  
+      "type": "pajama_pants",
+      "description": "The perfect jogger for a quick trip to the store or just lounging around the house, made in a waffle pattern for added texture and warmth. By buying cotton products from J.Crew, you're supporting our investment in Better Cotton's mission to help cotton communities survive and thrive while protecting and restoring the environment. This product is sourced through a system of mass balance and therefore may not contain Better",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AT380_PT0558_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=540&hei=540",
+      "name": "Flannel pajama pant",
+      "price": "INR 9,617",
+      "discounted_price": " 6,918",
+  
+      "type": "pajama_pants",
+      "description": "Originally developed in the early 1900s, the double-layer fabric of this pant traps heat, making it ideal for layering. In fact, this style of duo-knit fabric was worn by the first Everest expedition to reach the summit.",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AZ665_YD0290_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=540&hei=540",
+      "name": "Double-knit jogger pant",
+      "price": "INR 9,617-INR 11,001",
+  
+      "discounted_price": " 3,667",
+  
+      "type": "pajama_pants",
+      "description": "The perfect jogger for a quick trip to the store or just lounging around the house, made in a waffle pattern for added texture and warmth. By buying cotton products from J.Crew, you're supporting our investment in Better Cotton's mission to help cotton communities survive and thrive while protecting and restoring the environment. This product is sourced through a system of mass balance and therefore may not contain Better",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AT380_WZ0713_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=540&hei=540",
+      "name": "Double-knit jogger lounge pant",
+      "price": "INR 9,617-INR 11,001",
+  
+      "discounted_price": " 3,667",
+  
+      "type": "pajama_pants",
+      "description": "The perfect jogger for a quick trip to the store or just lounging around the house, made in a waffle pattern for added texture and warmth. By buying cotton products from J.Crew, you're supporting our investment in Better Cotton's mission to help cotton communities survive and thrive while protecting and restoring the environment. This product is sourced through a system of mass balance and therefore may not contain Better",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/BM002_GR5673?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+      "name": "Flannel pajama pant in print",
+      "price": "INR 9,617",
+  
+      "discounted_price": " 6,918",
+  
+      "type": "pajama_pants",
+      "description": "The perfect jogger for a quick trip to the store or just lounging around the house, made in a waffle pattern for added texture and warmth. By buying cotton products from J.Crew, you're supporting our investment in Better Cotton's mission to help cotton communities survive and thrive while protecting and restoring the environment. This product is sourced through a system of mass balance and therefore may not contain Better",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AT380_PT0558_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=540&hei=540",
+      "name": "Flannel pajama pant",
+      "price": "INR 9,617",
+  
+      "discounted_price": " 6,918",
+  
+      "type": "pajama_pants",
+      "description": "The perfect jogger for a quick trip to the store or just lounging around the house, made in a waffle pattern for added texture and warmth. By buying cotton products from J.Crew, you're supporting our investment in Better Cotton's mission to help cotton communities survive and thrive while protecting and restoring the environment. This product is sourced through a system of mass balance and therefore may not contain Better",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/BM002_GR5673?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+      "name": "Double-knit jogger pant",
+      "price": "INR 9,617-INR 11,001",
+      "discounted_price": " 3,667",
+  
+      "type": "pajama_pants",
+      "description": "The perfect jogger for a quick trip to the store or just lounging around the house, made in a waffle pattern for added texture and warmth. By buying cotton products from J.Crew, you're supporting our investment in Better Cotton's mission to help cotton communities survive and thrive while protecting and restoring the environment. This product is sourced through a system of mass balance and therefore may not contain Better",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/AT380_WZ0713?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=540&hei=540",
+      "name": "Double-knit jogger lounge pant",
+      "price": "INR 9,617-INR 11,001",
+      "discounted_price": " 3,667",
+  
+      "type": "pajama_pants",
+      "description": "The perfect jogger for a quick trip to the store or just lounging around the house, made in a waffle pattern for added texture and warmth. By buying cotton products from J.Crew, you're supporting our investment in Better Cotton's mission to help cotton communities survive and thrive while protecting and restoring the environment. This product is sourced through a system of mass balance and therefore may not contain Better",
+      "category": "men"
+    },
+    {
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/BM002_GR5673?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+      "name": "Fleece robe",
+      "price": "INR 9,617-INR 11,001",
+      "discounted_price": "10,667",
+  
+      "type": "robes",
+      "description": "The perfect jogger for a quick trip to the store or just lounging around the house, made in a waffle pattern for added texture and warmth. By buying cotton products from J.Crew, you're supporting our investment in Better Cotton's mission to help cotton communities survive and thrive while protecting and restoring the environment. This product is sourced through a system of mass balance and therefore may not contain Better",
+      "category": "men"
     }
+  
+  
   ]

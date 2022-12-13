@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -10,55 +10,140 @@ import {
   useDisclosure,
   Button,
   FormControl,
-  FormLabel,
   Input,
-} from '@chakra-ui/react'
+  Select,
+  Text,
+  Box,
+  Spacer,
+  HStack,
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { AuthSignUp } from "../Redux/AuthReducer/Auth_actions";
+
 
 const Signup = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const initialRef = React.useRef(null)
-  // const finalRef = React.useRef(null)
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch = useDispatch();
+  const [dataSign, setDataSign] = useState({
+    name: "",
+    password: "",
+    email: "",
+    country: "",
+    role: "",
+  });
 
+  const handleSelect = ({ name, value }) => {
+    setDataSign({ ...dataSign, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(dataSign);
+   if(dataSign.email && dataSign.password && dataSign.name && dataSign.country && dataSign.role) {
+     dispatch(AuthSignUp(dataSign))
+   }
+  };
 
   return (
-   
     <>
-      {/* <Button onClick={onOpen}>Open Modal</Button> */}
-      
-
+      <Button onClick={onOpen}>SignUp</Button>
       <Modal
-        initialFocusRef={initialRef}
-        // finalFocusRef={finalRef}
-        isOpen={true}
-        // onClose={onClose}
-       
+        isOpen={isOpen}
+        // isOpen={true}
+        onClose={onClose}
+        
       >
         <ModalOverlay />
-        <ModalContent textAlign='center' >
-          <ModalHeader >Create your account</ModalHeader>
+        <ModalContent
+          p="4"
+          textAlign="center"
+          bgImage="https://live.staticflickr.com/65535/50288471026_7a1921ecab_b.jpg"
+            bgSize="cover"
+                      >
+          <ModalHeader
+            fontSize="2xl"
+            fontWeight="extrabold"
+            fontFamily="cursive"
+          >
+            Sign Up
+          </ModalHeader>
           <ModalCloseButton />
-          <ModalBody pb={6}>
-            <FormControl className="textInputWrapper">
-              {/* <FormLabel>First name</FormLabel> */}
-              <Input ref={initialRef} placeholder='Email' type='mail' required="" className="input"  />
-            </FormControl>
 
-            <FormControl mt={4} className="textInputWrapper">
-              {/* <FormLabel>Last name</FormLabel> */}
-              <Input placeholder='Password' type='password' required="" className="input" />
-            </FormControl>
+          <ModalBody pb={6}  borderRadius='12'>
+            <form onSubmit={handleSubmit}>
+              <Input  
+                name="name"
+                placeholder="Name"
+                type="text"
+                className="inputSignup"
+                onChange={({ target }) => handleSelect(target)}
+              />
+              <Input
+                name="email"
+                placeholder="Email"
+                type="mail"
+                className="inputSignup"
+                onChange={({ target }) => handleSelect(target)}
+              />
+
+              <Input
+                name="password"
+                placeholder="Password"
+                type="password"
+                className="inputSignup"
+                onChange={({ target }) => handleSelect(target)}
+              />
+          <HStack>
+
+              <Select
+                className="inputSignup"
+                name="country"
+                onChange={({ target }) => handleSelect(target)}
+                >
+                <option>Select Country</option>
+                <option  value="India">India</option>
+                <option value="America">America</option>
+                <option value="Russia">Russia</option>
+              </Select>
+
+              <Select
+                className="inputSignup"
+                name="role"
+                onChange={({ target }) => handleSelect(target)}
+                >
+                <option>Select</option>
+                <option value="admin">Admin</option>
+                <option value="User">User</option>
+                </Select>
+
+                </HStack>
+              <Button w='full'  type="submit" colorScheme="green" size="md" >
+                CREATE AN ACCOUNT
+              </Button>
+            </form>
           </ModalBody>
 
-          <ModalFooter>
-            <Button colorScheme='blue' mr={3}>
-              Save
-            </Button>
-            <Button onClick={onClose}>Cancel</Button>
+          <ModalFooter  bg='blackAlpha.600' color='white'  borderRadius='12'>
+            {/* <Button onClick={onClose}>Cancel</Button> */}
+            <Text fontSize="sm" textAlign="left">
+              By clicking <b>"Create an Account"</b>, you agree to our{" "}
+              <u>Terms of Use and Privacy Policy</u>, including the Use of
+              Cookies and the transfer of your personal information to the
+              United States, a jurisdiction that may not provide an equivalent
+              level of data protection to the laws in your home country.
+            </Text>
           </ModalFooter>
+          <hr />
+          <Box m="4" bg='blackAlpha.500' color='white' borderRadius='12'>
+            <Text>
+              Already have an Account? <Link> Sign In </Link>
+            </Text>
+          </Box>
         </ModalContent>
       </Modal>
     </>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;

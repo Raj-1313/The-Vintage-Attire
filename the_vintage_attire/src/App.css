@@ -1,69 +1,15 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 
 /* Signup */
-.input {
-  line-height: 28px;
-  border: 2px solid transparent;
-  border-bottom-color: #777;
-  padding: .2rem 0;
-  outline: none;
-  background-color: transparent;
+.inputSignup {
   color: #0d0c22;
+  margin-bottom:10px ;
+  font-size: 20px;
   transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
- }
- 
- .input:focus, input:hover {
+ } 
+ .inputSignup:focus, inputSignup:hover {
   outline: none;
   padding: .2rem 1rem;
   border-radius: 1rem;
   border-color: #7a9cc6;
+  background-color: aliceblue;
  }
- 
- .input::placeholder {
-  color: #777;
- }
- 
- .input:focus::placeholder {
-  opacity: 0;
-  transition: opacity .3s;
- }
- 
- 

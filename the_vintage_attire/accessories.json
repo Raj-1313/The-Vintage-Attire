@@ -218,5 +218,270 @@
       "type": "accessories",
       "category": "kids"
     
-    }
+    },
+     {
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BD014_HT1803?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Cashmere beanie",
+    "price": "INR 9,617",
+   "type": "hats",
+      "description": "This supersoft merino wool-blend beanie will give you an extra layer of defense against cool weather, while also looking good with whatever you have on." ,
+    "category": "accessories"
+  },
+  {
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BN780_NA6407?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+
+    "name": "Mount Snow X J.Crew embroidered baseball cap in corduroy",
+    "discounted_price": "6,226.00",
+    "price": "8,026",
+   "type": "hats",
+      "description": "This supersoft merino wool-blend beanie will give you an extra layer of defense against cool weather, while also looking good with whatever you have on." ,
+    "category": "accessories"
+  },
+  {
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BJ318_YL5622?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+
+    "name": "Cotton beanie",
+    "price": "6,850",
+    "discounted_price": "2,699.00",
+   "type": "hats",
+      "description": "This supersoft merino wool-blend beanie will give you an extra layer of defense against cool weather, while also looking good with whatever you have on." ,
+    "category": "accessories"
+  },
+  {
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BM329_PP3779_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Harris Tweed® cloth baseball cap",
+    "price": "6,850",
+    "discounted_price": "2,699.00",
+   "type": "hats",
+      "description": "This supersoft merino wool-blend beanie will give you an extra layer of defense against cool weather, while also looking good with whatever you have on." ,
+    "category": "accessories"
+  },
+  {
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BM335_OR5786?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+
+    "name": "Rugged merino wool watchman beanie",
+    "price": "6,850",
+    "discounted_price": "4,842.00",
+   "type": "hats",
+      "description": "This supersoft merino wool-blend beanie will give you an extra layer of defense against cool weather, while also looking good with whatever you have on." ,
+    "category": "accessories"
+  },
+  {
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BM328_YD2453?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+
+    "name": "Wool-blend baseball cap with suede brim",
+    "price": "6,850",
+    "discounted_price": "8,995",
+   "type": "hats",
+      "description": "This supersoft merino wool-blend beanie will give you an extra layer of defense against cool weather, while also looking good with whatever you have on." ,
+    "category": "accessories"
+  },
+  {
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BM683_YD2589_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+
+    "name": "Wool-blend baseball cap with suede brim",
+    "price": "6,850",
+    "discounted_price": " 8,995",
+   "type": "hats",
+      "description": "This supersoft merino wool-blend beanie will give you an extra layer of defense against cool weather, while also looking good with whatever you have on." ,
+    "category": "accessories"
+  },
+  {
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BL388_EE2487?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+
+    "name": "Snow Peak® FR 2L rain cap",
+    "price": "6,850",
+    "discounted_price": "1,762",
+   "type": "hats",
+      "description": "This supersoft merino wool-blend beanie will give you an extra layer of defense against cool weather, while also looking good with whatever you have on." ,
+    "category": "accessories"
+  },
+  {
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BJ117_BR5392?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+
+    "name": "Heritage wool-blend baseball cap",
+    "price": "6,850",
+    "discounted_price": "INR 6,502.00",
+   "type": "hats",
+      "description": "This supersoft merino wool-blend beanie will give you an extra layer of defense against cool weather, while also looking good with whatever you have on." ,
+    "category": "accessories"
+  },
+  {
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BD014_SR0059?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+
+    "name": "Cashmere beanie",
+    "price": "INR 9,617",
+
+    "discounted_price": "4,716",
+   "type": "hats",
+      "description": "This supersoft merino wool-blend beanie will give you an extra layer of defense against cool weather, while also looking good with whatever you have on." ,
+    "category": "accessories"
+  },
+  {
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BJ117_RD6108?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+
+    "name": "Heritage wool-blend baseball cap",
+
+    "discounted_price": "INR 6,502.00",
+    
+    "price": "INR 7,542",
+    "category": "accessories",
+   "type": "hats",
+      "description": "This supersoft merino wool-blend beanie will give you an extra layer of defense against cool weather, while also looking good with whatever you have on." 
+  },
+
+  {
+    "category": "accessories", "type":"gloves",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BB985_PP3778?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Cashmere-lined suede gloves",
+    "price": "INR 13,561",
+    "discounted_price": "INR 6,435",
+    "description": "Our new favorite pair of winter gloves, hands down. . .We've crafted them in durable, better-with-wear suede on the outside and warm, 100 percent cashmere on the inside. The result is a style that will get you through this winter (and many more) in style."
+  },
+  {
+    "category": "accessories", "type":"gloves",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BB985_SP2335?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "ProductBadge__badge-title___8Cczx": "best seller",
+    "name": "Cashmere-lined suede gloves",
+    "price": "INR 13,561",
+    "discounted_price": "INR 6,435",
+    "tile__detail": "(53% Off)",
+    "description": "Our new favorite pair of winter gloves, hands down. . .We've crafted them in durable, better-with-wear suede on the outside and warm, 100 percent cashmere on the inside. The result is a style that will get you through this winter (and many more) in style."
+  },
+  {
+    "category": "accessories", "type":"gloves",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BM337_PP4244?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Lambswool gloves with striped cuffs",
+    "price": "5,466",
+    "discounted_price": "4,842.00",
+    "tile__detail": "",
+    "description": "Our new favorite pair of winter gloves, hands down. . .We've crafted them in durable, better-with-wear suede on the outside and warm, 100 percent cashmere on the inside. The result is a style that will get you through this winter (and many more) in style."
+  },
+  {
+    "category": "accessories", "type":"gloves",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BB984_BK0001?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Cashmere-lined leather gloves",
+    "price": "13,561",
+    "discounted_price": "6,435",     
+    "description": "Our new favorite pair of winter gloves, hands down. . .We've crafted them in durable, better-with-wear suede on the outside and warm, 100 percent cashmere on the inside. The result is a style that will get you through this winter (and many more) in style."
+  },
+  {
+    "category": "accessories", "type":"gloves",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BM337_PP4245?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Lambswool gloves with striped cuffs",
+    "price": "5,466",
+    "discounted_price": "2,007",
+    "description": "Our new favorite pair of winter gloves, hands down. . .We've crafted them in durable, better-with-wear suede on the outside and warm, 100 percent cashmere on the inside. The result is a style that will get you through this winter (and many more) in style."
+  },
+  {
+      "category": "accessories", "type":"gloves",
+      "imgUrl": "https://www.jcrew.com/s7-img-facade/BM337_PP4243?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+      "name": "Lambswool gloves with striped cuffs",
+      "price": "5,466",
+    "discounted_price": "4,842.00",
+
+    "description": "Our new favorite pair of winter gloves, hands down. . .We've crafted them in durable, better-with-wear suede on the outside and warm, 100 percent cashmere on the inside. The result is a style that will get you through this winter (and many more) in style."
+  },
+  {
+    "category": "accessories", "type":"gloves",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BM516_PP4054?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "ProductBadge__badge-title___8Cczx": "",
+    "name": "Tracksmith® X J.Crew Harrier merino wool gloves",
+    "price": "7,259",
+    "discounted_price": "5,259",
+    "description": "Our new favorite pair of winter gloves, hands down. . .We've crafted them in durable, better-with-wear suede on the outside and warm, 100 percent cashmere on the inside. The result is a style that will get you through this winter (and many more) in style."
+  },
+  
+  {
+    "category": "accessories",
+ "type": "scarves",
+    "description":"A winter go-to with the world's best yarns from the Joshua Ellis mill (est. 1767), located in the home of industrialized textile production, West Yorkshire's storied Heavy Woollen District.",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/H2195_WZ2099?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Solid cashmere scarf",
+    "price": "INR 13,561",
+    "discounted_price": "INR 5,466"
+  },
+  {
+    "category": "accessories",
+ "type": "scarves",
+    "description":"A winter go-to with the world's best yarns from the Joshua Ellis mill (est. 1767), located in the home of industrialized textile production, West Yorkshire's storied Heavy Woollen District.",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BM633_PP3887_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Joshua Ellis for J.Crew cashmere scarf in tartan",
+    "price": "20,479",
+    "discounted_price": "19,479"
+  },
+  {
+    "category": "accessories",
+ "type": "scarves",
+    "description":"A winter go-to with the world's best yarns from the Joshua Ellis mill (est. 1767), located in the home of industrialized textile production, West Yorkshire's storied Heavy Woollen District.",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/H2195_EG5284_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Solid cashmere scarf",
+    "price": "13,561",
+    "discounted_price": "5,466"
+  },
+  {
+    "category": "accessories",
+ "type": "scarves",
+    "description":"A winter go-to with the world's best yarns from the Joshua Ellis mill (est. 1767), located in the home of industrialized textile production, West Yorkshire's storied Heavy Woollen District.",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BL469_PP3923?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Abraham Moon for J.Crew wool scarf",
+    "price": "12,400",
+    "discounted_price": "10,793"
+  },
+  {
+    "category": "accessories",
+ "type": "scarves",
+    "description":"A winter go-to with the world's best yarns from the Joshua Ellis mill (est. 1767), located in the home of industrialized textile production, West Yorkshire's storied Heavy Woollen District.",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BL393_PP3907_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Abraham Moon & Sons for J.Crew double-faced scarf in English wool",
+    "price": "20,200",
+    "discounted_price": "16,328"
+  },
+  {
+    "category": "accessories",
+ "type": "scarves",
+    "description":"A winter go-to with the world's best yarns from the Joshua Ellis mill (est. 1767), located in the home of industrialized textile production, West Yorkshire's storied Heavy Woollen District.",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/H2195_SP3321?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Solid cashmere scarf",
+    "price": "INR 13,561",
+    "discounted_price": "INR 5,466"
+  },
+  {
+    "category": "accessories",
+ "type": "scarves",
+    "description":"A winter go-to with the world's best yarns from the Joshua Ellis mill (est. 1767), located in the home of industrialized textile production, West Yorkshire's storied Heavy Woollen District.",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BL393_PP3906?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Abraham Moon & Sons for J.Crew double-faced scarf in English wool",
+    "price": "18,600",
+    "discounted_price": "16,328"
+  },
+  {
+    "category": "accessories",
+ "type": "scarves",
+    "description":"A winter go-to with the world's best yarns from the Joshua Ellis mill (est. 1767), located in the home of industrialized textile production, West Yorkshire's storied Heavy Woollen District.",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BM633_PP3889?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Joshua Ellis for J.Crew cashmere scarf in tartan",
+    "price": "22,787",
+    "discounted_price": "20,479"
+  },
+  {
+    "category": "accessories",
+ "type": "scarves",
+    "description":"A winter go-to with the world's best yarns from the Joshua Ellis mill (est. 1767), located in the home of industrialized textile production, West Yorkshire's storied Heavy Woollen District.",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BM633_PP3888?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Joshua Ellis for J.Crew cashmere scarf in tartan",
+    "price": "22,900",
+    "discounted_price": "20,479"
+  },
+  {
+    "category": "accessories",
+ "type": "scarves",
+    "description":"A winter go-to with the world's best yarns from the Joshua Ellis mill (est. 1767), located in the home of industrialized textile production, West Yorkshire's storied Heavy Woollen District.",
+    "imgUrl": "https://www.jcrew.com/s7-img-facade/BL469_PP3924?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=420&hei=420",
+    "name": "Abraham Moon for J.Crew wool scarf",
+    "price": "12,300",
+    "discounted_price": "10,793"
+  }
+ 
+
   ]
