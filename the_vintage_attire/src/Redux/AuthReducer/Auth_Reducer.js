@@ -1,4 +1,4 @@
-import {AUTH_FAILURE,AUTH_REQUEST,AUTH_SUCCESS} from "./Auth_actionsTypes"
+import {AUTH_FAILURE,AUTH_REQUEST,AUTH_SUCCESS,AUTHSIGNUP_FAILURE,AUTHSIGNUP_REQUEST,AUTHSIGNUP_SUCCESS} from "./Auth_actionsTypes"
 
 const initialState = {
     isAuth: false,
@@ -16,6 +16,16 @@ const initialState = {
         return {...state, isError:true,isLoading:false}      
       }
       case AUTH_REQUEST:{
+        return {...state, isLoading:true,isError:false}
+      }
+  
+      case AUTHSIGNUP_SUCCESS:{
+      return {...state,isLoading:false}
+    }
+    case AUTHSIGNUP_FAILURE:{
+        return {...state, isError:true,isLoading:false}      
+      }
+      case AUTHSIGNUP_REQUEST:{
         return {...state, isLoading:true,isError:false}
       }
   

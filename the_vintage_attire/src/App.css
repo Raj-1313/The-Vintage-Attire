@@ -1,4 +1,16 @@
 
 
-
-
+/* Signup */
+.inputSignup {
+  color: #0d0c22;
+  margin-bottom:10px ;
+  font-size: 20px;
+  transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+ } 
+ .inputSignup:focus, inputSignup:hover {
+  outline: none;
+  padding: .2rem 1rem;
+  border-radius: 1rem;
+  border-color: #7a9cc6;
+  background-color: aliceblue;
+ }
