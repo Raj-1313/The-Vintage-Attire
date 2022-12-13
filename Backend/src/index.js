@@ -4,11 +4,13 @@ const app = express();
 const PORT = process.env.PORT || 8080
 const connect= require('./config/db');
 const SignUpRoute=  require("./Routes/Auth.Route")
+const ProdRoute=  require("./Routes/Product.Route")
+const cors= require("cors")
 
-
-
+app.use(cors());
 // app.use("/signup",SignUpRoute)
 app.use("/auth",SignUpRoute)
+app.use("/product",ProdRoute)
 
 
 

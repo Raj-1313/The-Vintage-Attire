@@ -17,6 +17,10 @@ const Auth= mongoose.Schema({
     country:{
         type:String,
         required:true,
+    },
+    role:{
+        type:String,
+        required:true,
     }
 
 })
