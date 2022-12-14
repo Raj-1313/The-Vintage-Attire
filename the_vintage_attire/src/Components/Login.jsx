@@ -22,6 +22,10 @@ const Login = () => {
 
   
   // const { isOpen, onOpen, onClose } = useDisclosure();
+
+  // console.log(onClick)
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const dispatch = useDispatch();
   const [open,setOpen]= useState(false);
   const [openSignUp,setOpenSignUp]= useState(false);

@@ -5,8 +5,14 @@ import V from "./V.png";
 import { AiOutlineShopping } from "react-icons/ai";
 import "./Navbar.scss";
 import Signup from "../Signup";
+import Login from "../Login";
+import { useDisclosure } from "@chakra-ui/react";
+import { AuthLogin } from "../../Redux/AuthReducer/Auth_actions";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false)
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
 
   return (
     <div>
@@ -155,7 +161,7 @@ const Navbar = () => {
 
                 <div className="women-cat-subdiv">
                   <h2>Accessories</h2>
-                  <br />
+                 
                   <ul className="women-cat-ul">
                     <li>All Accessories</li>
                     <li>Jewelry</li>
@@ -177,6 +183,13 @@ const Navbar = () => {
                       alt=""
                     />
                     <p>The Ski shop</p>
+                  </div>
+                  <div>
+                    <img
+                      src="https://www.jcrew.com/brand_creative/2022/202214-Dec2/flyout/2022dec2_1213_flyouts_w_img1_new.jpg"
+                      alt=""
+                    />
+                    <p>The Sun shop</p>
                   </div>
                 </div>
                 <div id="women-cat-subdiv2">
@@ -297,33 +310,40 @@ const Navbar = () => {
                 <div id="men-cat-subdiv">
                   <div>
                     <img
-                      src="https://www.jcrew.com/brand_creative/2022/202214-Dec2/flyout/2022dec2_1213_flyouts_w_img0.jpg"
+                      src="https://www.jcrew.com/brand_creative/2022/202214-Dec2/flyout/2022dec2_1213_flyouts_m_img0.jpg"
                       alt=""
                     />
-                    <p>The Ski shop</p>
+                    <p>Peak sweater season</p>
+                  </div>
+                  <div>
+                    <img
+                      src="https://www.jcrew.com/brand_creative/2022/202214-Dec2/flyout/2022dec2_1213_flyouts_m_img1.jpg"
+                      alt=""
+                    />
+                    <p>Mount Snow X J.Crew</p>
                   </div>
                 </div>
                 <div id="men-cat-subdiv2">
                   <div>
                     <img
-                      src="https://www.jcrew.com/brand_creative/2022/202214-Dec2/flyout/2022dec2_1213_flyouts_w_img3.jpg"
+                      src="https://www.jcrew.com/brand_creative/2022/202214-Dec2/flyout/2022dec2_1213_flyouts_m_img2.jpg"
                       alt=""
                     />
-                    <p>Festive Pj Sets</p>
+                    <p>Lounge Like you</p>
                   </div>
                   <div>
                     <img
-                      src="https://www.jcrew.com/brand_creative/2022/202214-Dec2/flyout/2022dec2_1213_flyouts_w_img2.jpg"
+                      src="https://www.jcrew.com/brand_creative/2022/202214-Dec2/flyout/2022dec2_1213_flyouts_m_img3.jpg"
                       alt=""
                     />
-                    <p>New Sweaters</p>
+                    <p>Cold Weather</p>
                   </div>
                   <div>
                     <img
-                      src="https://www.jcrew.com/brand_creative/2022/202214-Dec2/flyout/2022dec2_1213_flyouts_w_img4.jpg"
+                      src="https://www.jcrew.com/brand_creative/2022/202214-Dec2/flyout/2022dec2_1213_flyouts_m_img4.jpg"
                       alt=""
                     />
-                    <p>Our Warmest Coats</p>
+                    <p>The Gift Guide</p>
                   </div>
                 </div>
               </div>
@@ -371,11 +391,9 @@ const Navbar = () => {
                   <li>Coats & Jackets</li>
                   <li>Sweaters</li>
                   <li>Sweatshirts & Sweatpants</li>
-                  <li>Leggings & Pants</li>
                   <li>Skirts</li>
                   <li>Blazers</li>
                   <li>Sweatshirts & Sweatpants</li>
-                  <li>Active</li>
                   <li>Denim</li>
                   <li>Pajamas & Loungewear</li>
                   <li>Swim & Rash Guards</li>
@@ -404,8 +422,6 @@ const Navbar = () => {
                   <li>Sweaters</li>
                   <li>Sweatshirts & Sweatpants</li>
                   <li>Leggings & Pants</li>
-                  <li>Denim</li>
-                  <li>Suiting</li>
                   <li>Sweatshirts & Sweatpants</li>
                   <li>Active</li>
                   <li>Swim & Rash Guards</li>
@@ -498,7 +514,6 @@ const Navbar = () => {
               </div>
               <div className="home-cat-div">
                 <h2>Shop Home</h2>
-                <br />
                 <ul className="home-cat-ul">
                   <li>Dining & Entertainment</li>
                   <li>Bedding & Bath</li>
@@ -655,7 +670,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-       <h2 className="navbar-logo" style={{fontFamily:'sofia'}}>The Vintage Attire</h2>
+       <h2 className="navbar-logo" style={{fontFamily:'sofia',margin:'auto',fontSize:'1.5rem'}}>The Vintage Attire</h2>
         <ul className="right-navbar">
           <li>
             <a href="">
@@ -665,6 +680,8 @@ const Navbar = () => {
           <li>
            <Signup />
               {/* <a href="">SignUp</a> */}
+           {/* <Login onClick={true} /> */}
+              <a href="">SignUp</a>
            
           </li>
         </ul>
@@ -677,22 +694,22 @@ const Navbar = () => {
                             
                              <li key ={`link-home`}>
                 
-                <a onClick={()=>setToggle(false)} href='#home'>home</a></li>
+                <a onClick={()=>setToggle(false)} href='#home'>New</a></li>
             <li key ={`link-aboutme`}>
                
-          <a onClick={()=>setToggle(false)} href='#about me'>about me</a></li>
+          <a onClick={()=>setToggle(false)} href='#about me'>Women</a></li>
             <li key ={`link-projects`}>
                 
-                <a onClick={()=>setToggle(false)} href='#projects'>projects</a></li>
+                <a onClick={()=>setToggle(false)} href='#projects'>Men</a></li>
             <li key ={`link-skills`}>
                 
-                <a onClick={()=>setToggle(false)} href='#skills'>skills</a></li>
+                <a onClick={()=>setToggle(false)} href='#skills'>Kids</a></li>
             <li key ={`link-contacts`}>
                 
-                <a onClick={()=>setToggle(false)} href='#contacts'>contacts</a></li>
+                <a onClick={()=>setToggle(false)} href='#contacts'>Home</a></li>
             <li key ={`link-resume`}>
                 
-                <a onClick={()=>setToggle(false)} href='https://drive.google.com/uc?export=download&id=1nGtDsNq2AEbvCKysglW4SX2xQwwYHMet' download >resume</a></li>
+                <a onClick={()=>setToggle(false)} href='' >Sale</a></li>
                             </ul>
                         </motion.div>
                     )
