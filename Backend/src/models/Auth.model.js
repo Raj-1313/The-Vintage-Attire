@@ -18,8 +18,8 @@ const Auth= mongoose.Schema({
         type:String,
         required:true,
     },
-    role:{
-        type:String,
+    mobile:{
+        type:Number,
         required:true,
     }
 
