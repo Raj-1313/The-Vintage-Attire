@@ -4,6 +4,7 @@ import {motion} from 'framer-motion'
 import V from "./V.png";
 import { AiOutlineShopping } from "react-icons/ai";
 import "./Navbar.scss";
+import Signup from "../Signup";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false)
 
@@ -662,8 +663,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-           
-              <a href="">SignUp</a>
+           <Signup />
+              {/* <a href="">SignUp</a> */}
            
           </li>
         </ul>
