@@ -9,8 +9,8 @@ import SingleProduct from './Pages/single_product/SingleProduct';
 function App() {
   return (
     <div >
-        <Login />
-        <Signup />
+        {/* <Login />
+        <Signup /> */}
         <Navbar/>
         {/* <SingleProduct /> */}
     </div>

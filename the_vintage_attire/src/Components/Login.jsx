@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AuthLogin} from "../Redux/AuthReducer/Auth_actions";
 const Login = () => {
+  // console.log(onClick)
   const { isOpen, onOpen, onClose } = useDisclosure();
   const dispatch = useDispatch();
   const [dataSign, setDataSign] = useState({   
