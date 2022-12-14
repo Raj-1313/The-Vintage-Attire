@@ -216,8 +216,8 @@ const Signup = () => {
                 Dont have an Account?{" "}
                 <Box onClick={()=>handleOpeningLogin()}>
                   {
-                    //  <Signup />
                     Signup
+                    //  <Signup />
                   }
                 </Box>
               </Text>
