@@ -13,13 +13,25 @@ import {
   Text,
   Box,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AuthLogin} from "../Redux/AuthReducer/Auth_actions";
+import Signup from "./Signup";
+
+
 const Login = () => {
+
+  
+  // const { isOpen, onOpen, onClose } = useDisclosure();
+
   // console.log(onClick)
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   const dispatch = useDispatch();
+  const [open,setOpen]= useState(false);
+  const [openSignUp,setOpenSignUp]= useState(false);
+
+// console.log(open,"login");
+
   const [dataSign, setDataSign] = useState({   
     password: "",
     email: "",   
@@ -37,13 +49,23 @@ const Login = () => {
    }
   };
 
+
+  const handleOpeningSignIn= () => {
+    setOpen(false)
+    setOpenSignUp(true) 
+ }
+  const handleOpeningLogin= () => {
+    setOpen(true)
+    setOpenSignUp(false) 
+ }
+
   return (
     <>
-      <Button onClick={onOpen}>Login</Button>
+      <Text onClick={handleOpeningLogin}>Login</Text>
       <Modal
-        isOpen={isOpen}
+        isOpen={open}
         // isOpen={true}
-        onClose={onClose}
+        onClose={()=>setOpen(false)}
         size="sm"
         >
         <ModalOverlay />
@@ -96,7 +118,11 @@ const Login = () => {
           <hr />
           <Box m="4" bg='blackAlpha.600' color='white' borderRadius='12'>
             <Text>
-              Dont have an Account? <Link> Sign Up </Link>
+              Dont have an Account? <Box onClick={handleOpeningSignIn}>
+                 {
+                <Signup setopen={openSignUp} />
+              }
+                </Box>
             </Text>
           </Box>
         </ModalContent>

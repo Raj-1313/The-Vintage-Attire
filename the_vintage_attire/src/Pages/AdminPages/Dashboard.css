@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+
+
+/* Universal Sytyles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Inter", sans-serif;
+    background-color: #f9fafb;
+}
+.btn{
+    padding: 6px 12px;
+    border: 1px solid #e5e7eb;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Custom Styles */
+
+#lhsBox{
+    border-right: 1px solid #e5e7eb;
+    background-color: white;
+    position: fixed;
+}
+#navbarBox{
+    width: 100%;
+    align-items: center;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 60px;
+}
+#rhsBody{
+    border-radius: 8px;
+    background-color: rgba(238, 209, 209, 0.548);
+    border: 1px solid #094acc;
+}
+#titleBox{
+    /* color: rgb(134, 130, 238); */
+    background-color: #f3f4f6;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#titleBox:hover{
+    color: rgb(134, 130, 238); 
+}
+.linkItem{
+    border-radius: 3px;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 3px;
+}
+.linkItem:hover{
+    background-color: #f3f4f6;
+}
+.linkActive{
+    color: rgb(134, 130, 238);
+    background-color: #f3f4f6;
+}
