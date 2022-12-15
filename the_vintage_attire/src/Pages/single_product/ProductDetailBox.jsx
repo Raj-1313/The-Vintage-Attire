@@ -15,7 +15,7 @@ import {
 import React from "react";
 import { AiFillHeart, AiFillStar } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
-import StarRatingComponent from "react-star-rating-component";
+// import StarRatingComponent from "react-star-rating-component";
 
 const ProductDetailBox = (props) => {
   const {
@@ -36,13 +36,13 @@ const ProductDetailBox = (props) => {
         {name}
       </Heading>
       <Box>
-        <StarRatingComponent
+        {/* <StarRatingComponent
           name="rate2"
           editing={false}
           renderStarIcon={() => <Icon as={AiFillStar} />}
           starCount={5}
           value={2}
-        />
+        /> */}
       </Box>
       <Stack direction={{ base: "column", md: "row" }}>
         <Box as="s">IND {price}</Box>

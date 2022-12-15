@@ -15,21 +15,14 @@ import {
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { AuthLogin} from "../Redux/AuthReducer/Auth_actions";
-import Signup from "./Signup";
+import Signup from "../Pages/Signup";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
-
-  
-  // const { isOpen, onOpen, onClose } = useDisclosure();
-
-  // console.log(onClick)
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const { isOpen,onOpen,onClose} = useDisclosure();
   const dispatch = useDispatch();
-  const [open,setOpen]= useState(false);
-  const [openSignUp,setOpenSignUp]= useState(false);
-
+const navigate = useNavigate()
 // console.log(open,"login");
 
   const [dataSign, setDataSign] = useState({   
@@ -50,22 +43,17 @@ const Login = () => {
   };
 
 
-  const handleOpeningSignIn= () => {
-    setOpen(false)
-    setOpenSignUp(true) 
+  const handleOpeningSignIn= () => {   
+    navigate("/signup")    
  }
-  const handleOpeningLogin= () => {
-    setOpen(true)
-    setOpenSignUp(false) 
- }
+  
 
   return (
     <>
-      <Text onClick={handleOpeningLogin}>Login</Text>
+      <Text onClick={onOpen}>Login</Text>
       <Modal
-        isOpen={open}
-        // isOpen={true}
-        onClose={()=>setOpen(false)}
+        isOpen={isOpen}
+        onClose={onClose}
         size="sm"
         >
         <ModalOverlay />
@@ -118,10 +106,8 @@ const Login = () => {
           <hr />
           <Box m="4" bg='blackAlpha.600' color='white' borderRadius='12'>
             <Text>
-              Dont have an Account? <Box onClick={handleOpeningSignIn}>
-                 {
-                <Signup setopen={openSignUp} />
-              }
+              Dont have an Account? <Box onClick={handleOpeningSignIn}>                
+                 Signup             
                 </Box>
             </Text>
           </Box>

@@ -16,9 +16,6 @@ app.use("/product",ProdRoute)
 app.use("/cart",CartRoute)
 
 
-
-
-
 app.get("/", (req, res)  => {
 res.send("4000")
 } )

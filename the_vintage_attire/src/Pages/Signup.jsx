@@ -7,7 +7,6 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
   Button,
   Input,
   Select,
@@ -15,25 +14,26 @@ import {
   Box,
   HStack,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AuthSignUp } from "../Redux/AuthReducer/Auth_actions";
-import Login from "./Login";
+import {Navigate} from "react-router-dom"
 
 const Signup = () => {
-  const [open, setOpen] = useState(false);
-  const [openLogin, setOpenLogin] = useState(false);
-
+  const [backgr,setBackground]= useState("")
+  const {isAuth} = useSelector(store=> store)
+   console.log(isAuth);
   const dispatch = useDispatch();
   const [dataSign, setDataSign] = useState({
     name: "",
     password: "",
     email: "",
     country: "",
-    number: "",
+    mobile: "",
   });
  
 
   const handleSelect = ({ name, value }) => {
+    console.log(value);
     setDataSign({ ...dataSign, [name]: value });
   };
 
@@ -45,33 +45,25 @@ const Signup = () => {
       dataSign.password &&
       dataSign.name &&
       dataSign.country &&
-      dataSign.role
+      dataSign.mobile
     ) {
-      dispatch(AuthSignUp(dataSign));
+      dispatch(AuthSignUp(dataSign)).then((res)=>{
+        alert(res)
+        return Navigate("/")
+      }).catch((err) => alert(err.message) )
     }
   };
 
-  const handleOpeningLogin = () => {
-    setOpen((pr)=>!pr);
-    // setOpenLogin(true);
-  };
-
-  // const handleOpeningSignIn = () => {
-  //   setOpen(true);
-  //   //  setOpenLogin(false)
-  // };
-
-  console.log(open, openLogin);
+ 
   return (
     <>
-      <Text onClick={() => handleOpeningLogin()}>SignUp</Text>
-      {open ? (
-        <Modal isOpen={open} onClose={() => setOpen(false)}>
+    
+        <Modal isOpen={true} onClose={()=>setBackground((pr)=>!pr)}>
           <ModalOverlay />
           <ModalContent
             p="4"
             textAlign="center"
-            bgImage="https://live.staticflickr.com/65535/50288471026_7a1921ecab_b.jpg"
+            bgImage={backgr?"https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg":"https://live.staticflickr.com/65535/50288471026_7a1921ecab_b.jpg"}
             bgSize="cover"
           >
             <ModalHeader
@@ -145,88 +137,14 @@ const Signup = () => {
               </Text>
             </ModalFooter>
             <hr />
-            <Box m="4" bg="blackAlpha.500" color="white" borderRadius="12">
-              <Text>
-                Already have an Account?
-                <Box onClick={() => handleOpeningLogin()}>{
-                  Login
-                  // <Login />
-                  }</Box>
-              </Text>
-            </Box>
+           
           </ModalContent>
         </Modal>
-      ) : (
-        <Modal
-          isOpen={open}
-          // isOpen={true}
-          //  onClose={onClose}
-          size="sm"
-        >
-          <ModalOverlay />
-          <ModalContent
-            p="4"
-            textAlign="center"
-            bgImage="https://live.staticflickr.com/65535/50288471026_7a1921ecab_b.jpg"
-            bgSize="cover"
-          >
-            <ModalHeader
-              fontSize="2xl"
-              fontWeight="extrabold"
-              fontFamily="cursive"
-            >
-              Sign In
-            </ModalHeader>
-            <ModalCloseButton />
-
-            <ModalBody pb={6} borderRadius="12">
-              <form onSubmit={handleSubmit}>
-                <Input
-                  name="email"
-                  placeholder="Email"
-                  type="mail"
-                  className="inputSignup"
-                  onChange={({ target }) => handleSelect(target)}
-                />
-
-                <Input
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                  className="inputSignup"
-                  onChange={({ target }) => handleSelect(target)}
-                />
-
-                <Button w="full" type="submit" colorScheme="green" size="md">
-                  Login Now
-                </Button>
-              </form>
-            </ModalBody>
-
-            <ModalFooter bg="blackAlpha.600" color="white" borderRadius="12">
-              {/* <Button onClick={onClose}>Cancel</Button> */}
-              <Text fontSize="sm" textAlign="left">
-                This site is protected by reCAPTCHA and the Google Privacy
-                Policy and Terms of Service apply.
-              </Text>
-            </ModalFooter>
-            <hr />
-            <Box m="4" bg="blackAlpha.600" color="white" borderRadius="12">
-              <Text>
-                Dont have an Account?{" "}
-                <Box onClick={()=>handleOpeningLogin()}>
-                  {
-                    Signup
-                    //  <Signup />
-                  }
-                </Box>
-              </Text>
-            </Box>
-          </ModalContent>
-        </Modal>
-      )}
+      
     </>
   );
 };
 
 export default Signup;
+
+
