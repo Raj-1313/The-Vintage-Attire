@@ -12,12 +12,14 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { AiFillHeart, AiFillStar } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
 import StarRatingComponent from "react-star-rating-component";
 
 const ProductDetailBox = (props) => {
+  const [resize, setSize] = useState("");
+
   const {
     price,
     discounted_price,
@@ -31,7 +33,7 @@ const ProductDetailBox = (props) => {
   } = props;
   const persetOff = Math.round(((price - discounted_price) / price) * 100);
   return (
-    <VStack border='1px solid black' flex='1' align="left" pt="5" px="5">
+    <VStack border="1px solid black" flex="1" align="left" pt="5" px="5">
       <Heading as="h2" size="md">
         {name}
       </Heading>
@@ -45,15 +47,15 @@ const ProductDetailBox = (props) => {
         />
       </Box>
       <Stack direction={{ base: "column", md: "row" }}>
-        <Box as="s">IND {price}</Box>
+        <Box as="s">INR {price}</Box>
         <Box color="red">
-          IND {discounted_price} ({persetOff}% Off)
+          INR {discounted_price} ({persetOff}% Off)
         </Box>
       </Stack>
       <VStack alignItems="left">
         <HStack>
           <Box>
-            <span style={{ color: "gray" }}>size:</span>
+            <span style={{ color: "gray" }}>size: {resize}</span>
           </Box>
           <Spacer />
           <Box>
@@ -68,6 +70,8 @@ const ProductDetailBox = (props) => {
               variant="outline"
               borderColor="1px solid black"
               borderRadius="none"
+              value={item}
+              onClick={({ target }) => setSize(target.value)}
             >
               {item}
             </Button>
@@ -118,8 +122,10 @@ const ProductDetailBox = (props) => {
         <Box py={10}>
           <Divider border={1} />
         </Box>
-        <Box border='1px solid red'>
-          <Heading as='h2' size="md">Product details.</Heading>
+        <Box border="1px solid red">
+          <Heading as="h2" size="md">
+            Product details.
+          </Heading>
           <Text>{description}</Text>
         </Box>
       </VStack>

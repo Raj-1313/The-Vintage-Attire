@@ -1,0 +1,14 @@
+.qty_box{
+    display: flex;
+    border: 1px solid gray;
+    justify-content: center;
+    width: 6rem;
+    margin: auto;
+    padding: 5px 10px;
+    flex-direction: row;
+}
+
+.qty_box_button, .qty_box_item {
+    flex: 1;
+    text-align: center;
+}
