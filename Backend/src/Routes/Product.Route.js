@@ -9,13 +9,12 @@ app.get("/",async (req,res)=>{
 })
 
 
+
 app.get("/women",async (req,res)=>{      
       
 let product= await productModel.find({"category":"women"})
   return  res.send(product)
 })
-
-
 
 app.get("/women/filter",async (req,res)=>{    
     let {type,id,sort}= req.query
@@ -349,7 +348,7 @@ else{
     })
     
     
-app.post("/", async (req,res)=>{
+app.post("/admin", async (req,res)=>{
     const data= req.body
     try{
         const res= await  productModel.create(data)
@@ -373,7 +372,7 @@ app.post("/", async (req,res)=>{
 //     }
         
 // })
-app.delete("/", async (req,res)=>{
+app.delete("/admin", async (req,res)=>{
     const {id}= req.body
     try{
         const res= await  productModel.findByIdAndDelete({_id:id})

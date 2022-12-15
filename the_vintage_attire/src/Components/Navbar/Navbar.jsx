@@ -4,7 +4,7 @@ import {motion} from 'framer-motion'
 import V from "./V.png";
 import { AiOutlineShopping } from "react-icons/ai";
 import "./Navbar.scss";
-import Signup from "../Signup";
+import Signup from "../../Pages/Signup";
 import Login from "../Login";
 import { useDisclosure } from "@chakra-ui/react";
 import { AuthLogin } from "../../Redux/AuthReducer/Auth_actions";
@@ -678,10 +678,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-           <Signup />
-              {/* <a href="">SignUp</a> */}
-           {/* <Login onClick={true} /> */}
-              <a href="">SignUp</a>
+           {/* <Signup /> */}
+           <Login />
            
           </li>
         </ul>
