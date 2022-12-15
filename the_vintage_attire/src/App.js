@@ -5,6 +5,8 @@ import Dashboard from './Pages/AdminPages/Dashboard';
 import SingleProduct from './Pages/single_product/SingleProduct';
 import Checkout from './Pages/checkout_page/Checkout';
 import Signup from './Pages/Signup';
+import Footer from './Components/Footer/Footer';
+import { Box } from '@chakra-ui/react';
 
 
 
@@ -12,7 +14,7 @@ function App() {
   return (
     <div >
         <Navbar/>
-        
+        <Footer/>
          {/* <Signup/> */}
         {/* <SingleProduct /> */}
         {/* <Checkout /> */}
