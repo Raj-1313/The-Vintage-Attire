@@ -21,6 +21,10 @@ const Auth= mongoose.Schema({
     mobile:{
         type:Number,
         required:true,
+    },
+    category:{
+            type:String,
+            default:"User"
     }
 
 })
