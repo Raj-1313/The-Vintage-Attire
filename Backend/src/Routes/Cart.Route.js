@@ -4,17 +4,16 @@ const app = express.Router()
 const productModel= require('../models/Product.model')
 
 
-app.post('/add',async (req,res) => {
-     const {userMail,prodId}= req.body
-    
+app.post('/',async (req,res) => {
+     const {userMail,prodId}= req.body    
      try{
          const prod= await CartModel.find({prodId,userMail})
-       
+       const proddetails= await productModel.findById({_id:prodId})
          if(prod.length>0){
              const updatedProd= await CartModel.updateOne({prodId,userMail},{$inc:{"count":1}},{new:true})
              return res.send(updatedProd)
             }else{
-                const newProd= await CartModel.create({prodId,userMail})
+                const newProd= await CartModel.create({prodId,userMail,data:proddetails})
                 return res.send(newProd)
             }
         }catch(err){
@@ -22,28 +21,48 @@ app.post('/add',async (req,res) => {
         }
 })
 
-// app.get("/get" ,async(req,res)=>{
-    
-// })
 
-
-   
-
-
-app.patch("/:id", async (req,res)=>{
-    const data= req.body
-    console.log(data)
-    let id= req.params.id
+app.post('/dec',async (req,res) => {    
+    const {userMail,prodId}= req.body   
     try{
-        const rest= await  CartModel.findByIdAndUpdate({_id:id},data)
-        return res.send("New Product created")
-    }catch(err){
-        return res.send(err.message)
-
-    }
-        
+        const prod= await CartModel.find({prodId,userMail})
+      
+        if(prod.length>0){
+            const updatedProd= await CartModel.updateOne({prodId,userMail},{$inc:{"count":-1}},{new:true})
+            return res.send(updatedProd)
+           }else{
+               const newProd= await CartModel.create({prodId,userMail})
+               return res.send(newProd)
+           }
+       }catch(err){
+           res.send(err.message)
+       }
 })
 
+app.get("/" ,async(req,res)=>{
+    const {userMail} = req.body
+    
+    try{
+        const prod= await CartModel.find({userMail})      
+        if(prod.length>0){
+            
+            res.send(prod)           
+        }
+       }catch(err){
+           res.send(err.message)
+       }
+})
+
+
+app.delete("/:id", async (req,res)=>{  
+    let id= req.params.id
+    try{
+        const rest= await  CartModel.findByIdAndDelete({_id:id})
+        return res.send("Product deleted Successfullly")
+    }catch(err){
+        return res.send(err.message)
+    }        
+})
 
 
 module.exports= app

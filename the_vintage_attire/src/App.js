@@ -11,9 +11,8 @@ import Signup from './Pages/Signup';
 function App() {
   return (
     <div >
-        <Navbar/>
-        
-         {/* <Signup/> */}
+        {/* <Navbar/> */}
+         <Signup/>
         {/* <SingleProduct /> */}
         {/* <Checkout /> */}
 
