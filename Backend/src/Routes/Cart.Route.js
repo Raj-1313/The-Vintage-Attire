@@ -54,10 +54,10 @@ app.get("/" ,async(req,res)=>{
 })
 
 
-app.delete("/:id", async (req,res)=>{  
-    let id= req.params.id
+app.delete("/:_id", async (req,res)=>{  
+    let {_id}= req.params
     try{
-        const rest= await  CartModel.findByIdAndDelete({_id:id})
+        const rest= await  CartModel.findByIdAndDelete({_id})
         return res.send("Product deleted Successfullly")
     }catch(err){
         return res.send(err.message)

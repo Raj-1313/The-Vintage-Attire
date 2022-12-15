@@ -4,11 +4,11 @@ const productModel= require('../models/Product.model')
 const app = express.Router()
 const  CartModel= require('../models/cart.model')
 const Auth_Sign = require('../models/Auth.model')
+
 app.get("/",async (req,res)=>{   
         let products= await productModel.find()    
     res.send(products)
-})
-
+    })
 
 
 app.get("/women",async (req,res)=>{      
@@ -501,7 +501,7 @@ app.patch("/admin/cart", async (req,res)=>{
     const id= data._id
     try{
         const rest= await  CartModel.findByIdAndUpdate({_id:id},data)
-        return res.send("CArt Product changed")
+        return res.send("Cart Product changed")
     }catch(err){
         return res.send(err.message)
     }
