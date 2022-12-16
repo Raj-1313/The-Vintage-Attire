@@ -38,7 +38,12 @@ const navigate = useNavigate()
     // console.log(dataSign);
    if(dataSign.email && dataSign.password) {
      dispatch(AuthLogin(dataSign)).then(()=> console.log('success ful'))
-   }
+// redirect krna h iss jagha se
+
+     .catch((e)=>{
+       console.log("object credError" )
+    })
+  }
   };
 
   const handleOpeningSignIn= () => {   

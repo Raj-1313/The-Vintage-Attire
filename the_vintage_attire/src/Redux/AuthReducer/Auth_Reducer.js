@@ -1,16 +1,25 @@
 import {AUTH_FAILURE,AUTH_REQUEST,AUTH_SUCCESS,AUTHSIGNUP_FAILURE,AUTHSIGNUP_REQUEST,AUTHSIGNUP_SUCCESS} from "./Auth_actionsTypes"
 
+const localData= JSON.parse(localStorage.getItem("loginData")) || null
+const loginToken= JSON.parse(localStorage.getItem("loginToken")) || null
+
+console.log(localData)
+
+
 const initialState = {
-    isAuth: false,
+    isAuth: !!localData || false ,
     isLoading: false,
     isError: false,
-    token: null,
+    token:loginToken || null,
+    userDetails: localData || null,
   };
   
   const Auth_reducer = (state = initialState,{type,payload}) => {
     switch (type){
       case AUTH_SUCCESS:{
-      return {...state, isAuth:true,isLoading:false,token:payload}
+      localStorage.setItem("loginToken",JSON.stringify(payload.token))
+      localStorage.setItem("loginData",JSON.stringify(payload.User))
+      return {...state, isAuth:true,isLoading:false,token:payload.token,userDetails:payload.User}
     }
     case AUTH_FAILURE:{
         return {...state, isError:true,isLoading:false}      
