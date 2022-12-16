@@ -9,7 +9,7 @@ import Checkout from './Pages/checkout_page/Checkout';
 import Signup from './Pages/Signup';
 import Footer from './Components/Footer/Footer';
 import { Box } from '@chakra-ui/react';
-
+import Cart  from './Pages/cartPage/Cart'
 
 function App() {
   return (
@@ -17,9 +17,8 @@ function App() {
         <Login />
         {/* <Signup /> */}
         {/* <Navbar/> */}
-        {/* <Dashboard /> */}
         {/* <SingleProduct /> */}
-        {/* <Checkout /> */}
+     <Cart />
     </div>
   );
 }
