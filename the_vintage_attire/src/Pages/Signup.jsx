@@ -48,8 +48,8 @@ const Signup = () => {
       dataSign.mobile
     ) {
       dispatch(AuthSignUp(dataSign)).then((res)=>{
-        alert(res)
-        return Navigate("/")
+        console.log(res)
+        // return Navigate("/")
       }).catch((err) => alert(err.message) )
     }
   };
