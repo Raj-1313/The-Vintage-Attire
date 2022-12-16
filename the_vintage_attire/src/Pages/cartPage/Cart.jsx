@@ -51,24 +51,28 @@ export const cartData = [
 
 
 const getCartData = (data) =>{
-  return axios.get(`https://vintage-attire-deploy.onrender.com/cart`,data)
-              .then(res =>res)
-              .catch(err =>{
-                console.log(err);
-              })
+  return axios.get(`https://vintage-attire-server-new.onrender.com/cart`,data)
+              
 }
 
 const Cart = () => {
   const [cartD,setCartData] = useState( cartData||[])
   const dispatch = useDispatch()
-  const userEmail = useSelector(store =>store.auth.token.User.email)
+  const userEmail = useSelector(store =>store.Auth_reducer.userDetails.email)
   console.log("cart",userEmail)
 
   useEffect(() =>{
-    getCartData({userEmail}).then(res =>{
-      console.log("cartData",res)
+    getCartData({
+      userMail:"@rasd"
+  }).then(res =>{
+      alert("fff")
+      setCartData(res)
+      console.log(res)
     })
-  })
+    .catch((err) =>{
+      console.log(err);
+    })
+  },[])
 
   return (
     <Box
@@ -113,7 +117,7 @@ const Cart = () => {
         </Heading>
 
         <Stack bg='white'  spacing="6">
-          {cartData.map((item) => (
+          {cartD.map((item) => (
             <CartItem key={item.id} {...item} />
           ))}
         </Stack>

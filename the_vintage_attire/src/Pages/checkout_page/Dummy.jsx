@@ -12,7 +12,7 @@ import React, { useState } from "react";
 import BannerAd from "../../Components/BannerAd";
 import ProductImageBox from "../single_product/ProductImageBox";
 
-const Checkout = () => {
+const Dummy = () => {
   const [wishList, setWishList] = useState(false);
 
   const handleChangeWishList = () => {
@@ -57,4 +57,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default Dummy;
