@@ -1,6 +1,11 @@
 import React from 'react'
 
 const Product = () => {
+  const data = {
+    men:{
+      type:[""]
+    }
+  }
   return (
     <div>
       

@@ -9,8 +9,7 @@ const productSchema= mongoose.Schema({
     description:{type:String,required:true},
     type:{type:String},
     brand:{type:String},
-    // sizes:{type:String},
-    category:{type:String,required:true,enum:["men","women","kids","girls","boy"]}
+    category:{type:String,required:true,enum:["men","women","kids","accessories","home"]}
 })
 
 

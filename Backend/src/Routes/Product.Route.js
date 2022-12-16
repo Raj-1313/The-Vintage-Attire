@@ -2,11 +2,13 @@ const mongoose = require('mongoose')
 const express = require('express')
 const productModel= require('../models/Product.model')
 const app = express.Router()
+const  CartModel= require('../models/cart.model')
+const Auth_Sign = require('../models/Auth.model')
 
 app.get("/",async (req,res)=>{   
         let products= await productModel.find()    
     res.send(products)
-})
+    })
 
 
 app.get("/women",async (req,res)=>{      
@@ -14,8 +16,6 @@ app.get("/women",async (req,res)=>{
 let product= await productModel.find({"category":"women"})
   return  res.send(product)
 })
-
-
 
 app.get("/women/filter",async (req,res)=>{    
     let {type,id,sort}= req.query
@@ -88,6 +88,93 @@ else{
 })
 
 app.get("/women/:id",async (req,res)=>{
+    // const token= req.headers.authorization
+    const id= req.params.id
+    console.log(id)
+    // const varification=jwt.verify(token,process.env.key)
+ let product= await productModel.findById(id)
+    res.send(product)
+})
+
+
+
+app.get("/home",async (req,res)=>{      
+      
+let product= await productModel.find({"category":"home"})
+  return  res.send(product)
+})
+
+app.get("/home/filter",async (req,res)=>{    
+    let {type,id,sort}= req.query
+    if(type && id && sort){
+        let product= await productModel.find({category:"home"})  
+        let data=  product.filter((el)=> el._id==id )
+        res.send(data)
+
+}else if(type && sort){
+    let product= await productModel.find({category:"home",type})    
+    switch(sort){
+          case "asc":{
+              let sortedData= product.sort((a,b)=>a.name-b.name)
+             return  res.send(sortedData)
+          }
+          case "desc":{            
+              let sortedData= product.sort((a,b)=>b.name-a.name)
+             return  res.send(sortedData)
+          }
+          case "inc":{
+              let sortedData= product.sort((a,b)=>a.discounted_price-b.discounted_price)
+             return  res.send(sortedData)  
+          }
+          case "dec":{            
+              let sortedData= product.sort((a,b)=>b.discounted_price-a.discounted_price)
+             return  res.send(sortedData)
+          }
+  }
+
+}else if(sort && id){
+    let product= await productModel.find({category:"home"})  
+    let data=  product.filter((el)=> el._id==id )
+    res.send(data)
+
+}else if(type && id){
+    let product= await productModel.find({category:"home",type,_id:id})  
+    res.send(product)
+}
+else{
+    if(type){
+        let product= await productModel.find({category:"home",type})  
+          res.send(product)
+    }else if(sort){
+        let product= await productModel.find({category:"home"})    
+        switch(sort){
+              case "asc":{
+                  let sortedData= product.sort((a,b)=>a.name-b.name)
+                 return  res.send(sortedData)
+              }
+              case "desc":{            
+                  let sortedData= product.sort((a,b)=>b.name-a.name)
+                 return  res.send(sortedData)
+              }
+              case "inc":{
+                  let sortedData= product.sort((a,b)=>a.discounted_price-b.discounted_price)
+                 return  res.send(sortedData)  
+              }
+              case "dec":{            
+                  let sortedData= product.sort((a,b)=>b.discounted_price-a.discounted_price)
+                 return  res.send(sortedData)
+              }
+      }
+    }else if(id){
+        let product= await productModel.find({category:"home",_id:id})  
+     return res.send(product)
+    }
+}
+
+
+})
+
+app.get("/home/:id",async (req,res)=>{
     // const token= req.headers.authorization
     const id= req.params.id
     console.log(id)
@@ -348,11 +435,24 @@ else{
         res.send(product)
     })
     
+
+
+
+// products Admin
     
-app.post("/", async (req,res)=>{
+app.get("/admin", async (req,res)=>{   
+    try{
+        const rest= await  productModel.find()
+        return res.send(rest)
+    }catch(err){
+        return res.send(err.message)
+    }        
+})
+
+app.post("/admin", async (req,res)=>{
     const data= req.body
     try{
-        const res= await  productModel.create(data)
+        const rest= await  productModel.create(data)
         return res.send("New Product created")
     }catch(err){
         return res.send(err.message)
@@ -361,29 +461,109 @@ app.post("/", async (req,res)=>{
         
 })
 
-// app.patch("/", async (req,res)=>{
-//     const data= req.body
-//     const id= data._id
-//     try{
-//         const res= await  productModel.findByIdAndUpdate({_id:id},{data})
-//         return res.send("New Product created")
-//     }catch(err){
-//         return res.send(err.message)
-
-//     }
-        
-// })
-app.delete("/", async (req,res)=>{
-    const {id}= req.body
+app.patch("/admin", async (req,res)=>{
+    const data= req.body
+    const id= data._id
+   
     try{
-        const res= await  productModel.findByIdAndDelete({_id:id})
+        const rest= await  productModel.findByIdAndUpdate({_id:id},data)
         return res.send("New Product created")
     }catch(err){
         return res.send(err.message)
-
     }
+        })
         
+app.delete("/admin/:id", async (req,res)=>{
+    const id= req.params.id
+
+    try{
+        const rest= await  productModel.findByIdAndDelete({_id:id})
+        return res.send("Product deleted successfully")
+    }catch(err){
+        return res.send(err.message)
+    }        
 })
+    
+
+// Cart Admin
+
+app.get("/admin/cart", async (req,res)=>{   
+    try{
+        const rest= await  CartModel.find()
+        return res.send(rest)
+    }catch(err){
+        return res.send(err.message)
+    }
+        })
+
+app.patch("/admin/cart", async (req,res)=>{
+    const data= req.body
+    const id= data._id
+    try{
+        const rest= await  CartModel.findByIdAndUpdate({_id:id},data)
+        return res.send("Cart Product changed")
+    }catch(err){
+        return res.send(err.message)
+    }
+        })
+        
+app.delete("/admin/cart/:id", async (req,res)=>{
+    const id= req.params.id
+console.log(id)
+    try{
+        const rest= await  CartModel.findByIdAndDelete({_id:id})
+        return res.send("cart Item deleted successfully")
+    }catch(err){
+        return res.send(err.message)
+    }        
+})
+
+
+
+
+// UserDetails Admin
+
+app.get("/admin/User", async (req,res)=>{   
+    try{
+        const rest= await  Auth_Sign.find({category:"User"})
+        return res.send(rest)
+    }catch(err){
+        return res.send(err.message)
+    }
+        })
+app.post("/admin/User", async (req,res)=>{   
+    const {mobile,email,password,name,country}= req.body
+    try{
+        const rest= await  Auth_Sign.create({mobile,email,password,name,country})
+        return res.send(rest)
+    }catch(err){
+        return res.send(err.message)
+    }
+        })
+
+app.patch("/admin/User", async (req,res)=>{
+    const data= req.body
+    const id= data._id
+   
+    try{
+        const rest= await  Auth_Sign.findByIdAndUpdate({_id:id},data)
+        return res.send(rest)
+    }catch(err){
+        return res.send(err.message)
+    }
+        })
+ 
+app.delete("/admin/User/:id", async (req,res)=>{
+    const id= req.params.id
+
+    try{
+        const rest= await  Auth_Sign.findByIdAndDelete({_id:id})
+        return res.send("Product deleted successfully")
+    }catch(err){
+        return res.send(err.message)
+    }        
+})
+    
 
 
 

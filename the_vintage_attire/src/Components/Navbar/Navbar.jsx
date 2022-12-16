@@ -4,7 +4,7 @@ import {motion} from 'framer-motion'
 import V from "./V.png";
 import { AiOutlineShopping } from "react-icons/ai";
 import "./Navbar.scss";
-import Signup from "../Signup";
+import Signup from "../../Pages/Signup";
 import Login from "../Login";
 import { useDisclosure } from "@chakra-ui/react";
 import { AuthLogin } from "../../Redux/AuthReducer/Auth_actions";
@@ -355,7 +355,7 @@ const Navbar = () => {
             {/* Kids Hover Section */}
             <div className="kids-cat-hover">
               <div className="kids-cat-div">
-                <h2>MEN</h2>
+                <h2>Kids</h2>
                 <div className="kids-cat-subdiv">
                   <ul className="kids-cat-ul">
                     <li>Girls' New Arrivals</li>
@@ -678,10 +678,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-           <Signup />
-              {/* <a href="">SignUp</a> */}
-           {/* <Login onClick={true} /> */}
-              <a href="">SignUp</a>
+           {/* <Signup /> */}
+           <Login />
            
           </li>
         </ul>
