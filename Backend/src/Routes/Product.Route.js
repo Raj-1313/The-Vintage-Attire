@@ -355,7 +355,7 @@ app.get("/accessories",async (req,res)=>{
     
     
    app.get("/kids",async (req,res)=>{        
-    let product= await productModel.find({category:"kids_boy"})
+    let product= await productModel.find({category:"kids"})
         res.send(product)
     })    
     
