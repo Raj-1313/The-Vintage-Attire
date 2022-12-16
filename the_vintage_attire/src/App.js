@@ -15,8 +15,9 @@ function App() {
   return (
     <div >
         <Login />
-        <Signup />
-        <Navbar/>
+        {/* <Signup /> */}
+        {/* <Navbar/> */}
+        {/* <Dashboard /> */}
         {/* <SingleProduct /> */}
         {/* <Checkout /> */}
     </div>

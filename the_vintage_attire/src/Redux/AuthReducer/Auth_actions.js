@@ -3,13 +3,12 @@ import {AUTH_FAILURE,AUTH_REQUEST,AUTH_SUCCESS,AUTHSIGNUP_FAILURE,AUTHSIGNUP_REQ
 
 
 export const AuthLogin=(payload)=> async (dispatch)=>{
-    console.log(payload)
 dispatch({type:AUTH_REQUEST})
 try{
-    const res= await axios.post(`http://localhost:8080/auth/login`,payload)
-    console.log(res)
+    const res= await axios.post(`https://vintage-attire-deploy.onrender.com/auth/login`,payload)
     dispatch({type:AUTH_SUCCESS,payload:res.data})
 }catch(e){
+    console.log("object")
     dispatch({type:AUTH_FAILURE})
 }
 }
@@ -19,7 +18,7 @@ export const AuthSignUp=(payload)=> async (dispatch)=>{
     console.log(payload)
 dispatch({type:AUTHSIGNUP_REQUEST})
 try{
-    const res= await axios.post(`http://localhost:8080/auth/signup`,payload)
+    const res= await axios.post(`https://vintage-attire-deploy.onrender.com/auth/signup`,payload)
     console.log(res)
     // dispatch({type:AUTHSIGNUP_SUCCESS,payload:res.data})
 }catch(e){
