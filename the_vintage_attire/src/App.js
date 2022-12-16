@@ -12,12 +12,11 @@ import { Box } from '@chakra-ui/react';
 import Cart  from './Pages/cartPage/Cart'
 import CheckoutPage from './Pages/checkout_page/CheckoutPage';
 
+
 function App() {
   return (
     <div >
-        <Login />
-        {/* <Signup /> */}
-        {/* <Navbar/> */}
+
         {/* <SingleProduct /> */}
      <Cart />
      {/* <CheckoutPage /> */}
