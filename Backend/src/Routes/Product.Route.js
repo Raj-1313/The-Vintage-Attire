@@ -472,11 +472,11 @@ app.patch("/admin", async (req,res)=>{
     }
         })
         
-app.delete("/admin/:id", async (req,res)=>{
-    const id= req.params.id
-
+app.delete("/admin/:_id", async (req,res)=>{
+    let {_id}= req.params
+console.log(_id)
     try{
-        const rest= await  productModel.findByIdAndDelete({_id:id})
+        const rest= await  productModel.findByIdAndDelete({_id})
         return res.send("Product deleted successfully")
     }catch(err){
         return res.send(err.message)
