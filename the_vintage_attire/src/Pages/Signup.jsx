@@ -20,7 +20,7 @@ import {Navigate} from "react-router-dom"
 
 const Signup = () => {
   const [backgr,setBackground]= useState("")
-  const {isAuth} = useSelector(store=> store)
+  const {isAuth} = useSelector(store=> store.Auth_reducer)
    console.log(isAuth);
   const dispatch = useDispatch();
   const [dataSign, setDataSign] = useState({

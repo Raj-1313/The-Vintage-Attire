@@ -14,10 +14,10 @@ import { Box } from '@chakra-ui/react';
 function App() {
   return (
     <div >
-        <Login />
+        {/* <Login /> */}
         {/* <Signup /> */}
         {/* <Navbar/> */}
-        {/* <Dashboard /> */}
+        <Dashboard />
         {/* <SingleProduct /> */}
         {/* <Checkout /> */}
     </div>

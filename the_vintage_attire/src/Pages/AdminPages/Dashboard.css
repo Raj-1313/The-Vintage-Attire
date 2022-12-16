@@ -40,7 +40,7 @@ body{
     z-index: 1;
     height: 60px;
 }
-#rhsBody{
+#bodyComponent{
     border-radius: 8px;
     background-color: rgba(238, 209, 209, 0.548);
     border: 1px solid #094acc;

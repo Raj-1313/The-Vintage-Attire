@@ -1,5 +1,4 @@
-import {  Box,  Text,  Flex,  Button,  Image,  useDisclosure,  
-} from "@chakra-ui/react";
+import {  Box,  Text,  Flex,  Button} from "@chakra-ui/react";
 import "./Dashboard.css";
 import { BsTagsFill } from "react-icons/bs";
 import { FaRupeeSign, FaUserAlt } from "react-icons/fa";
@@ -7,15 +6,19 @@ import { CiDiscount1 } from "react-icons/ci";
 import AdminProduct from "../../Components/AdminRight/AdminProduct";
 import AdminCart from "../../Components/AdminRight/AdminCart";
 import AdminUser from "../../Components/AdminRight/AdminUser";
-
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 const Dashboard = () => {
+  const dispatch= useDispatch()
   // Fetching Admin Profile data from here
-
-
   // Update Admin Profile Data Method
+  const [productCompo,setProductCompo]= useState("product")
+  console.log(productCompo);
 
-  
+ const handleLogout=()=>{
+  dispatch()
+ }
 
   return (
     <Flex w="100%">
@@ -27,22 +30,22 @@ const Dashboard = () => {
         {/* Side Bar */}
 
         <Box id="linkBox">
-          <Flex id="usersBox" p="7px 17px" className="linkItem linkActive">
+          <Flex id="usersBox" p="7px 17px" onClick={()=>setProductCompo("user")} className={`linkItem ${productCompo=="user"? "linkActive":""}`}>
             <FaUserAlt />
-            <Text pl="15px">Users</Text>
+            <Text pl="15px" >Users</Text>
           </Flex>
-          <Flex id="usersBox" p="7px 17px" className="linkItem">
+          <Flex id="usersBox" p="7px 17px" className={`linkItem ${productCompo=="product"? "linkActive":""}`} onClick={()=>setProductCompo("product")}>
             <BsTagsFill />
-            <Text pl="15px">Products</Text>
+            <Text pl="15px" >Products</Text>
           </Flex>
-          <Flex id="usersBox" p="7px 17px" className="linkItem">
+          <Flex id="usersBox" p="7px 17px" className={`linkItem ${productCompo=="cart"? "linkActive":""}`} onClick={()=>setProductCompo("cart")}>
             <FaRupeeSign />
             <Text pl="15px">Orders</Text>
           </Flex>
-          <Flex id="usersBox" p="7px 17px" className="linkItem">
+          {/* <Flex id="usersBox" p="7px 17px" className="linkItem">
             <CiDiscount1 />
             <Text pl="15px">Discounts</Text>
-          </Flex>
+          </Flex> */}
         </Box>
       </Box>
 
@@ -55,15 +58,22 @@ const Dashboard = () => {
             <Button
               _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}
               mb={2}
+              onClick={()=>handleLogout}
             >
               Log Out
             </Button>
           </Flex>
         </Box>
 
+<Box display={`${productCompo=="product"? "block":"none"}`} >
       <AdminProduct />
-      {/* <AdminUser /> */}
-      {/* <AdminCart /> */}
+</Box>
+<Box display={`${productCompo=="user"? "block":"none"}`} >
+      <AdminUser />
+</Box>
+<Box display={`${productCompo=="cart"? "block":"none"}`} >      
+      <AdminCart />
+      </Box>
       </Box>
     </Flex>
   );
