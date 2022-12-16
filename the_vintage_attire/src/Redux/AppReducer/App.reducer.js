@@ -1,39 +1,68 @@
-import React from 'react'
+import React from "react";
+import {
+  HOME_FAILURE,
+  HOME_REQUEST,
+  HOME_SUCCESS,
+  KIDS_REQUEST,
+  KIDS_SUCCESS,
+  KIDS_FAILURE,
+  MEN_FAILURE,
+  MEN_REQUEST,
+  MEN_SUCCESS,
+  WOMEN_FAILURE,
+  WOMEN_REQUEST,
+  WOMEN_SUCCESS,
+} from "./App.actionTypes";
 const initialState = {
-    isAuth: false,
-    isLoading: false,
-    isError: false,
-    token: null,
-  };
-  
-  const AppReducer = (state = initialState,{type,payload}) => {
-    // switch (type){
-    //   case AUTH_SUCCESS:{
-    //   return {...state, isAuth:true,isLoading:false,token:payload}
-    // }
-    // case AUTH_FAILURE:{
-    //     return {...state, isError:true,isLoading:false}      
-    //   }
-    //   case AUTH_REQUEST:{
-    //     return {...state, isLoading:true,isError:false}
-    //   }
-  
-    //   case AUTHSIGNUP_SUCCESS:{
-    //   return {...state,isLoading:false}
-    // }
-    // case AUTHSIGNUP_FAILURE:{
-    //     return {...state, isError:true,isLoading:false}      
-    //   }
-    //   case AUTHSIGNUP_REQUEST:{
-    //     return {...state, isLoading:true,isError:false}
-    //   }
-  
-  
-    //   default :{  
-    //     return state;
-    //   }
-    // }
-    return state
-  };
-  
-  export default AppReducer ;
+  isError: false,
+  data: [],
+  isLoading: false,
+};
+
+const AppReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case MEN_SUCCESS: {
+      return { ...state, isError: false, data: payload, isLoading: false };
+    }
+    case MEN_FAILURE: {
+      return { ...state, isError: true, isLoading: false };
+    }
+    case MEN_REQUEST: {
+      return { ...state, isLoading: true, isError: false };
+    }
+    case WOMEN_SUCCESS: {
+      return { ...state, isError: false, data: payload, isLoading: false };
+    }
+    case WOMEN_FAILURE: {
+      return { ...state, isError: true, isLoading: false };
+    }
+    case WOMEN_REQUEST: {
+      return { ...state, isLoading: true, isError: false };
+    }
+    case KIDS_SUCCESS: {
+      return { ...state, isError: false, data: payload, isLoading: false };
+    }
+    case KIDS_FAILURE: {
+      return { ...state, isError: true, isLoading: false };
+    }
+    case KIDS_REQUEST: {
+      return { ...state, isLoading: true, isError: false };
+    }
+    case HOME_SUCCESS: {
+      return { ...state, isError: false, data: payload, isLoading: false };
+    }
+    case HOME_FAILURE: {
+      return { ...state, isError: true, isLoading: false };
+    }
+    case HOME_REQUEST: {
+      return { ...state, isLoading: true, isError: false };
+    }
+
+    default: {
+      return state;
+    }
+  }
+  return state;
+};
+
+export default AppReducer;

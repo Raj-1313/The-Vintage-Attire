@@ -6,13 +6,22 @@ import { AiOutlineShopping } from "react-icons/ai";
 import "./Navbar.scss";
 import Signup from "../../Pages/Signup";
 import Login from "../Login";
-import { useDisclosure } from "@chakra-ui/react";
+import { Button, useDisclosure } from "@chakra-ui/react";
 import { AuthLogin } from "../../Redux/AuthReducer/Auth_actions";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false)
-
+  const {userDetails,isAuth} = useSelector((store)=>store.Auth_reducer)
+  const navigate = useNavigate();
+  const [isAdmin, setIsAdmin] = useState(false);
+  
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  if(userDetails?.category==='Admin'){
+    setIsAdmin(true)
+  }
+  
 
   return (
     <div>
@@ -90,7 +99,7 @@ const Navbar = () => {
           {/* women category  */}
 
           <li>
-            <a href="">Women</a>
+            <a href="/product/women">Women</a>
             <div className="women-cat-hover">
               <div className="women-cat-div">
                 <h2>WOMEN</h2>
@@ -221,7 +230,7 @@ const Navbar = () => {
 
           {/* Men Hover / Category */}
           <li>
-            <a href="">Men</a>
+            <a href="/product/men">Men</a>
             <div className="men-cat-hover">
               <div className="men-cat-div">
                 <h2>MEN</h2>
@@ -351,7 +360,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <a href="">Kids</a>
+            <a href="/product/kids">Kids</a>
             {/* Kids Hover Section */}
             <div className="kids-cat-hover">
               <div className="kids-cat-div">
@@ -679,7 +688,7 @@ const Navbar = () => {
           </li>
           <li>
            {/* <Signup /> */}
-           <Login />
+           {isAdmin  ? <Button onClick={()=>navigate('/admin')}>Admin</Button> : isAuth? <Button>Log Out</Button> : <Login/> }
            
           </li>
         </ul>
