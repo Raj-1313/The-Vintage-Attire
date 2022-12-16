@@ -7,7 +7,11 @@ import {
   Stack,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
+import axios from "axios";
 import * as React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { CartItem } from "./CartItem";
 import { CartOrderSummary } from "./CartOrderSummary";
 
@@ -44,10 +48,34 @@ export const cartData = [
     },
   ]
 
-export const Cart = () => (
 
-    
-  <Box
+
+const getCartData = (data) =>{
+  return axios.get(`https://vintage-attire-server-new.onrender.com/cart`,data)
+              
+}
+
+const Cart = () => {
+  const [cartD,setCartData] = useState( cartData||[])
+  const dispatch = useDispatch()
+  const userEmail = useSelector(store =>store.Auth_reducer.userDetails.email)
+  console.log("cart",userEmail)
+
+  useEffect(() =>{
+    getCartData({
+      userMail:"@rasd"
+  }).then(res =>{
+      alert("fff")
+      setCartData(res)
+      console.log(res)
+    })
+    .catch((err) =>{
+      console.log(err);
+    })
+  },[])
+
+  return (
+    <Box
     maxW={{
       base: "3xl",
       lg: "7xl",
@@ -89,7 +117,7 @@ export const Cart = () => (
         </Heading>
 
         <Stack bg='white'  spacing="6">
-          {cartData.map((item) => (
+          {cartD.map((item) => (
             <CartItem key={item.id} {...item} />
           ))}
         </Stack>
@@ -104,4 +132,11 @@ export const Cart = () => (
       </Flex>
     </Stack>
   </Box>
-);
+  )
+}
+
+export default Cart
+ 
+    
+ 
+

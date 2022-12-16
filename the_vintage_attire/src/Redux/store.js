@@ -5,9 +5,8 @@ import AppReducer from './AppReducer/App.reducer';
 import AdminReducer from './AdminReducer/Admin.Reducer';
 
 const rootReducer= combineReducers({
-   Auth_reducer,
-    app:AppReducer,
-    AdminReducer
+AppReducer,
+Auth_reducer
 })
 
 
