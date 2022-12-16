@@ -452,7 +452,7 @@ app.post("/admin", async (req,res)=>{
     const data= req.body
     try{
         const rest= await  productModel.create(data)
-        return res.send("New Product created")
+        return res.send("New Product created",{data:rest})
     }catch(err){
         return res.send(err.message)
 
@@ -474,10 +474,10 @@ app.patch("/admin", async (req,res)=>{
         
 app.delete("/admin/:_id", async (req,res)=>{
     let {_id}= req.params
-console.log(_id)
+
     try{
         const rest= await  productModel.findByIdAndDelete({_id})
-        return res.send("Product deleted successfully")
+        return res.send("Product deleted successfully",{data:rest})
     }catch(err){
         return res.send(err.message)
     }        

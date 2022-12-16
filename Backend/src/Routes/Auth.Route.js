@@ -44,7 +44,7 @@ App.post("/login", async (req, res) => {
         },
         process.env.key,
         {
-          expiresIn: "1 day",
+          expiresIn: "10 day",
         }
       );
       return res.status(201).send({ token, User });
