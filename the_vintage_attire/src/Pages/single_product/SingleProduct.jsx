@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Flex, VStack } from "@chakra-ui/react";
+import { Box, Center, Flex, Grid, VStack } from "@chakra-ui/react";
 import BreadCrumb from "./BreadCrumb";
 import ProductImageBox from "./ProductImageBox";
 import ProductDetailBox from "./ProductDetailBox";
@@ -29,15 +29,17 @@ const SingleProduct = () => {
   return (
     <Box>
       <BannerAd />
-      <VStack alignItems="left" mt={5} px={{ base: 1, md: 100 }}>
+      <Center>
+      <VStack alignItems="left" mt={5} maxWidth={1100}>
         <BreadCrumb
           home={{ name: "home", path: "#" }}
           category1={{ name: "mens", path: "#" }}
           category2={{ name: "pajama", path: "#" }}
         />
-        <Flex
+        <Grid
+          gridTemplateColumns={{base:"1fr",md:"2fr 1fr"}}
           border="1px solid yellow"
-          direction={{ base: "column", md: "row" }}
+          // direction={{ base: "column", md: "row" }}
           gap="10"
         >
           <ProductImageBox
@@ -50,8 +52,9 @@ const SingleProduct = () => {
             handleChangeWishList={handleChangeWishList}
             wishList={wishList}
           />
-        </Flex>
+        </Grid>
       </VStack>
+      </Center>
     </Box>
   );
 };
