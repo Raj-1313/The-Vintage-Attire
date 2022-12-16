@@ -16,6 +16,7 @@ import CheckoutPage from './Pages/checkout_page/CheckoutPage';
 function App() {
   return (
     <div >
+        <Dashboard />
 
         {/* <SingleProduct /> */}
      <Cart />

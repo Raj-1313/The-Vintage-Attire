@@ -1,4 +1,4 @@
-import {AUTH_FAILURE,AUTH_REQUEST,AUTH_SUCCESS,AUTHSIGNUP_FAILURE,AUTHSIGNUP_REQUEST,AUTHSIGNUP_SUCCESS} from "./Auth_actionsTypes"
+import {AUTH_FAILURE,AUTH_REQUEST,AUTH_SUCCESS,AUTHSIGNUP_FAILURE,AUTHSIGNUP_REQUEST,AUTHSIGNUP_SUCCESS,LOGOUT} from "./Auth_actionsTypes"
 
 const localData= JSON.parse(localStorage.getItem("loginData")) || null
 const loginToken= JSON.parse(localStorage.getItem("loginToken")) || null
@@ -36,6 +36,11 @@ const initialState = {
       }
       case AUTHSIGNUP_REQUEST:{
         return {...state, isLoading:true,isError:false}
+      }
+      case LOGOUT:{
+        localStorage.clear("loginToken")
+        localStorage.clear("loginData")
+        return {...state,isAuth:false,token:null,userDetails:null }
       }
   
   

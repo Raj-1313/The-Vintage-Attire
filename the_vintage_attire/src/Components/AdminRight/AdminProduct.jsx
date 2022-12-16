@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Text,
@@ -11,57 +11,93 @@ import {
   Img,
   Button,Modal,  ModalOverlay,  ModalHeader,  ModalContent,  ModalCloseButton,  ModalBody,  Input, Flex, useDisclosure
 } from "@chakra-ui/react";
-import { getAdminProduct } from "../../Redux/AdminReducer/Admin.action";
-import { useDispatch } from "react-redux";
+import { deleteAdminProduct, getAdminProduct, patchAdminProduct, postAdminProduct } from "../../Redux/AdminReducer/Admin.action";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const AdminProduct = () => {
   const [previewData, setPreviewData] = useState("");
   const dispatch = useDispatch();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [dataModel, setModelData] = useState({});
- 
+  const [dataModel, setModelData] = useState({_id:null,imgUrl:"",name:"",category:"",type:"",price:0,description:"",discounted_price:0 });
+  const [openModel, setOpenModel] = useState(false);
+  const [isUpdateToPost, setUpdateToPost] = useState(false);
+ const {isLoading,isError}= useSelector(store=>store.AdminReducer)
   
   const handleSetData=({name,value})=>{
     console.log(name);
     if(dataModel){
-
       setModelData({...dataModel,[name]:value});
     }else{
       setModelData({...dataModel,[name]:value});
     }
   }
-  console.log(dataModel);
-  useEffect(() => {
-    dispatch(getAdminProduct()).then((data) => {
-      console.log(data);
-      return setPreviewData(data);
-    });
-  }, [dispatch]);
+ 
 
 
-  const handleUpdate = () => {
-    dispatch()
-      
+  const handleUpdate = (data) => {
+    setModelData({...dataModel,...data})
+    setUpdateToPost(false)
+    setOpenModel(true)
   };
 
+  const handleUpdateInProduct = () => {
+    if(isUpdateToPost){
+          if(dataModel.imgUrl && dataModel.name){
+            if(dataModel.price && dataModel.description && dataModel.category){                    
+                      dispatch(postAdminProduct(dataModel)).then(()=>dispatch(getAdminProduct()) )      
+                      setOpenModel(false)           
+            }else{
+              alert("Please Fill price , description , category properly")
+            }
+      
+      }else{
+        alert("Either check url or Name Properly")
+      }
+      
+    }else{
+      dispatch(patchAdminProduct(dataModel)).then(()=>dispatch(getAdminProduct()) )      
+      setOpenModel(false)
+    }
+
+  };
+ 
+
+
+  useEffect(() =>{
+    dispatch(getAdminProduct()).then((data) => {
+      return setPreviewData(data);
+    });
+  }, []);
+
+
+if(isLoading){
+  return  <h1>loading...</h1>
+}
 
 
   return (
 <>
-<Modal isOpen={true} onClose={onClose} scrollBehavior="inside">
+<Modal isOpen={openModel} onClose={()=>setOpenModel(false)} scrollBehavior="inside">
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader>Update Profile</ModalHeader>
+            <ModalHeader>{isUpdateToPost?"Post":"Update"} Profile</ModalHeader>
             <ModalCloseButton />
             <ModalBody mt="-8">
               <Flex direction="column" gap="10px" mt="50px">
+                <label>Url</label>
+                <Input
+                  type="url"
+                  placeholder="Image Url"
+                  name="imgUrl"
+                  value={dataModel.imgUrl}
+                  onChange={({target}) => handleSetData(target)}
+                />
                 <label>Name</label>
                 <Input
                   type="text"
                   placeholder="Name"
                   name="name"
-                  // value={firstname}
+                  value={dataModel.name}
                   onChange={({target}) => handleSetData(target)}
                 />
                 <label>Category</label>
@@ -69,7 +105,15 @@ const AdminProduct = () => {
                   type="text"
                   placeholder="Category"
                   name="category"
-                  // value={lastname} 
+                  value={dataModel.category} 
+                  onChange={({target}) => handleSetData(target)}
+                />
+                <label>Type</label>
+                <Input
+                  type="text"
+                  placeholder="Type"
+                  name="type"
+                  value={dataModel.type} 
                   onChange={({target}) => handleSetData(target)}
                 />
                 <label>Price</label>
@@ -77,7 +121,7 @@ const AdminProduct = () => {
                   type="text"
                   placeholder="Price"
                   name="price"
-                  // value={role}
+                  value={dataModel.price}
                   onChange={({target}) => handleSetData(target)}
                 />
                 <label>Discounted Price</label>
@@ -85,7 +129,7 @@ const AdminProduct = () => {
                   type="text"
                   placeholder="Discounted_price"
                   name="discounted_price"
-                  // value={avtar}
+                  value={dataModel.discounted_price}
                   onChange={({target}) => handleSetData(target)}
                 />
                 <label>Description</label>
@@ -93,24 +137,30 @@ const AdminProduct = () => {
                   type="text"
                   placeholder="Description"
                   name="description"
-                  // value={avtar}
+                  value={dataModel.description}
                   onChange={({target}) => handleSetData(target)}
                 />
                 <Button
-                  onClick={handleUpdate}
+                  onClick={handleUpdateInProduct}
                   mb="25px"
                   color="white"
                   bg="black"
                   _hover={{ bg: "grey" }}
                 >
-                  Update
+                  {isUpdateToPost?"Post":"Update"}
                 </Button>
               </Flex>
             </ModalBody>
           </ModalContent>
         </Modal>
 
-    <Box id="rhsBody" m="30px" p="30px">
+    <Box id="bodyComponent" m="30px" p="30px">
+      <Flex>
+        <Button onClick={()=>{
+          setUpdateToPost(true)
+          setOpenModel(true)
+          }} >Post</Button>
+      </Flex>
       <Table size="sm" variant="striped" colorScheme="telegram">
         <Thead>
           <Tr>
@@ -128,7 +178,7 @@ const AdminProduct = () => {
           {previewData &&
             previewData.map((data) => {
               return (
-                <Tr key={data._id} border="1px sold green" maxH="50px">
+                <Tr key={data._id}  maxH="50px">
                   <Td>
 
                     <Box>                      
@@ -146,10 +196,11 @@ const AdminProduct = () => {
                     </Box>
                   </Td>
                   <Td>
-                    <Button onClick={handleUpdate}>Edit</Button>
-                    <Button onClick={()=>console.log(data._id)}>Delete</Button>
+                    <Button onClick={()=>handleUpdate(data)}>Edit</Button>
+                    <Button onClick={()=>dispatch(deleteAdminProduct(data._id))}>Delete</Button>
                   </Td>
                 </Tr>
+                
               );
             })}
         </Tbody>
