@@ -11,15 +11,16 @@ import Footer from './Components/Footer/Footer';
 import { Box } from '@chakra-ui/react';
 import Cart  from './Pages/cartPage/Cart'
 import CheckoutPage from './Pages/checkout_page/CheckoutPage';
+import AllRoutes from './Hof/AllRoutes';
 
 
 function App() {
   return (
     <div >
-        <Dashboard />
-
+        {/* <Dashboard /> */}
+<AllRoutes/>
         {/* <SingleProduct /> */}
-     <Cart />
+     {/* <Cart /> */}
      {/* <CheckoutPage /> */}
     </div>
   );

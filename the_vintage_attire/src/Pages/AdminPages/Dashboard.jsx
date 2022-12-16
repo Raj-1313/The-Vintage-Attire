@@ -8,16 +8,16 @@ import AdminCart from "../../Components/AdminRight/AdminCart";
 import AdminUser from "../../Components/AdminRight/AdminUser";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { logout } from "../../Redux/AuthReducer/Auth_actions";
 
 const Dashboard = () => {
   const dispatch= useDispatch()
   // Fetching Admin Profile data from here
   // Update Admin Profile Data Method
   const [productCompo,setProductCompo]= useState("product")
-  console.log(productCompo);
 
  const handleLogout=()=>{
-  dispatch()
+  dispatch(logout())
  }
 
   return (

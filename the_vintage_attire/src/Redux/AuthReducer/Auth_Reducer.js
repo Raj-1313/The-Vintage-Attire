@@ -38,8 +38,9 @@ const initialState = {
         return {...state, isLoading:true,isError:false}
       }
       case LOGOUT:{
-        localStorage.clear("loginToken")
-        localStorage.clear("loginData")
+        console.log("object")
+        localStorage.clear()
+        localStorage.removeItem("loginData")
         return {...state,isAuth:false,token:null,userDetails:null }
       }
   

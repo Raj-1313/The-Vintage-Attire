@@ -7,16 +7,16 @@ import "./Navbar.scss";
 import Signup from "../../Pages/Signup";
 import Login from "../Login";
 import { Button, useDisclosure } from "@chakra-ui/react";
-import { AuthLogin } from "../../Redux/AuthReducer/Auth_actions";
-import { useSelector } from "react-redux";
+import { AuthLogin, logout } from "../../Redux/AuthReducer/Auth_actions";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false)
   const {userDetails,isAuth} = useSelector((store)=>store.Auth_reducer)
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
-  
+  const dispatch = useDispatch()
   const { isOpen, onOpen, onClose } = useDisclosure();
   if(userDetails?.category==='Admin'){
     setIsAdmin(true)
@@ -678,8 +678,9 @@ const Navbar = () => {
             </div>
           </li>
         </ul>
-
+<Link to='/'>
        <h2 className="navbar-logo" style={{fontFamily:'sofia',margin:'auto',fontSize:'1.5rem'}}>The Vintage Attire</h2>
+</Link>
         <ul className="right-navbar">
           <li>
             <a href="">
@@ -688,7 +689,13 @@ const Navbar = () => {
           </li>
           <li>
            {/* <Signup /> */}
-           {isAdmin  ? <Button onClick={()=>navigate('/admin')}>Admin</Button> : isAuth? <Button>Log Out</Button> : <Login/> }
+           {isAdmin  ? <Button onClick={()=>navigate('/admin')}>Admin</Button> : isAuth?  <Button
+              _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}
+              mb={2}
+              onClick={()=>dispatch(logout())}
+            >
+              Log Out
+            </Button> : <Login/> }
            
           </li>
         </ul>
