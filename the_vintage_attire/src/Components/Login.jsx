@@ -23,7 +23,6 @@ const Login = () => {
   const { isOpen,onOpen,onClose} = useDisclosure();
   const dispatch = useDispatch();
 const navigate = useNavigate()
-// console.log(open,"login");
 
   const [dataSign, setDataSign] = useState({   
     password: "",
@@ -42,7 +41,6 @@ const navigate = useNavigate()
    }
   };
 
-
   const handleOpeningSignIn= () => {   
     navigate("/signup")    
  }
@@ -50,7 +48,7 @@ const navigate = useNavigate()
 
   return (
     <>
-      <Text onClick={onOpen}>Login</Text>
+      <Button onClick={onOpen}>Sign In</Button>
       <Modal
         isOpen={isOpen}
         onClose={onClose}
@@ -70,7 +68,7 @@ const navigate = useNavigate()
           >
             Sign In
           </ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton onClick={()=>navigate('/')}/>
 
           <ModalBody pb={6}  borderRadius='12'>
             <form onSubmit={handleSubmit}>
@@ -107,7 +105,7 @@ const navigate = useNavigate()
           <Box m="4" bg='blackAlpha.600' color='white' borderRadius='12'>
             <Text>
               Dont have an Account? <Box onClick={handleOpeningSignIn}>                
-                 Signup             
+                <Text textDecoration={'underline'} _hover={{cursor:'pointer'}}>Signup</Text>              
                 </Box>
             </Text>
           </Box>

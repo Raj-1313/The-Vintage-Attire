@@ -4,8 +4,8 @@ import { Auth_reducer } from './AuthReducer/Auth_Reducer'
 import AppReducer from './AppReducer/App.reducer';
 
 const rootReducer= combineReducers({
-   auth: Auth_reducer,
-    app:AppReducer
+    Auth_reducer,
+    AppReducer
 })
 
 
