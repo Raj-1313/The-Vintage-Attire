@@ -6,7 +6,7 @@ export const AuthLogin=(payload)=> async (dispatch)=>{
     console.log(payload)
 dispatch({type:AUTH_REQUEST})
 try{
-    const res= await axios.post(`http://localhost:8080/auth/login`,payload)
+    const res= await axios.post(`https://vintage-attire-deploy.onrender.com/auth/login`,payload)
     console.log(res)
     dispatch({type:AUTH_SUCCESS,payload:res.data})
 }catch(e){
@@ -19,7 +19,7 @@ export const AuthSignUp=(payload)=> async (dispatch)=>{
     console.log(payload)
 dispatch({type:AUTHSIGNUP_REQUEST})
 try{
-    const res= await axios.post(`http://localhost:8080/auth/signup`,payload)
+    const res= await axios.post(`https://vintage-attire-deploy.onrender.com/auth/signup`,payload)
     console.log(res)
     // dispatch({type:AUTHSIGNUP_SUCCESS,payload:res.data})
 }catch(e){
