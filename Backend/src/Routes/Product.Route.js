@@ -10,7 +10,6 @@ app.get("/",async (req,res)=>{
     res.send(products)
     })
 
-
 app.get("/women",async (req,res)=>{      
       
 let product= await productModel.find({"category":"women"})
