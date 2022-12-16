@@ -355,7 +355,7 @@ const Navbar = () => {
             {/* Kids Hover Section */}
             <div className="kids-cat-hover">
               <div className="kids-cat-div">
-                <h2>MEN</h2>
+                <h2>Kids</h2>
                 <div className="kids-cat-subdiv">
                   <ul className="kids-cat-ul">
                     <li>Girls' New Arrivals</li>
