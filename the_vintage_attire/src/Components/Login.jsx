@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -13,50 +13,52 @@ import {
   Text,
   Box,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AuthLogin} from "../Redux/AuthReducer/Auth_actions";
-import Signup from "../Pages/Signup";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
   const { isOpen,onOpen,onClose} = useDisclosure();
   const dispatch = useDispatch();
 const navigate = useNavigate()
-
+  const {token,isAuth,isLoading} = useSelector(store=>store.Auth_reducer)
+  console.log(isAuth);
   const [dataSign, setDataSign] = useState({   
     password: "",
     email: "",   
   });
-
+  
+console.log(dataSign);
   const handleSelect = ({ name, value }) => {
     setDataSign({ ...dataSign, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(dataSign);
+    
    if(dataSign.email && dataSign.password) {
-     dispatch(AuthLogin(dataSign)).then(()=> console.log('success ful'))
-// redirect krna h iss jagha se
-
-     .catch((e)=>{
-       console.log("object credError" )
-    })
+     dispatch(AuthLogin(dataSign))
+     console.log("completed");
   }
   };
 
   const handleOpeningSignIn= () => {   
     navigate("/signup")    
  }
-  
+  console.log(isLoading,"working");
+  useEffect(()=>{
+    if(isAuth){
+    navigate("/")
+    }
 
+  },[])
   return (
     <>
       <Button onClick={onOpen}>Sign In</Button>
       <Modal
         isOpen={isOpen}
-        onClose={onClose}
+        onClose={()=>onClose}
         size="sm"
         >
         <ModalOverlay />
@@ -76,7 +78,7 @@ const navigate = useNavigate()
           <ModalCloseButton onClick={()=>navigate('/')}/>
 
           <ModalBody pb={6}  borderRadius='12'>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={(e)=>handleSubmit(e)}>
               
               <Input
                 name="email"
@@ -109,7 +111,7 @@ const navigate = useNavigate()
           <hr />
           <Box m="4" bg='blackAlpha.600' color='white' borderRadius='12'>
             <Text>
-              Dont have an Account? <Box onClick={handleOpeningSignIn}>                
+              Dont have an Account? <Box onClick={()=>handleOpeningSignIn()}>                
                 <Text textDecoration={'underline'} _hover={{cursor:'pointer'}}>Signup</Text>              
                 </Box>
             </Text>

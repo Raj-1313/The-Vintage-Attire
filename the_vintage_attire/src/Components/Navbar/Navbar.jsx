@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {HiMenu, HiX} from 'react-icons/hi';
 import {motion} from 'framer-motion'
 import V from "./V.png";
@@ -9,21 +9,29 @@ import Login from "../Login";
 import { Button, useDisclosure } from "@chakra-ui/react";
 import { AuthLogin, logout } from "../../Redux/AuthReducer/Auth_actions";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const dispatch = useDispatch()
   const [toggle, setToggle] = useState(false)
   const {userDetails,isAuth} = useSelector((store)=>store.Auth_reducer)
+  console.log(isAuth);
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
+
   const dispatch = useDispatch()
+  
+
+
   
 
   useEffect(()=>{
     if(userDetails?.category==='Admin'){
       setIsAdmin(true)
     }
+
   },[userDetails,isAuth])
+  },[isAuth,userDetails])
   
 
   return (

@@ -40,13 +40,14 @@ app.post('/dec',async (req,res) => {
 })
 
 app.get("/" ,async(req,res)=>{
-    const {userMail} = req.body
-    
+    const userMail = req.headers.usermail
     try{
-        const prod= await CartModel.find({userMail})      
+        const prod= await CartModel.find({userMail},{data:1,count:1})      
         if(prod.length>0){
-            
-            res.send(prod)           
+            console.log(prod)
+          return  res.send(prod)           
+        }else{
+            return res.send({data:"null"})
         }
        }catch(err){
            res.send(err.message)
