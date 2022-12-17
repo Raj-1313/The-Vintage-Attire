@@ -12,11 +12,13 @@ import { Box } from '@chakra-ui/react';
 import Cart  from './Pages/cartPage/Cart'
 import CheckoutPage from './Pages/checkout_page/CheckoutPage';
 import AllRoutes from './Hof/AllRoutes';
+import Loading from './Components/Loading/Loading';
 
 
 function App() {
   return (
     <div >
+      {/* <Loading/> */}
         {/* <Dashboard /> */}
 <AllRoutes/>
         {/* <SingleProduct /> */}
