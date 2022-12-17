@@ -30,6 +30,20 @@ const Navbar = () => {
   //     {/* <Loading/> */}
   //     </Box>
   // }
+
+  const dispatch = useDispatch()
+  
+
+
+  
+
+  useEffect(()=>{
+    if(userDetails?.category==='Admin'){
+      setIsAdmin(true)
+    }
+
+  },[userDetails,isAuth])
+  },[isAuth,userDetails])
   
 
 
