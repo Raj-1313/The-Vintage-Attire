@@ -3,38 +3,55 @@ import { useState } from 'react';
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMenData } from '../../Redux/AppReducer/App.actions';
-
+import {Checkbox} from '@chakra-ui/react'
+import styled from 'styled-components';
 const FilterMenComponent = () => {
     const data = useSelector(store=>store.AppReducer.data);
     const dispatch = useDispatch()
-    const [arr,setArr] = useState([]);
    
+    // console.log(data);
     
+   
+    // console.log(unique)
+    const uniqueArr = []
+
+    const unique = data.filter(element => {
+      const isDuplicate = uniqueArr.includes(element.type);
     
+      if (!isDuplicate) {
+        uniqueArr.push(element.type);
+        
+        return true;
+      }
     
-    
-    
+      return false;
+    });
+    let everyProductTotal = {};
+    data.forEach((item,index)=>{
+      if(everyProductTotal[item.type]===undefined){
+        everyProductTotal[item.type]=1
+      }
+      else{
+        everyProductTotal[item.type]++
+      }
+    })
+
     useEffect(()=>{
-      const uniqueArr = []
-      dispatch(getMenData()).then(response=>setArr(response));
-      const unique = arr.filter(element => {
-        const isDuplicate = uniqueArr.includes(element.type);
-      
-        if (!isDuplicate) {
-          uniqueArr.push(element.type);
-      
-          return true;
-        }
-      
-        return false;
-      });
-      console.log(unique)
+      dispatch(getMenData());
     },[])
   return (
-    <div>
-yes sssssss
-    </div>
+    <FilterMenComponentWrapper>
+      {uniqueArr.map((item,index)=>{
+        return <Checkbox  colorScheme='green' key={index}>{item} {`(${everyProductTotal[item]})`}</Checkbox>
+      })}
+    </FilterMenComponentWrapper>
   )
 }
 
 export default FilterMenComponent
+
+const FilterMenComponentWrapper = styled.div`
+display:flex;
+flex-direction:column;
+padding:2rem;
+`
