@@ -12,12 +12,14 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import Footer from "../../Components/Footer/Footer";
+import Login from "../../Components/Login";
 import Navbar from "../../Components/Navbar/Navbar";
 import V from "../../Components/Navbar/V.png";
 const Home = () => {
   return (
     <>
       <Navbar />
+      {/* <Login></Login> */}
       <Box position="absolute" mt={"4rem"} w={"100%"}>
         <Flex
           w={"full"}

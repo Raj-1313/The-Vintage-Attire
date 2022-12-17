@@ -6,7 +6,7 @@ import { CiDiscount1 } from "react-icons/ci";
 import AdminProduct from "../../Components/AdminRight/AdminProduct";
 import AdminCart from "../../Components/AdminRight/AdminCart";
 import AdminUser from "../../Components/AdminRight/AdminUser";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../Redux/AuthReducer/Auth_actions";
 
@@ -79,4 +79,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default memo(Dashboard);
