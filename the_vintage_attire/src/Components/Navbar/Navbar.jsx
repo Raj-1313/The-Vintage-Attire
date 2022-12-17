@@ -18,11 +18,19 @@ const Navbar = () => {
   console.log(isAuth);
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
+
+  const dispatch = useDispatch()
   
+
+
+  
+
   useEffect(()=>{
     if(userDetails?.category==='Admin'){
       setIsAdmin(true)
     }
+
+  },[userDetails,isAuth])
   },[isAuth,userDetails])
   
 
