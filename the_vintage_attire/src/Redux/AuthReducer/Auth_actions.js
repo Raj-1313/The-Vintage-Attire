@@ -24,10 +24,8 @@ export const AuthSignUp=(payload)=> async (dispatch)=>{
 dispatch({type:AUTHSIGNUP_REQUEST})
 try{
     const res= await axios.post(`https://vintage-attire-server-new.onrender.com/auth/signup`,payload)
-    console.log(res)
-    // dispatch({type:AUTHSIGNUP_SUCCESS,payload:res.data})
-
-
+    // console.log(res)
+    dispatch({type:AUTHSIGNUP_SUCCESS})
 }catch(e){
 
     dispatch({type:AUTHSIGNUP_FAILURE})

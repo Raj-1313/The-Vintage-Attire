@@ -1,4 +1,4 @@
-import {  Box,  Text,  Flex,  Button} from "@chakra-ui/react";
+import {  Box,  Text,  Flex,  Button, Alert} from "@chakra-ui/react";
 import "./Dashboard.css";
 import { BsTagsFill } from "react-icons/bs";
 import { FaRupeeSign, FaUserAlt } from "react-icons/fa";
@@ -7,18 +7,25 @@ import AdminProduct from "../../Components/AdminRight/AdminProduct";
 import AdminCart from "../../Components/AdminRight/AdminCart";
 import AdminUser from "../../Components/AdminRight/AdminUser";
 import { memo, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Redux/AuthReducer/Auth_actions";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const dispatch= useDispatch()
   // Fetching Admin Profile data from here
   // Update Admin Profile Data Method
   const [productCompo,setProductCompo]= useState("product")
+  const {isAuth,userDetails}= useSelector(store=>store.Auth_reducer)
+ const navigate = useNavigate()
 
- const handleLogout=()=>{
-  dispatch(logout())
- }
+if(!isAuth ){
+return navigate("/")
+}
+if(userDetails?.category!=="Admin"){
+  Alert("You Are Not Admin")
+  return navigate("/")
+}
 
   return (
     <Flex w="100%">
@@ -58,7 +65,7 @@ const Dashboard = () => {
             <Button
               _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}
               mb={2}
-              onClick={()=>handleLogout}
+              onClick={()=>dispatch(logout())}
             >
               Log Out
             </Button>

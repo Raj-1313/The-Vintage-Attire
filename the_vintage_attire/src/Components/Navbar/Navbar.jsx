@@ -1,23 +1,35 @@
 import React, { useEffect, useState } from "react";
-import {HiMenu, HiX} from 'react-icons/hi';
-import {motion} from 'framer-motion'
+import { HiMenu, HiX } from "react-icons/hi";
+import { motion } from "framer-motion";
 import V from "./V.png";
 import { AiOutlineShopping } from "react-icons/ai";
 import "./Navbar.scss";
+import { Flex,Box } from "@chakra-ui/react";
 import Signup from "../../Pages/Signup";
 import Login from "../Login";
 import { Button, useDisclosure } from "@chakra-ui/react";
 import { AuthLogin, logout } from "../../Redux/AuthReducer/Auth_actions";
 import { useDispatch, useSelector } from "react-redux";
-
 import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
-  const dispatch = useDispatch()
-  const [toggle, setToggle] = useState(false)
-  const {userDetails,isAuth} = useSelector((store)=>store.Auth_reducer)
+  const dispatch = useDispatch();
+  const [toggle, setToggle] = useState(false);
+  const { userDetails, isAuth,isLoading,isError } = useSelector((store) => store.Auth_reducer);
   console.log(isAuth);
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    if (userDetails?.category == "Admin") {
+      setIsAdmin(true);
+    }
+  }, [isAuth, userDetails]);
+
+  // if(isLoading){
+  //   return <Box w='100vw' h='100vh' pos='absolute' top={0} left='0'>
+  //     {/* <Loading/> */}
+  //     </Box>
+  // }
 
   const dispatch = useDispatch()
   
@@ -33,6 +45,7 @@ const Navbar = () => {
   },[userDetails,isAuth])
   },[isAuth,userDetails])
   
+
 
   return (
     <div>
@@ -181,7 +194,7 @@ const Navbar = () => {
 
                 <div className="women-cat-subdiv">
                   <h2>Accessories</h2>
-                 
+
                   <ul className="women-cat-ul">
                     <li>All Accessories</li>
                     <li>Jewelry</li>
@@ -643,55 +656,60 @@ const Navbar = () => {
             <a href="">Sale</a>
             <div className="sale-cat-hover">
               <div className="wrap-sale">
-              <div className="sale-cat-div">
-                <h2>Sale</h2>
-                <ul className="sale-cat-ul">
-                  <li>Shop Women's Sale</li>
-                  <li>Shop Men's Sale</li>
-                  <li>Shop Girls' Sale</li>
-                  <li>Shop Boys' Sale</li>
-                  <li>Shop Home Sale</li>
-                </ul>
-              </div>
-              <div className="sale-cat-div">
-                <h2>Women</h2>
-                <ul className="sale-cat-ul">
-                  <li>Shop All</li>
-                  <li>New To Sale</li>
-                  <li>Over 60% Off</li>
-                </ul>
-                <br />
-                <h2>Girls</h2>
-                <ul className="sale-cat-ul">
-                  <li>Shop All</li>
-                  <li>New To Sale</li>
-                  <li>Over 60% Off</li>
-                </ul>
-              </div>
-              <div className="sale-cat-div">
-                <h2>Men</h2>
-                <ul className="sale-cat-ul">
-                  <li>Shop All</li>
-                  <li>New To Sale</li>
-                  <li>Over 60% Off</li>
-                </ul>
-                <br />
-                <h2>Boys</h2>
-                <ul className="sale-cat-ul">
-                  <li>Shop All</li>
-                  <li>New To Sale</li>
-                  <li>Over 60% Off</li>
-                </ul>
-              </div>
+                <div className="sale-cat-div">
+                  <h2>Sale</h2>
+                  <ul className="sale-cat-ul">
+                    <li>Shop Women's Sale</li>
+                    <li>Shop Men's Sale</li>
+                    <li>Shop Girls' Sale</li>
+                    <li>Shop Boys' Sale</li>
+                    <li>Shop Home Sale</li>
+                  </ul>
+                </div>
+                <div className="sale-cat-div">
+                  <h2>Women</h2>
+                  <ul className="sale-cat-ul">
+                    <li>Shop All</li>
+                    <li>New To Sale</li>
+                    <li>Over 60% Off</li>
+                  </ul>
+                  <br />
+                  <h2>Girls</h2>
+                  <ul className="sale-cat-ul">
+                    <li>Shop All</li>
+                    <li>New To Sale</li>
+                    <li>Over 60% Off</li>
+                  </ul>
+                </div>
+                <div className="sale-cat-div">
+                  <h2>Men</h2>
+                  <ul className="sale-cat-ul">
+                    <li>Shop All</li>
+                    <li>New To Sale</li>
+                    <li>Over 60% Off</li>
+                  </ul>
+                  <br />
+                  <h2>Boys</h2>
+                  <ul className="sale-cat-ul">
+                    <li>Shop All</li>
+                    <li>New To Sale</li>
+                    <li>Over 60% Off</li>
+                  </ul>
+                </div>
               </div>
               <div className="sale-cat-div"></div>
               <div className="sale-cat-div"></div>
             </div>
           </li>
         </ul>
-<Link to='/'>
-       <h2 className="navbar-logo" style={{fontFamily:'sofia',margin:'auto',fontSize:'1.5rem'}}>The Vintage Attire</h2>
-</Link>
+        <Link to="/">
+          <h2
+            className="navbar-logo"
+            style={{ fontFamily: "sofia", margin: "auto", fontSize: "1.5rem" }}
+          >
+            The Vintage Attire
+          </h2>
+        </Link>
         <ul className="right-navbar">
           <li>
             <a href="">
@@ -699,46 +717,73 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-           {/* <Signup /> */}
-           {isAdmin  ? <Button onClick={()=>navigate('/admin')}>Admin</Button> : isAuth?  <Button
-              _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}
-              mb={2}
-              onClick={()=>dispatch(logout())}
-            >
-              Log Out
-            </Button> : <Login/> }
-           
+            {/* <Signup /> */}
+            {isAdmin ? (
+              <Flex  justifyContent='space-between' >
+                <Button onClick={() => navigate("/admin")}>Admin</Button>{" "}
+                <Button
+                  _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}
+                  mb={2}
+                  onClick={() => dispatch(logout())}
+                >
+                  Log Out
+                </Button>
+              </Flex>
+            ) : isAuth ? (
+              <Button
+                _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}
+                mb={2}
+                onClick={() => dispatch(logout())}
+              >
+                Log Out
+              </Button>
+            ) : (
+              <Login />
+            )}
           </li>
         </ul>
-        <motion.div className='app__navbar-menu'>
-                <HiMenu onClick={()=>setToggle(true)}/>
-                {toggle && ( 
-                        <motion.div whileInView={{x:[-300,0]}} transition={{duration: 0.85, ease: 'easeIn'}}>
-                            <HiX onClick={()=>setToggle(false)}/>   
-                            <ul >
-                            
-                             <li key ={`link-home`}>
-                
-                <a onClick={()=>setToggle(false)} href='#home'>New</a></li>
-            <li key ={`link-aboutme`}>
-               
-          <a onClick={()=>setToggle(false)} href='#about me'>Women</a></li>
-            <li key ={`link-projects`}>
-                
-                <a onClick={()=>setToggle(false)} href='#projects'>Men</a></li>
-            <li key ={`link-skills`}>
-                
-                <a onClick={()=>setToggle(false)} href='#skills'>Kids</a></li>
-            <li key ={`link-contacts`}>
-                
-                <a onClick={()=>setToggle(false)} href='#contacts'>Home</a></li>
-            <li key ={`link-resume`}>
-                
-                <a onClick={()=>setToggle(false)} href='' >Sale</a></li>
-                            </ul>
-                        </motion.div>
-                    )
-                }
+        <motion.div className="app__navbar-menu">
+          <HiMenu onClick={() => setToggle(true)} />
+          {toggle && (
+            <motion.div
+              whileInView={{ x: [-300, 0] }}
+              transition={{ duration: 0.85, ease: "easeIn" }}
+            >
+              <HiX onClick={() => setToggle(false)} />
+              <ul>
+                <li key={`link-home`}>
+                  <a onClick={() => setToggle(false)} href="#home">
+                    New
+                  </a>
+                </li>
+                <li key={`link-aboutme`}>
+                  <a onClick={() => setToggle(false)} href="#about me">
+                    Women
+                  </a>
+                </li>
+                <li key={`link-projects`}>
+                  <a onClick={() => setToggle(false)} href="#projects">
+                    Men
+                  </a>
+                </li>
+                <li key={`link-skills`}>
+                  <a onClick={() => setToggle(false)} href="#skills">
+                    Kids
+                  </a>
+                </li>
+                <li key={`link-contacts`}>
+                  <a onClick={() => setToggle(false)} href="#contacts">
+                    Home
+                  </a>
+                </li>
+                <li key={`link-resume`}>
+                  <a onClick={() => setToggle(false)} href="">
+                    Sale
+                  </a>
+                </li>
+              </ul>
+            </motion.div>
+          )}
         </motion.div>
       </nav>
     </div>
