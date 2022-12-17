@@ -3,7 +3,7 @@ import {AUTH_FAILURE,AUTH_REQUEST,AUTH_SUCCESS,AUTHSIGNUP_FAILURE,AUTHSIGNUP_REQ
 const localData= JSON.parse(localStorage.getItem("loginData")) || null
 const loginToken= JSON.parse(localStorage.getItem("loginToken")) || null
 
-console.log(localData, loginToken)
+// console.log(localData, loginToken)
 
 
 const initialState = {
