@@ -17,10 +17,13 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
   const dispatch = useDispatch()
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  if(userDetails?.category==='Admin'){
-    setIsAdmin(true)
-  }
+  
+
+  useEffect(()=>{
+    if(userDetails?.category==='Admin'){
+      setIsAdmin(true)
+    }
+  },[userDetails,isAuth])
   
 
   return (
