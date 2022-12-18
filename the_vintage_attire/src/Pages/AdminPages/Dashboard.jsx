@@ -85,9 +85,9 @@ const Dashboard = () => {
 <Box display={`${productCompo=="user"? "block":"none"}`} >
       <AdminUser />
 </Box>
-<Box display={`${productCompo=="cart"? "block":"none"}`} >      
+{/* <Box display={`${productCompo=="cart"? "block":"none"}`} >      
       <AdminCart />
-      </Box>
+      </Box> */}
       </Box>
     </Flex>
   );

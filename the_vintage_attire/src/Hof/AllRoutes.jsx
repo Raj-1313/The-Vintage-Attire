@@ -30,9 +30,9 @@ const AllRoutes = () => {
         <Route path='/product/kidspage' element={<Kidspage/>}></Route>
         <Route path='/product/home' element={<HomeShopPage/>}></Route>
         {/* <Route path='/product/accessories' element={<AccessoriesProductPage/>}></Route> */}
-        <Route path='/cart' element={ <PrivateRoute><Cart/></PrivateRoute> }></Route>
-        <Route path='/cart/checkout' element={<Checkout/>}></Route>
-        <Route path='/product/:id' element={<SingleProduct/>}></Route>
+        <Route path='/cart' element={<PrivateRoute><Cart/></PrivateRoute> }></Route>
+        <Route path='/cart/checkout' element={ <Checkout/>}></Route>
+        <Route path='/product/:id' element={<PrivateRoute><SingleProduct/></PrivateRoute>}></Route>
         {/* <Route path='/payment' element={<Payment/>}></Route> */}
         <Route path='*' element={<NotFound/>}></Route>
             {/* private Routes need to be done */}
