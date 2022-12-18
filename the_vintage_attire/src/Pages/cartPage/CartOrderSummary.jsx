@@ -9,6 +9,7 @@ import {
   } from '@chakra-ui/react'
   import * as React from 'react'
   import { FaArrowRight } from 'react-icons/fa'
+import Payment from '../../Components/Payment/Payment'
   import { formatPrice } from './PriceTag'
   const OrderSummaryItem = (props) => {
     const { label, value, children } = props
@@ -48,9 +49,10 @@ import {
             </Text>
           </Flex>
         </Stack>
-        <Button colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
+        <Payment/>
+        {/* <Button  size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
           Checkout
-        </Button>
+        </Button> */}
       </Stack>
     )
   }
