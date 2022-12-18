@@ -1,11 +1,15 @@
 import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Link,
   useLocation,
 } from "react-router-dom";
+import { addToCartData } from "../Redux/cartReducer/Cart.action";
 import "./ProductCard.scss";
 const ProductCard = ({ productData }) => {
+  const dispatch = useDispatch();
+  const userEmail = useSelector( (store) => store.Auth_reducer?.userDetails?.email );
   const [hoverBtn, setHoverBtn] = useState(false);
   const location = useLocation();
 
@@ -32,6 +36,7 @@ const ProductCard = ({ productData }) => {
             bottom="0"
             left="0"
             w="full"
+            onClick={() => dispatch(addToCartData(productData._id,userEmail))}
             className="hover-btn"
           >
             Add to Cart

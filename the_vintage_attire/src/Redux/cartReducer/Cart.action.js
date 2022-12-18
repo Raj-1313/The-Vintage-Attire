@@ -68,8 +68,7 @@ const decrementCartCount = (prodId, userMail) => (dispatch) => {
 };
 
 const deleteCartItem = (id) => (dispatch) => {
-  console.log(id);
-  dispatch({ type: types.BTN_DELETE_CART_REQUEST });
+  
   return axios
     .delete(`https://vintage-attire-deploy.onrender.com/cart/${id}`)
     .then((res) => {
@@ -80,10 +79,6 @@ const deleteCartItem = (id) => (dispatch) => {
       alert("sorry there is an error");
     });
 };
-
-// const getSingleProduct =(id) =>{
-//       return axios.get(`https://vintage-attire-deploy.onrender.com/product/${id}`)
-// }
 
 export {
   getCartData,
