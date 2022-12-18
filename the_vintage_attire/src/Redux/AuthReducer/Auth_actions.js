@@ -10,11 +10,11 @@ export const AuthLogin=(payload)=> async (dispatch)=>{
 dispatch({type:AUTH_REQUEST})
 try{
     const res= await axios.post(`https://vintage-attire-server-new.onrender.com/auth/login`,payload)    
-  return  dispatch({type:AUTH_SUCCESS,payload:res.data})
-    console.log(res)
-}catch(e){
-    console.log("object")
-    dispatch({type:AUTH_FAILURE})
+    dispatch({type:AUTH_SUCCESS,payload:res.data})
+    
+}catch(e){    
+    dispatch({type:AUTH_FAILURE,payload:e.response.data})
+    
 }
 }
 

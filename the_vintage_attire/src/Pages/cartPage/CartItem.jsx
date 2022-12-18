@@ -1,40 +1,44 @@
-import { CloseButton, Flex, Link, Select, useColorModeValue } from '@chakra-ui/react'
-import * as React from 'react'
-import { PriceTag } from './PriceTag'
-import { CartProductMeta } from './CartProductMeta'
-import QtyButton from './QtyButton'
-
+import { CloseButton, Flex, Link } from "@chakra-ui/react";
+import * as React from "react";
+import { PriceTag } from "./PriceTag";
+import { CartProductMeta } from "./CartProductMeta";
+import QtyButton from "./QtyButton";
+import {
+  deleteCartItem,
+  getCartData,
+} from "../../Redux/cartReducer/Cart.action";
+import { useDispatch } from "react-redux";
 
 export const CartItem = (props) => {
+  const dispatch = useDispatch();
+  console.log(props);
   const {
-    isGiftWrapping,
+    isGiftWrapping = false,
     name,
-    description,
-    quantity,
-    imageUrl,
-    currency,
+    _id,
+    imgUrl,
+    currency = "INR",
     price,
     onClickDelete,
-  } = props
+  } = props.data[0];
 
-  const handleDecrement = () =>{}
-  const handleIncrement = () =>{}
+  // const handleDecrement = () =>{}
+  // const handleIncrement = () =>{}
 
   return (
     <Flex
-    pb='5'
-    borderBottom='1px solid gray'
+      pb="5"
+      borderBottom="1px solid gray"
       direction={{
-        base: 'column',
-        md: 'row',
+        base: "column",
+        md: "row",
       }}
       justify="space-between"
       align="center"
     >
       <CartProductMeta
         name={name}
-        description={description}
-        image={imageUrl}
+        image={imgUrl}
         isGiftWrapping={isGiftWrapping}
       />
 
@@ -43,17 +47,24 @@ export const CartItem = (props) => {
         width="full"
         justify="space-between"
         display={{
-          base: 'none',
-          md: 'flex',
+          base: "none",
+          md: "flex",
         }}
       >
         <QtyButton
-          value={quantity}
-          handleIncrement={handleIncrement}
-          handleDecrement={handleDecrement}
+          value={props.count}
+          prodId={_id}
+          userMail={props.userEmail}
         />
         <PriceTag price={price} currency={currency} />
-        <CloseButton aria-label={`Delete ${name} from cart`} onClick={onClickDelete} />
+        <CloseButton
+          aria-label={`Delete ${name} from cart`}
+          onClick={() =>
+            dispatch(deleteCartItem(_id)).then((res) => {
+              dispatch(getCartData(props.userEmail));
+            })
+          }
+        />
       </Flex>
 
       {/* Mobile */}
@@ -63,20 +74,20 @@ export const CartItem = (props) => {
         width="full"
         justify="space-between"
         display={{
-          base: 'flex',
-          md: 'none',
+          base: "flex",
+          md: "none",
         }}
       >
         <Link fontSize="sm" textDecor="underline">
           Delete
         </Link>
         <QtyButton
-          value={quantity}
-          handleIncrement={handleIncrement}
-          handleDecrement={handleDecrement}
+          value={props.count}
+          prodId={_id}
+          userMail={props.userEmail}
         />
         <PriceTag price={price} currency={currency} />
       </Flex>
     </Flex>
-  )
-}
+  );
+};
