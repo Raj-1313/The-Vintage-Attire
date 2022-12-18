@@ -9,7 +9,9 @@ import { motion } from "framer-motion";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import FilterKidsComponent from "../../Components/FilterComponents/FilterKidsComponent";
 import FilterKidsList from "../../Components/FilterList/FilterKidsList";
-const KidsPage = () => {
+import FilterHomeComponent from "../../Components/FilterComponents/FilterHomeComponent";
+import FilterHomeList from "../../Components/FilterList/FilterHomeList";
+const HomeShopPage = () => {
   const navigate = useNavigate();
   const [FilterComponentText, setFilterComponentText] = useState(true);
 
@@ -90,17 +92,17 @@ const KidsPage = () => {
           <ProductsWrapper>
             {FilterComponentText && (
               <FilterComponentWrapper>
-                <FilterKidsComponent />
+                <FilterHomeComponent />
               </FilterComponentWrapper>
             )}
 
             {FilterComponentText ? (
               <motion.div style={{ width: "69%" }} animate={{ x: [-300, 0] }}>
-                <FilterKidsList />
+                <FilterHomeList />
               </motion.div>
             ) : (
               <Box w="100%">
-                <FilterKidsList />
+                <FilterHomeList />
               </Box>
             )}
           </ProductsWrapper>
@@ -122,4 +124,4 @@ justify-content: space-between;
 width: 100%;
 `;
 
-export default KidsPage;
+export default HomeShopPage;

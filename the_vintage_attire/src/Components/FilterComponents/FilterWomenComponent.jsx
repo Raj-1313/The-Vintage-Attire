@@ -2,11 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMenData } from "../../Redux/AppReducer/App.actions";
+import { getMenData, getWomenData } from "../../Redux/AppReducer/App.actions";
 import { Box, Checkbox, Flex, Select, Stack } from "@chakra-ui/react";
 import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
-const FilterMenComponent = () => {
+
+const FilterWomenComponent = () => {
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const [uniqueArr, setUniqueArr] = useState([]);
@@ -19,7 +20,7 @@ const FilterMenComponent = () => {
   const [FilterComponentText ,setFilterComponentText] = useState(false)
  
 //for finding the unique types 
-  const unique = data?.filter((element) => {
+  const unique = data.filter((element) => {
     const isDuplicate = uniqueArr.includes(element.type);
 
     if (!isDuplicate) {
@@ -59,7 +60,7 @@ const FilterMenComponent = () => {
 
   //making an object so that we can find total items of every type
   useEffect(() => {
-    dispatch(getMenData()).then((r) => setData(r.payload));
+    dispatch(getWomenData()).then((r) => setData(r.payload));
     console.log(data);
     data?.forEach((item, index) => {
       if (eachItemLength[item.type] === undefined) {
@@ -72,7 +73,7 @@ const FilterMenComponent = () => {
 
 
   return (
-    <Flex padding={'1rem'} justifyContent='space-between' position={'sticky'} top='6rem'>
+    <Flex padding={'1rem'} justifyContent='space-between' >
      
        <FilterMenComponentWrapper >
         {uniqueArr?.map((item, index) => {
@@ -116,7 +117,7 @@ const FilterMenComponent = () => {
   );
 };
 
-export default FilterMenComponent;
+export default FilterWomenComponent;
 
 const FilterMenComponentWrapper = styled.div`
 display: flex;

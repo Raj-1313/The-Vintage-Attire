@@ -24,11 +24,7 @@ const Navbar = () => {
     }
   }, [isAuth, userDetails]);
 
-  // if(isLoading){
-  //   return <Box w='100vw' h='100vh' pos='absolute' top={0} left='0'>
-  //     {/* <Loading/> */}
-  //     </Box>
-  // }
+
 
 
   return (
@@ -516,7 +512,7 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <a href="">Home</a>
+            <a href="/product/home">Home</a>
 
             {/* Home Hover/Category */}
             <div className="home-cat-hover">
@@ -689,7 +685,7 @@ const Navbar = () => {
         <Link to="/">
            <h2
             className="navbar-logo"
-            style={{ fontFamily: "sofia", margin: "auto", fontSize: "1.5rem" }}
+            style={{ fontFamily: "sofia", fontSize: "1.5rem" }}
           >
             The Vintage Attire
           </h2>
