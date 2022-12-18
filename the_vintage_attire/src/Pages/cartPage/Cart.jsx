@@ -36,22 +36,17 @@ import { BiArrowBack } from "react-icons/bi";
 const Cart = () => {
 
   const dispatch = useDispatch()
+
+  const { cartData,cartLength,subTotalAmt,isLoading, isError } = useSelector((store) => {return store.CartReducer}, shallowEqual);
+  
   const userEmail = useSelector(
     (store) => store.Auth_reducer?.userDetails?.email
   );
 
-  const { cartData,cartLength,subTotalAmt,isLoading, isError } = useSelector((store) => {return store.CartReducer}, shallowEqual);
-  // const cartLength = cartData.length;
-  // const subTotalAmt = cartData?.reduce((total, item) => {
-  //   total += item.count * item.data[0].price;
-  //   return total;
-  // }, 0);
-
   
   useEffect(() => {
     dispatch(getCartData(userEmail))
-    console.log("cart", cartData, isLoading, isError);
-  }, [userEmail,cartData,cartLength,subTotalAmt]);
+  }, [dispatch]);
 
   // useEffect(() => {
   //   const cartLength = cartData.length;
@@ -111,7 +106,7 @@ const Cart = () => {
 
             <Stack bg="white" spacing="6">
               {cartData.map((item, i) => {
-                return <CartItem key={item.data[0]._id} {...item} />;
+                return <CartItem key={item.data[0]._id} userEmail={userEmail} {...item} />;
               }, 0)}
             </Stack>
           </Stack>

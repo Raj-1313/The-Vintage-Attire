@@ -31,20 +31,7 @@ const Navbar = () => {
   //     </Box>
   // }
 
-  const dispatch = useDispatch()
-  
 
-
-  
-
-  useEffect(()=>{
-    if(userDetails?.category==='Admin'){
-      setIsAdmin(true)
-    }
-
-  },[userDetails,isAuth])
-  },[isAuth,userDetails])
-  
 
 
   return (
@@ -712,9 +699,9 @@ const Navbar = () => {
         </Link>
         <ul className="right-navbar">
           <li>
-            <a href="">
+            <Link to="/cart">
               <AiOutlineShopping size={"1.75rem"} />
-            </a>
+            </Link>
           </li>
           <li>
             {/* <Signup /> */}
