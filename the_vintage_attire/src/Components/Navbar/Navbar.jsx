@@ -15,7 +15,6 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [toggle, setToggle] = useState(false);
   const { userDetails, isAuth,isLoading,isError } = useSelector((store) => store.Auth_reducer);
-  console.log(isAuth);
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -701,7 +700,7 @@ const Navbar = () => {
           </li>
         </ul>
         <Link to="/">
-          <h2
+           <h2
             className="navbar-logo"
             style={{ fontFamily: "sofia", margin: "auto", fontSize: "1.5rem" }}
           >
@@ -716,12 +715,11 @@ const Navbar = () => {
           </li>
           <li>
             {/* <Signup /> */}
-            {isAdmin ? (
-              <Flex  justifyContent='space-between' >
-                <Button onClick={() => navigate("/admin")}>Admin</Button>{" "}
-                <Button
-                  _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}
-                  mb={2}
+            {isAdmin && isAdmin ? (
+              <Flex  justifyContent='space-between'  alignItems='center' >
+                <Button size='sm' onClick={() => navigate("/admin")}>Admin</Button>
+                <Button size='sm'
+                  _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}                  
                   onClick={() => dispatch(logout())}
                 >
                   Log Out
@@ -731,7 +729,7 @@ const Navbar = () => {
               <Button
                 _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}
                 mb={2}
-                onClick={() => dispatch(logout())}
+                onClick={() => (dispatch(logout()))}
               >
                 Log Out
               </Button>

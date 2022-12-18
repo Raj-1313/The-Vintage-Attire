@@ -1,4 +1,4 @@
-import {  Box,  Text,  Flex,  Button, Alert} from "@chakra-ui/react";
+import {  Box,  Text,  Flex,  Button, Alert, AlertIcon} from "@chakra-ui/react";
 import "./Dashboard.css";
 import { BsTagsFill } from "react-icons/bs";
 import { FaRupeeSign, FaUserAlt } from "react-icons/fa";
@@ -6,7 +6,7 @@ import { CiDiscount1 } from "react-icons/ci";
 import AdminProduct from "../../Components/AdminRight/AdminProduct";
 import AdminCart from "../../Components/AdminRight/AdminCart";
 import AdminUser from "../../Components/AdminRight/AdminUser";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Redux/AuthReducer/Auth_actions";
 import { useNavigate } from "react-router-dom";
@@ -16,16 +16,23 @@ const Dashboard = () => {
   // Fetching Admin Profile data from here
   // Update Admin Profile Data Method
   const [productCompo,setProductCompo]= useState("product")
-  const {isAuth,userDetails}= useSelector(store=>store.Auth_reducer)
+  const {isAuth,userDetails,token}= useSelector(store=>store.Auth_reducer)
  const navigate = useNavigate()
 
-if(!isAuth ){
-return navigate("/")
-}
-if(userDetails?.category!=="Admin"){
-  Alert("You Are Not Admin")
-  return navigate("/")
-}
+
+ useEffect(()=>{
+   if(!token){
+     return navigate("/")
+    }
+    if(userDetails?.category!=="Admin"){
+      <Alert status='warning'>
+      <AlertIcon />
+      Admin's Restricted Area 
+    </Alert>
+  
+      return navigate("/")
+    }
+  },[dispatch,token])
 
   return (
     <Flex w="100%">
