@@ -150,7 +150,7 @@ const Home = () => {
             w="full"
             color={"white"}
             position="absolute"
-            top={{ base: "10%", sm: "25%", md: "35%" }}
+            top={{ base: "10%", sm: "25%", md: "32%" }}
             left="0"
             textAlign={"center"}
             fontWeight={"normal"}

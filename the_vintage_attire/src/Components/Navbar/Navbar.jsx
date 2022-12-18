@@ -31,7 +31,6 @@ const Navbar = () => {
   //     </Box>
   // }
 
-  const dispatch = useDispatch()
   
 
 
@@ -42,8 +41,7 @@ const Navbar = () => {
       setIsAdmin(true)
     }
 
-  },[userDetails,isAuth])
-  },[isAuth,userDetails])
+  },[userDetails,isAuth]);
   
 
 
