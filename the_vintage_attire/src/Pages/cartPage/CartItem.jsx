@@ -6,16 +6,16 @@ import QtyButton from './QtyButton'
 
 
 export const CartItem = (props) => {
+  console.log(props.data[0]);
   const {
-    isGiftWrapping,
+    isGiftWrapping=false,
     name,
-    description,
-    quantity,
-    imageUrl,
-    currency,
+    quantity=1,
+    imgUrl,
+    currency="INR",
     price,
     onClickDelete,
-  } = props
+  } = props.data[0]
 
   const handleDecrement = () =>{}
   const handleIncrement = () =>{}
@@ -33,8 +33,7 @@ export const CartItem = (props) => {
     >
       <CartProductMeta
         name={name}
-        description={description}
-        image={imageUrl}
+        image={imgUrl}
         isGiftWrapping={isGiftWrapping}
       />
 
@@ -48,7 +47,7 @@ export const CartItem = (props) => {
         }}
       >
         <QtyButton
-          value={quantity}
+          value={props.count}
           handleIncrement={handleIncrement}
           handleDecrement={handleDecrement}
         />

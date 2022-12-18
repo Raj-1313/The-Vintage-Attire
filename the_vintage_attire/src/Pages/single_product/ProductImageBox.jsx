@@ -7,7 +7,7 @@ const ProductImageBox = ({ image,handleChangeWishList,wishList}) => {
    
   return (
     <Box
-    border="1px solid blue"
+    // border="1px solid blue"
     position="relative"
     boxSizing='contentBox'
     // _hover={{ transform: "scale(1.05)", transformOrigin: "50% 50%" }}
@@ -38,7 +38,7 @@ const ProductImageBox = ({ image,handleChangeWishList,wishList}) => {
                 shouldUsePositiveSpaceLens: true
             }} /> */}
     <Image
-
+     w='100%'
       src={image}
     />
   </Box>

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Box, Center, Flex, Grid, VStack } from "@chakra-ui/react";
+import { Box, Center, Stack, VStack } from "@chakra-ui/react";
 import BreadCrumb from "./BreadCrumb";
 import ProductImageBox from "./ProductImageBox";
 import ProductDetailBox from "./ProductDetailBox";
 import BannerAd from "../../Components/BannerAd";
 import { useLocation, useParams } from "react-router-dom";
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
 
 const product = {
   imgUrl:
@@ -31,19 +33,42 @@ const SingleProduct = () => {
 
   return (
     <Box>
+      <Navbar />
       <BannerAd />
       <Center>
-      <VStack alignItems="left" mt={5} maxWidth={1100}>
+      <VStack alignItems="left" mt={20}
+       maxW={{
+        base: "3xl",
+        lg: "7xl",
+      }}
+      px={{
+        base: "4",
+        md: "8",
+        lg: "12",
+      }}
+      py={{
+        base: "6",
+        md: "8",
+        lg: "12",
+      }}
+      >
         <BreadCrumb
           home={{ name: "home", path: "#" }}
           category1={{ name: "mens", path: "#" }}
           category2={{ name: "pajama", path: "#" }}
         />
-        <Grid
-          gridTemplateColumns={{base:"1fr",md:"2fr 1fr"}}
-          border="1px solid yellow"
-          // direction={{ base: "column", md: "row" }}
-          gap="10"
+        <Stack
+          direction={{
+            base: "column",
+            md: "row",
+          }}
+          align={{
+            lg: "flex-start",
+          }}
+          spacing={{
+            base: "8",
+            md: "16",
+          }}
         >
           <ProductImageBox
             image={product.imgUrl}
@@ -55,9 +80,10 @@ const SingleProduct = () => {
             handleChangeWishList={handleChangeWishList}
             wishList={wishList}
           />
-        </Grid>
+        </Stack>
       </VStack>
       </Center>
+      <Footer />
     </Box>
   );
 };
