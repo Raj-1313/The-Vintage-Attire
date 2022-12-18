@@ -54,15 +54,15 @@ const Dashboard = () => {
     <Text fontFamily={"mono"}>{userDetails.mobile}</Text>
 
           </Grid>
-          <Flex id="usersBox" p="7px 17px" onClick={()=>setProductCompo("user")} className={`linkItem ${productCompo=="user"? "linkActive":""}`}>
+          <Flex id="usersBox" p="7px 17px" onClick={()=>setProductCompo("user")} className={`linkItem ${productCompo==="user"? "linkActive":""}`}>
             <FaUserAlt />
             <Text pl="15px" >Users</Text>
           </Flex>
-          <Flex id="usersBox" p="7px 17px" className={`linkItem ${productCompo=="product"? "linkActive":""}`} onClick={()=>setProductCompo("product")}>
+          <Flex id="usersBox" p="7px 17px" className={`linkItem ${productCompo==="product"? "linkActive":""}`} onClick={()=>setProductCompo("product")}>
             <BsTagsFill />
             <Text pl="15px" >Products</Text>
           </Flex>
-          <Flex id="usersBox" p="7px 17px" className={`linkItem ${productCompo=="cart"? "linkActive":""}`} onClick={()=>setProductCompo("cart")}>
+          <Flex id="usersBox" p="7px 17px" className={`linkItem ${productCompo==="cart"? "linkActive":""}`} onClick={()=>setProductCompo("cart")}>
             <FaRupeeSign />
             <Text pl="15px">Orders</Text>
           </Flex>
@@ -89,13 +89,13 @@ const Dashboard = () => {
           </Flex>
         </Box>
 
-<Box display={`${productCompo=="product"? "block":"none"}`} >
+<Box display={`${productCompo==="product"? "block":"none"}`} >
       <AdminProduct />
 </Box>
-<Box display={`${productCompo=="user"? "block":"none"}`} >
+<Box display={`${productCompo==="user"? "block":"none"}`} >
       <AdminUser />
 </Box>
- <Box display={`${productCompo=="cart"? "block":"none"}`} >  
+ <Box display={`${productCompo==="cart"? "block":"none"}`} >  
       <AdminCart />
       </Box> 
       </Box>

@@ -13,7 +13,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { AiFillHeart, AiFillStar } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCartData } from "../../Redux/cartReducer/Cart.action";

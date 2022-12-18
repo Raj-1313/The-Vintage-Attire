@@ -1,12 +1,11 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { Box, Button,   Text } from "@chakra-ui/react";
+import React from "react";
 import {
   Link,
   useLocation,
 } from "react-router-dom";
 import "./ProductCard.scss";
 const ProductCard = ({ productData }) => {
-  const [hoverBtn, setHoverBtn] = useState(false);
   const location = useLocation();
 
   return (

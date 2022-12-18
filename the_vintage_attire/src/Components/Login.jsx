@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -15,7 +15,7 @@ import {
   AlertIcon,
   AlertDescription,
   Grid,
-  AlertTitle,
+  
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthLogin} from "../Redux/AuthReducer/Auth_actions";
@@ -27,7 +27,7 @@ const Login = () => {
   // const [isSuccessLogin,setSuccessLogin]= useState(false)
   const dispatch = useDispatch();
 const navigate = useNavigate()
-  const {token,isAuth,isLoading,isError,failureAuth} = useSelector(store=>store.Auth_reducer)
+  const {isLoading,failureAuth} = useSelector(store=>store.Auth_reducer)
   const [credError,setInvalidCred]= useState(false)
   const [dataSign, setDataSign] = useState({password: "", email: ""});
   

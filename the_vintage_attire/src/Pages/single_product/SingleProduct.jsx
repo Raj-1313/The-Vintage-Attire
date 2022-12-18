@@ -4,7 +4,7 @@ import BreadCrumb from "./BreadCrumb";
 import ProductImageBox from "./ProductImageBox";
 import ProductDetailBox from "./ProductDetailBox";
 import BannerAd from "../../Components/BannerAd";
-import { useLocation, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import { useSelector } from "react-redux"
@@ -24,7 +24,6 @@ const product = {
 };
 
 const SingleProduct = () => {
-  const location = useLocation()
   const { id } = useParams();
   const { data } = useSelector(store =>store.AppReducer)
   
@@ -39,7 +38,7 @@ useEffect(()=>{
       }
 },[data])
 
-  console.log("id",id)
+  // console.log("id",id)
   const [wishList, setWishList] = useState(false);
 
   const handleChangeWishList = () => {
