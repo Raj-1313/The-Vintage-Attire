@@ -46,7 +46,7 @@ const Cart = () => {
   
   useEffect(() => {
     dispatch(getCartData(userEmail))
-  }, [dispatch]);
+  }, [dispatch, cartLength]);
 
   // useEffect(() => {
   //   const cartLength = cartData.length;

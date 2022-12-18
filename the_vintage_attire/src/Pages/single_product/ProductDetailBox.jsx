@@ -15,27 +15,34 @@ import {
 import React, { useState } from "react";
 import { AiFillHeart, AiFillStar } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCartData } from "../../Redux/cartReducer/Cart.action";
 // import StarRatingComponent from "react-star-rating-component";
 
 const ProductDetailBox = (props) => {
+  const dispatch = useDispatch();
+  const userEmail = useSelector( (store) => store.Auth_reducer?.userDetails?.email );
   const [resize, setSize] = useState("");
 
   const {
     price,
     discounted_price,
-    size,
+    size = ["X-Small", "Small", "Mediun", "Large", "X-Large", "XX-Large"],
     name,
     description,
-    category,
-    id,
+    _id,
     handleChangeWishList,
     wishList,
   } = props;
   const persetOff = Math.round(((price - discounted_price) / price) * 100);
   return (
-    <VStack 
-    // border="1px solid black" 
-    flex="1" align="left" pt="5" px="5">
+    <VStack
+      // border="1px solid black"
+      flex="1"
+      align="left"
+      pt="5"
+      px="5"
+    >
       <Heading as="h2" size="md">
         {name}
       </Heading>
@@ -103,6 +110,7 @@ const ProductDetailBox = (props) => {
             borderRadius="none"
             bgColor="black"
             color="white"
+            onClick={() => dispatch(addToCartData(_id,userEmail))}
           >
             ADD TO CARD
           </Button>
@@ -124,7 +132,7 @@ const ProductDetailBox = (props) => {
         <Box py={10}>
           <Divider border={1} />
         </Box>
-        <Box 
+        <Box
         // border="1px solid red"
         >
           <Heading as="h2" size="md">

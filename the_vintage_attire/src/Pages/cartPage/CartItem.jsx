@@ -19,11 +19,8 @@ export const CartItem = (props) => {
     imgUrl,
     currency = "INR",
     price,
-    onClickDelete,
   } = props.data[0];
-
-  // const handleDecrement = () =>{}
-  // const handleIncrement = () =>{}
+  const  id  = props._id
 
   return (
     <Flex
@@ -60,8 +57,8 @@ export const CartItem = (props) => {
         <CloseButton
           aria-label={`Delete ${name} from cart`}
           onClick={() =>
-            dispatch(deleteCartItem(_id)).then((res) => {
-              dispatch(getCartData(props.userEmail));
+            dispatch(deleteCartItem(id)).then(res =>{
+              dispatch(getCartData(props.userEmail))
             })
           }
         />

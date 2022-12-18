@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Center, Stack, VStack } from "@chakra-ui/react";
 import BreadCrumb from "./BreadCrumb";
 import ProductImageBox from "./ProductImageBox";
@@ -7,7 +7,7 @@ import BannerAd from "../../Components/BannerAd";
 import { useLocation, useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
-import { useLocation, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const product = {
   imgUrl:
@@ -24,8 +24,19 @@ const product = {
 };
 
 const SingleProduct = () => {
-  const location = useLocation()
-  const { id } =useParams
+  const { data } = useSelector(store =>store.AppReducer)
+  
+  const [singleProdData, setSingleProdData] = useState(product)
+  console.log(singleProdData)
+  const { id } =useParams()
+
+useEffect(()=>{
+      let singleData = data?.find((item) =>item._id===id)
+      if(singleData){
+        setSingleProdData(singleData)
+      }
+},[data])
+
   console.log("id",id)
   const [wishList, setWishList] = useState(false);
 
@@ -55,9 +66,9 @@ const SingleProduct = () => {
       }}
       >
         <BreadCrumb
-          home={{ name: "home", path: "#" }}
-          category1={{ name: "mens", path: "#" }}
-          category2={{ name: "pajama", path: "#" }}
+          home={{ name: "home", path: "/" }}
+          category1={{ name: singleProdData?.category, path: "#" }}
+          category2={{ name: singleProdData?.type, path: "#" }}
         />
         <Stack
           direction={{
@@ -73,12 +84,12 @@ const SingleProduct = () => {
           }}
         >
           <ProductImageBox
-            image={product.imgUrl}
+            image={singleProdData.imgUrl}
             handleChangeWishList={handleChangeWishList}
             wishList={wishList}
           />
           <ProductDetailBox
-            {...product}
+            {...singleProdData}
             handleChangeWishList={handleChangeWishList}
             wishList={wishList}
           />
