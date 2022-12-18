@@ -6,6 +6,7 @@ import { getMenData } from "../../Redux/AppReducer/App.actions";
 import { Box, Checkbox, Flex, Select, Stack } from "@chakra-ui/react";
 import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
+import {  RiArrowDownSFill } from "react-icons/ri";
 const FilterMenComponent = () => {
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
@@ -60,7 +61,6 @@ const FilterMenComponent = () => {
   //making an object so that we can find total items of every type
   useEffect(() => {
     dispatch(getMenData()).then((r) => setData(r.payload));
-    console.log(data);
     data?.forEach((item, index) => {
       if (eachItemLength[item.type] === undefined) {
         eachItemLength[item.type] = 1;
@@ -68,6 +68,7 @@ const FilterMenComponent = () => {
         eachItemLength[item.type]++;
       }
     });
+   
   }, [data.length]);
 
 
@@ -82,28 +83,36 @@ const FilterMenComponent = () => {
                 display: "flex",
                 justifyContent: "flex-start",
                 alignItems: "center",
-                border: "1px solid black",
+                
               }}
-              key={index}
+              key={index} 
             >
-              <label htmlFor="">
+              
+              <Checkbox
+              
+                onChange={handleFilter}
+                colorScheme="green"
+                value={item}
+                mr='.3rem'
+              ></Checkbox>
+              
+              <label htmlFor="" style={{fontSize:'.85rem',fontWeight:'500',textTransform:'capitalize'}}>
                 {item}{" "}
                 {Object.keys(eachItemLength).length > 0
                   ? `(${eachItemLength[item]})`
                   : ""}
               </label>
-              <Checkbox
-                onChange={handleFilter}
-                colorScheme="green"
-                value={item}
-              ></Checkbox>
             </div>
           );
         })}
           
       </FilterMenComponentWrapper>
       <Box>
-        <Select placeholder="Featured" onChange={handleSort}>
+        <Select placeholder="Featured" icon={<RiArrowDownSFill />} onChange={handleSort} h='2rem'
+        borderRadius={'none'}
+        fontWeight='semibold'
+        size={'sm'}
+        borderColor={'black'} border={'1px solid black'}>
           <option value="asc">Price: Low - High</option>
           <option value="desc">Price: High - Low</option>
           <option value="inc">Sort: A - Z</option>

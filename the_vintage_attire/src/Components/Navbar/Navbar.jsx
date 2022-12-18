@@ -5,7 +5,6 @@ import V from "./V.png";
 import { AiOutlineShopping } from "react-icons/ai";
 import "./Navbar.scss";
 import { Flex,Box } from "@chakra-ui/react";
-import Signup from "../../Pages/Signup";
 import Login from "../Login";
 import { Button, useDisclosure } from "@chakra-ui/react";
 import { AuthLogin, logout } from "../../Redux/AuthReducer/Auth_actions";
@@ -35,7 +34,7 @@ const Navbar = () => {
         <ul className="left-navbar">
           {/* first li tag New Category */}
           <li className="left-navbar-li">
-            <a href="">New</a>
+            <a href="/">New</a>
 
             {/* on hover this property will show */}
             <div className="new-cat-hover">
