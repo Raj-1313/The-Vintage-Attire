@@ -2,12 +2,14 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMenData } from "../../Redux/AppReducer/App.actions";
+import { getKidsData, getMenData, getWomenData } from "../../Redux/AppReducer/App.actions";
 import { Box, Checkbox, Flex, Select, Stack } from "@chakra-ui/react";
 import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
-import {  RiArrowDownSFill } from "react-icons/ri";
-const FilterMenComponent = () => {
+import {RiArrowDownSFill} from 'react-icons/ri';
+
+
+const FilterKidsComponent = () => {
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const [uniqueArr, setUniqueArr] = useState([]);
@@ -20,7 +22,7 @@ const FilterMenComponent = () => {
   const [FilterComponentText ,setFilterComponentText] = useState(false)
  
 //for finding the unique types 
-  const unique = data?.filter((element) => {
+  const unique = data.filter((element) => {
     const isDuplicate = uniqueArr.includes(element.type);
 
     if (!isDuplicate) {
@@ -60,7 +62,8 @@ const FilterMenComponent = () => {
 
   //making an object so that we can find total items of every type
   useEffect(() => {
-    dispatch(getMenData()).then((r) => setData(r.payload));
+    dispatch(getKidsData()).then((r) => setData(r.payload));
+    console.log(data);
     data?.forEach((item, index) => {
       if (eachItemLength[item.type] === undefined) {
         eachItemLength[item.type] = 1;
@@ -68,7 +71,6 @@ const FilterMenComponent = () => {
         eachItemLength[item.type]++;
       }
     });
-   
   }, [data.length]);
 
 
@@ -125,7 +127,7 @@ const FilterMenComponent = () => {
   );
 };
 
-export default FilterMenComponent;
+export default FilterKidsComponent;
 
 const FilterMenComponentWrapper = styled.div`
 display: flex;

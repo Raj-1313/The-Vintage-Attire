@@ -5,7 +5,6 @@ import V from "./V.png";
 import { AiOutlineShopping } from "react-icons/ai";
 import "./Navbar.scss";
 import { Flex,Box } from "@chakra-ui/react";
-import Signup from "../../Pages/Signup";
 import Login from "../Login";
 import { Button, useDisclosure } from "@chakra-ui/react";
 import { AuthLogin, logout } from "../../Redux/AuthReducer/Auth_actions";
@@ -15,7 +14,6 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [toggle, setToggle] = useState(false);
   const { userDetails, isAuth,isLoading,isError } = useSelector((store) => store.Auth_reducer);
-  console.log(isAuth);
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -25,11 +23,7 @@ const Navbar = () => {
     }
   }, [isAuth, userDetails]);
 
-  // if(isLoading){
-  //   return <Box w='100vw' h='100vh' pos='absolute' top={0} left='0'>
-  //     {/* <Loading/> */}
-  //     </Box>
-  // }
+
 
 
   return (
@@ -40,7 +34,7 @@ const Navbar = () => {
         <ul className="left-navbar">
           {/* first li tag New Category */}
           <li className="left-navbar-li">
-            <a href="">New</a>
+            <a href="/">New</a>
 
             {/* on hover this property will show */}
             <div className="new-cat-hover">
@@ -517,7 +511,7 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <a href="">Home</a>
+            <a href="/product/home">Home</a>
 
             {/* Home Hover/Category */}
             <div className="home-cat-hover">
@@ -688,9 +682,9 @@ const Navbar = () => {
           </li>
         </ul>
         <Link to="/">
-          <h2
+           <h2
             className="navbar-logo"
-            style={{ fontFamily: "sofia", margin: "auto", fontSize: "1.5rem" }}
+            style={{ fontFamily: "sofia", fontSize: "1.5rem" }}
           >
             The Vintage Attire
           </h2>
@@ -703,12 +697,11 @@ const Navbar = () => {
           </li>
           <li>
             {/* <Signup /> */}
-            {isAdmin ? (
-              <Flex  justifyContent='space-between' >
-                <Button onClick={() => navigate("/admin")}>Admin</Button>{" "}
-                <Button
-                  _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}
-                  mb={2}
+            {isAdmin && isAdmin ? (
+              <Flex  justifyContent='space-between'  alignItems='center' >
+                <Button size='sm' onClick={() => navigate("/admin")}>Admin</Button>
+                <Button size='sm'
+                  _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}                  
                   onClick={() => dispatch(logout())}
                 >
                   Log Out
@@ -718,7 +711,7 @@ const Navbar = () => {
               <Button
                 _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}
                 mb={2}
-                onClick={() => dispatch(logout())}
+                onClick={() => (dispatch(logout()))}
               >
                 Log Out
               </Button>

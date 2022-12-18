@@ -7,7 +7,7 @@ import BannerAd from "../../Components/BannerAd";
 import { useLocation, useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux"
 
 const product = {
   imgUrl:

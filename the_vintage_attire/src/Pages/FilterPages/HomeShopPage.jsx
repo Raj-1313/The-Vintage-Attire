@@ -2,15 +2,13 @@ import { Box, Flex, Image, Text, Link, Grid, Button } from "@chakra-ui/react";
 import styled from "styled-components";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import FilterMenComponent from "../../Components/FilterComponents/FilterMenComponent";
 import Navbar from "../../Components/Navbar/Navbar";
-import FilterMenList from "../../Components/FilterList/FilterMenList";
 import { motion } from "framer-motion";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
-import FilterKidsComponent from "../../Components/FilterComponents/FilterKidsComponent";
-import FilterKidsList from "../../Components/FilterList/FilterKidsList";
+import FilterHomeComponent from "../../Components/FilterComponents/FilterHomeComponent";
+import FilterHomeList from "../../Components/FilterList/FilterHomeList";
 import Footer from "../../Components/Footer/Footer";
-const KidsPage = () => {
+const HomeShopPage = () => {
   const navigate = useNavigate();
   const [FilterComponentText, setFilterComponentText] = useState(true);
 
@@ -98,17 +96,17 @@ const KidsPage = () => {
         <Flex justifyContent={'space-between'} w='full' flexDirection={{base:'column',md:"row"}}>
           {FilterComponentText && (
             <FilterComponentWrapper>
-              <FilterKidsComponent />
+              <FilterHomeComponent />
             </FilterComponentWrapper>
           )}
 
           {FilterComponentText ? (
             <motion.div style={{ width: "74%",margin:'auto' }} animate={{ x: [-300, 0] }}>
-              <FilterKidsList />
+              <FilterHomeList />
             </motion.div>
           ) : (
             <Box w="100%" m={'auto'}>
-              <FilterKidsList />
+              <FilterHomeList />
             </Box>
           )}
         </Flex>
@@ -131,4 +129,4 @@ justify-content: space-between;
 width: 100%;
 `;
 
-export default KidsPage;
+export default HomeShopPage;

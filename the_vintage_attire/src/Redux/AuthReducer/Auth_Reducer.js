@@ -3,23 +3,26 @@ import {AUTH_FAILURE,AUTH_REQUEST,AUTH_SUCCESS,AUTHSIGNUP_FAILURE,AUTHSIGNUP_REQ
 const localData= JSON.parse(localStorage.getItem("loginData")) || null
 const loginToken= JSON.parse(localStorage.getItem("loginToken")) || null
 
+
 const initialState = {
     isAuth: !!localData || false ,
+    failureAuth:null,
     isLoading: false,
     isError: false,
-    token:loginToken || null,
-    userDetails: localData || null,
+    token:loginToken,
+    userDetails: localData,
   };
   
   const Auth_reducer = (state = initialState,{type,payload}) => {
     switch (type){
       case AUTH_SUCCESS:{
-      localStorage.setItem("loginToken",JSON.stringify(payload.token))
+      localStorage.setItem("loginToken",(payload.token))
       localStorage.setItem("loginData",JSON.stringify(payload.User))
+      // console.log(payload.token,typeof payload.token)
       return {...state, isAuth:true,isLoading:false,token:payload.token,userDetails:payload.User}
     }
     case AUTH_FAILURE:{
-        return {...state, isError:true,isLoading:false}      
+        return {...state, isError:true,isLoading:false,failureAuth:payload}      
       }
       case AUTH_REQUEST:{
         return {...state, isLoading:true,isError:false}

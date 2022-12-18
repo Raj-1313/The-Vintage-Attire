@@ -1,14 +1,17 @@
-import { Box, Flex, Image, Text, Link, Grid, Button } from "@chakra-ui/react";
+import { Box, Flex, Image, Text, Link, Grid, Button, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 import styled from "styled-components";
-import React,{useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FilterMenComponent from "../../Components/FilterComponents/FilterMenComponent";
 import Navbar from "../../Components/Navbar/Navbar";
 import FilterMenList from "../../Components/FilterList/FilterMenList";
-
+import { motion } from "framer-motion";
+import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
+import Footer from "../../Components/Footer/Footer";
+import { useSelector } from "react-redux";
 const MensPage = () => {
   const navigate = useNavigate();
-  const [FilterComponentText ,setFilterComponentText] = useState(false);
+  const [FilterComponentText, setFilterComponentText] = useState(true);
   
   return (
     <>
@@ -38,45 +41,92 @@ const MensPage = () => {
         {/* <FilterArea>
 
         </FilterArea> */}
-        <Box w='full' display='flex' flexDirection='column' border='1px solid green'>
-           <Box display={'flex'} w='30%' border='1px solid black'>
-        <Box onClick={()=>setFilterComponentText((p)=>!p)}>{FilterComponentText ? 'Hide Filter' : 'Show Filter'}</Box>
-        <Box></Box>
-      </Box>
+        <Box w="full" display="flex" flexDirection="column" mb="1rem" mt='1rem'>
+          <Box
+            display={"flex"}
+            w={{base:"10rem",md:"25%"}}
+            border="1px solid black"
+            mb=".5rem"
+            bg={"#E2E8F0"}
+            zIndex={{ base:'0',sm:"0",md:'0'}}
+            position={'sticky'}
+            top='4rem'
+          >
+            <Box
+              w={{base:"90%",md:"100%"}}
+              fontFamily="sans"
+              fontWeight={"semibold"}
+              
+              onClick={() => setFilterComponentText((p) => !p)}
+              position={'sticky'}
+            >
+              {FilterComponentText ? (
+                <Box
+                  display={"flex"}
+                  ml="1rem"
+                 
+                  w={{base:"90%",md:"90%"}}
+                  alignItems="center"
+                 
+                  justifyContent={"space-between"}
+              fontSize={{base:"sm",md:"lg"}}
 
-        <ProductsWrapper w='full'>
-         { FilterComponentText && <FilterComponentWrapper>
+                >
+                  <Text>Hide Filter</Text>
+                  <GoTriangleUp size={"15px"} />
+                </Box>
+              ) : (
+                <Box
+                  display={"flex"}
+                  ml="1rem"
+                  w={"90%"}
+                  alignItems="center"
+                  
+                  fontSize={{base:"sm",md:"lg"}}
 
-        <FilterMenComponent/>
-          </FilterComponentWrapper>}
+                  justifyContent={"space-between"}
+                >
+                  <Text>Show Filter</Text>
+                  <GoTriangleDown size={"15px"} />
+                </Box>
+              )}
+            </Box>
+          </Box>
 
-      { FilterComponentText ? <Box w='100%' >
+          <Flex justifyContent={'space-between'} w='full' flexDirection={{base:'column',md:"row"}}>
+            {FilterComponentText && (
+              <FilterComponentWrapper>
+                <FilterMenComponent />
+              </FilterComponentWrapper>
+            )}
 
-  <FilterMenList/>
-      </Box>  : <Box w='70%' >
-
-<FilterMenList/>
-    </Box>}
-
-        </ProductsWrapper>
+            {FilterComponentText ? (
+              <motion.div style={{ width: "74%",margin:'auto' }} animate={{ x: [-300, 0] }}>
+                <FilterMenList />
+              </motion.div>
+            ) : (
+              <Box w="100%" m={'auto'}>
+                <FilterMenList />
+              </Box>
+            )}
+          </Flex>
         </Box>
-
+      <Footer/>
       </Box>
     </>
   );
 };
 
-export default MensPage;
 const FilterComponentWrapper = styled.div`
-width:25%;
-border:1px solid black;
-`
-const MenListWrapper = styled.div`
-width:70%;
-border:1px solid black;
+width: 25%;
+transition-duration: 1s;
+transition-property: width;
+`;
 
-`
 const ProductsWrapper = styled.div`
-display:flex;
-justify-content:space-between;
-`
+display: flex;
+justify-content: space-between;
+width: 100%;
+`;
+
+export default MensPage;

@@ -2,10 +2,10 @@ import { Box, Flex, Image, Text } from '@chakra-ui/react';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { getMenData, getMenDatabySearch } from '../../Redux/AppReducer/App.actions';
+import { getMenData, getMenDatabySearch, getWomenData } from '../../Redux/AppReducer/App.actions';
 import ProductCard from '../ProductCard';
 
-const FilterMenList = () => {
+const FilterWomenList = () => {
     // const data = useSelector(store=>store.AppReducer.data);
 
     // console.log(data)
@@ -15,7 +15,9 @@ const FilterMenList = () => {
     const location = useLocation();
     // console.log(location)
     const [searchParams] = useSearchParams();
-
+    // useEffect(()=>{
+        
+    // },[])
 
     useEffect(()=>{
         // dispatch(getMenData())
@@ -28,17 +30,17 @@ const FilterMenList = () => {
                     // _order:sortBy
                 }
             }
-            dispatch(getMenData(getSearchParams))
+            dispatch(getWomenData(getSearchParams))
         }
     },[location.search])
   return (
     <Box display={'grid'} gridTemplateColumns={{base:'repeat(1,1fr)',sm:"repeat(2,1fr)",md:'repeat(3,1fr)'}} gap='1rem' >
-        {books.map((item,index)=>{
-            return <ProductCard productData={item} key = {index} />
-        })}
-    </Box>
+    {books.map((item,index)=>{
+        return <ProductCard productData={item} key = {index} />
+    })}
+</Box>
   )
 }
 
-export default FilterMenList
+export default FilterWomenList
 

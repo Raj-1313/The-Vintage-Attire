@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Dashboard from '../Pages/AdminPages/Dashboard'
 import Cart  from '../Pages/cartPage/Cart'
 import Checkout from '../Pages/checkout_page/CheckoutPage'
+import HomeShopPage from '../Pages/FilterPages/HomeShopPage'
 import Kidspage from '../Pages/FilterPages/Kidspage'
 import MensPage from '../Pages/FilterPages/MensPage'
 import WomenPage from '../Pages/FilterPages/WomenPage'
@@ -25,7 +26,7 @@ const AllRoutes = () => {
         <Route path='/product/womenpage' element={<WomenPage/>}></Route>
         <Route path='/product/kids' element={<KidsProductPage/>}></Route>
         <Route path='/product/kidspage' element={<Kidspage/>}></Route>
-        {/* <Route path='/product/home' element={<HomesPage/>}></Route> */}
+        <Route path='/product/home' element={<HomeShopPage/>}></Route>
         {/* <Route path='/product/accessories' element={<AccessoriesProductPage/>}></Route> */}
         <Route path='/cart' element={<Cart/>}></Route>
         <Route path='/cart/checkout' element={<Checkout/>}></Route>
