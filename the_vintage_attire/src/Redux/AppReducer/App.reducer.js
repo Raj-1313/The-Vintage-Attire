@@ -17,6 +17,7 @@ const initialState = {
   isError: false,
   data: [],
   isLoading: false,
+  
 };
 
 const AppReducer = (state = initialState, { type, payload }) => {

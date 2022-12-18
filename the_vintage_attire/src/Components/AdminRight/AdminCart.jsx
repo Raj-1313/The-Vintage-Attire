@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { deleteAdminCart,  getAdminCart, patchAdminCart } from "../../Redux/AdminReducer/Admin.action";
 import { useDispatch, useSelector } from "react-redux";
+import Loading from "../Loading/Loading";
 
 
 const AdminCart = () => {
@@ -48,13 +49,14 @@ const AdminCart = () => {
 
   useEffect(() =>{
     dispatch(getAdminCart()).then((data) => {
+      console.log(data);
       return setPreviewData(data);
     });
   }, []);
 
 
 if(isLoading){
-  return  <h1>loading...</h1>
+  return  <Loading/>
 }
 if(isError){
   return  <h1>Error...</h1>

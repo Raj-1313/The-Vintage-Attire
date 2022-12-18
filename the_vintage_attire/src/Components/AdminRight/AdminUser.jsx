@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import {  Box,  Text, Table,  Thead, Tr,  Th,  Tbody,  Td,  Img, Button, Select} from "@chakra-ui/react";
 import {deleteAdminUser, getAdminUser, updateAdminUser} from "../../Redux/AdminReducer/Admin.action"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Loading from '../Loading/Loading';
 const AdminUser = () => {
     
     const [previewData, setPreviewData] = useState([]);
     const [category, setValue] = useState("");
     const dispatch= useDispatch()
+    const {isLoading,isError}= useSelector(store=>store.AdminReducer)
 
 const handleUpdate=(_id)=>{
 const obj={
@@ -21,12 +23,15 @@ dispatch(updateAdminUser(obj)).then((data)=>{
 
     useEffect(() => {
         dispatch(getAdminUser()).then((data)=>{
-          console.log(data);
+        
           return setPreviewData(data)
         }) ;
       }, []);
 
-
+      if(isLoading){
+        return <Loading/>
+      }
+      
 
   return (
     <Box id="bodyComponent" m="30px" p="30px">

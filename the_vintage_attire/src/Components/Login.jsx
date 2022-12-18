@@ -16,13 +16,13 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { AuthLogin} from "../Redux/AuthReducer/Auth_actions";
 import { useNavigate } from "react-router-dom";
-
+import Loading from '../Components/Loading/Loading'
 
 const Login = () => {
   const { isOpen,onOpen,onClose} = useDisclosure();
   const dispatch = useDispatch();
 const navigate = useNavigate()
-  const {token,isAuth,isLoading} = useSelector(store=>store.Auth_reducer)
+  const {token,isAuth,isLoading,isError} = useSelector(store=>store.Auth_reducer)
   console.log(isAuth);
   const [dataSign, setDataSign] = useState({   
     password: "",
@@ -46,13 +46,21 @@ console.log(dataSign);
   const handleOpeningSignIn= () => {   
     navigate("/signup")    
  }
-  console.log(isLoading,"working");
   useEffect(()=>{
     if(isAuth){
     navigate("/")
     }
 
   },[])
+
+  if(isLoading){
+    return <Box w='100vw' h='100vh' pos='absolute' top={0} left='0'>
+      <Loading/>
+      </Box>
+  }
+  
+
+
   return (
     <>
       <Button onClick={onOpen}>Sign In</Button>

@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { deleteAdminProduct, getAdminProduct, patchAdminProduct, postAdminProduct } from "../../Redux/AdminReducer/Admin.action";
 import { useDispatch, useSelector } from "react-redux";
+import Loading from "../Loading/Loading";
 
 
 const AdminProduct = () => {
@@ -71,7 +72,7 @@ const AdminProduct = () => {
 
 
 if(isLoading){
-  return  <h1>loading...</h1>
+  return <Loading/>
 }
 
 

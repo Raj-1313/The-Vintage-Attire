@@ -1,6 +1,9 @@
+import india from "../../Components/Footer/india.png";
+
 import {
   Box,
   Button,
+  Center,
   Container,
   Flex,
   Grid,
@@ -10,12 +13,13 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Login from "../../Components/Login";
 import Navbar from "../../Components/Navbar/Navbar";
 import V from "../../Components/Navbar/V.png";
 const Home = () => {
+  const [loader, setLoader] = useState(true);
   return (
     <>
       <Navbar />
@@ -31,11 +35,107 @@ const Home = () => {
         >
           Have a question? We can help.*
         </Flex>
+        {/* Welcome Page or Continue to shopping */}
+        {loader && (
+          <Box
+            display={{ base: "none", sm: "none", md: "none", lg: "flex" }}
+            left={"31%"}
+            objectFit="contain"
+            flexDirection="column"
+            h="100vh"
+            bg={"white"}
+            alignItems="center"
+            position={"absolute"}
+            w="40%"
+            border="1px solid black"
+            m="auto"
+            zIndex={"20"}
+            top="-3.75rem"
+          >
+            <Box
+              display={"flex"}
+              mt="2rem"
+              h="2rem"
+              w="13%"
+              alignItems={"center"}
+              justifyContent={"space-between"}
+            >
+              <Image src={india} h="50%" />
+              <Text fontSize={"sm"}>INDIA</Text>
+            </Box>
+            <Text
+              fontSize={"lg"}
+              fontWeight="light"
+              mt="3%"
+              textTransform="uppercase"
+            >
+              The Vintage Attire.com Ships All
+            </Text>
+            <Text
+              fontSize={{ md: "2rem", lg: "2rem", xl: "3rem" }}
+              fontWeight="500"
+              mt="1%"
+              textDecoration={"underline"}
+              textDecorationThickness={"3px"}
+            >
+              Around The World
+            </Text>
+            <Box
+              display={"flex"}
+              flexDirection="column"
+              justifyContent={"center"}
+              mt="2%"
+              alignItems="center"
+            >
+              <Text fontWeight={"semibold"} mt="1rem">
+                FLAT RATE SHIPPING
+              </Text>
+              <Text fontWeight={"semibold"}>DUTY-FREE SHOPPING IN YOUR</Text>
+              <Text fontWeight={"semibold"}>LOCAL CURRENCY</Text>
+              <Text fontWeight={"semibold"}>NEED HELP?</Text>
+              <Text>email julie@jcrew.com or</Text>
+              <Text>call 1-434-385-5775</Text>
+              <Button
+                bg="black"
+                color="white"
+                w="14rem"
+                onClick={() => setLoader(false)}
+                borderRadius="none"
+                mt="5%"
+                _hover={"none"}
+              >
+                START SHOPPING
+              </Button>
+              <Link
+                textDecoration={"underline"}
+                mb={{ lg: "14%", xl: "5%" }}
+                mt={{ md: "2rem", lg: "14%", xl: "5%" }}
+                textAlign={"justify"}
+                fontSize="md"
+                letterSpacing={"3px"}
+              >
+                Take me to the U.S. site.
+              </Link>
+              <Box w="full" bg="lightgray" p="1rem" objectFit={"contain"}>
+                <Text
+                  fontSize={".65rem"}
+                  textAlign="center"
+                  fontWeight={"semibold"}
+                >
+                  By clicking "start shopping," you agree to ourTerms of Use and
+                  Privacy Policy, including the use ofcookiesand the transfer of
+                  your personal information to the United States, a jurisdiction
+                  that may not provide an equivalent level of data protection to
+                  the laws in your home country.
+                </Text>
+              </Box>
+            </Box>
+          </Box>
+        )}
         <Box
           w="full"
           h={{ base: "70vh", sm: "80vh", md: "100vh", lg: "110vh" }}
           position="relative"
-         
         >
           <Image
             zIndex={"0"}
@@ -133,7 +233,7 @@ const Home = () => {
                 Shop for the home
               </Button>
             </Flex>
-          </Box>  
+          </Box>
         </Box>
 
         <Grid
@@ -494,7 +594,9 @@ const Home = () => {
             alignItems={{ base: "center", md: "flex-end" }}
           >
             <Image src={V} w={{ base: "150px", md: "15%" }} />
-            <Link textDecoration={'underline'}>Meet our creative community</Link>
+            <Link textDecoration={"underline"}>
+              Meet our creative community
+            </Link>
           </Flex>
 
           <Grid
@@ -622,7 +724,9 @@ const Home = () => {
             </Grid>
           </Box>
         </Box>
-        {/* <Footer /> */}
+
+        <Footer />
+        {/* <Box></Box> */}
       </Box>
     </>
   );
