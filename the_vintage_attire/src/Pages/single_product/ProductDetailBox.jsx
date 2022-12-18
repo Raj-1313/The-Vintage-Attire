@@ -33,7 +33,9 @@ const ProductDetailBox = (props) => {
   } = props;
   const persetOff = Math.round(((price - discounted_price) / price) * 100);
   return (
-    <VStack border="1px solid black" flex="1" align="left" pt="5" px="5">
+    <VStack 
+    // border="1px solid black" 
+    flex="1" align="left" pt="5" px="5">
       <Heading as="h2" size="md">
         {name}
       </Heading>
@@ -122,7 +124,9 @@ const ProductDetailBox = (props) => {
         <Box py={10}>
           <Divider border={1} />
         </Box>
-        <Box border="1px solid red">
+        <Box 
+        // border="1px solid red"
+        >
           <Heading as="h2" size="md">
             Product details.
           </Heading>

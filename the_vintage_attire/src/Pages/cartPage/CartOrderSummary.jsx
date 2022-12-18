@@ -22,13 +22,13 @@ import {
     )
   }
   
-  export const CartOrderSummary = () => {
+  export const CartOrderSummary = ({subTotal=0}) => {
     return (
       <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
         <Heading size="md">ORDER SUMMARY</Heading>
   
         <Stack spacing="6">
-          <OrderSummaryItem label="Subtotal" value={formatPrice(597)} />
+          <OrderSummaryItem label="Subtotal" value={formatPrice(subTotal)} />
           <OrderSummaryItem label="Shipping + Tax">
             <Link href="#" textDecor="underline">
               Calculate shipping
@@ -44,7 +44,7 @@ import {
               Total
             </Text>
             <Text fontSize="xl" fontWeight="extrabold">
-              {formatPrice(597)}
+              {formatPrice(subTotal)}
             </Text>
           </Flex>
         </Stack>

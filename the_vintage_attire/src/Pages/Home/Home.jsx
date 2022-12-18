@@ -622,7 +622,7 @@ const Home = () => {
             </Grid>
           </Box>
         </Box>
-        <Footer />
+        {/* <Footer /> */}
       </Box>
     </>
   );

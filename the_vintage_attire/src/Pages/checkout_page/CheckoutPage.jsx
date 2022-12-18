@@ -12,11 +12,36 @@ import {
   useColorModeValue,
   InputLeftAddon,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 // import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
+const initialData = {
+  f_name:"",
+  l_name:"",
+  address1:"",
+  address2:"",
+  pin_code:"",
+  city:"",
+  email:"",
+  mobile:""
+}
+
 export default function CheckoutPage() {
-  const [showPassword, setShowPassword] = useState(false);
+  const [deliveryData, setDeliveryData] = useState(initialData)
+  const {userDetails} = useSelector(store =>store.Auth_reducer)
+  console.log(userDetails)
+  console.log(deliveryData)
+
+  useEffect(() =>{
+    const { name, email, mobile } = userDetails
+        setDeliveryData({...deliveryData,f_name:name,email:email,mobile:mobile})
+  },[])
+
+  const handleChange = (e) =>{
+      const { value,name } = e.target
+      setDeliveryData({...deliveryData,[name]:value})
+  }
 
   return (
     <Flex
@@ -42,47 +67,47 @@ export default function CheckoutPage() {
               <Box>
                 <FormControl isRequired>
                   <FormLabel>First Name</FormLabel>
-                  <Input type="text" />
+                  <Input type="text" value={deliveryData.f_name} name="f_name" onChange={handleChange}/>
                 </FormControl>
               </Box>
               <Box>
                 <FormControl>
                   <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
+                  <Input type="text" value={deliveryData.l_name} name="l_name" onChange={handleChange}/>
                 </FormControl>
               </Box>
             </Stack>
             <FormControl isRequired>
               <FormLabel>Address Line 1</FormLabel>
-              <Input type="text" />
+              <Input type="text" value={deliveryData.address1} name="address1" onChange={handleChange} />
             </FormControl>
-            <FormControl id="email">
+            <FormControl>
               <FormLabel>Address Line 2</FormLabel>
-              <Input type="text" />
+              <Input type="text" value={deliveryData.address2} name="address2" onChange={handleChange}/>
             </FormControl>
             <Stack direction={{base:"column",md:"row"}}>
               <Box>
                 <FormControl isRequired>
                   <FormLabel>Posta Code</FormLabel>
-                  <Input type="text" />
+                  <Input type="text" value={deliveryData.pin_code} name="pin_code" onChange={handleChange}/>
                 </FormControl>
               </Box>
               <Box>
                 <FormControl isRequired>
                   <FormLabel>City</FormLabel>
-                  <Input type="text" />
+                  <Input type="text" value={deliveryData.city} name="city" onChange={handleChange}/>
                 </FormControl>
               </Box>
             </Stack>
             <FormControl isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input type="email" value={deliveryData.email} name="email" onChange={handleChange} />
             </FormControl>
             <FormControl isRequired>
               <FormLabel>Mobile Number</FormLabel>
               <InputGroup>
                 <InputLeftAddon children="+91" />
-                <Input type="tel" />
+                <Input type="tel" value={deliveryData.mobile} name="mobile" onChange={handleChange} />
               </InputGroup>
             </FormControl>
             <Stack spacing={10} pt={2}>

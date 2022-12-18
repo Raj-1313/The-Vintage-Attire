@@ -4,7 +4,9 @@ import React from 'react'
 const BreadCrumb = ({home,category1,category2}) => {
  
   return (
-    <Box border="1px solid red">
+    <Box 
+    // border="1px solid red"
+    >
     <Breadcrumb>
       <BreadcrumbItem>
         <BreadcrumbLink href={home.path ||"#"}>{home.name||"home"}</BreadcrumbLink>
