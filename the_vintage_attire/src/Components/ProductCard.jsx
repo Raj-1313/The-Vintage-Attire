@@ -1,6 +1,11 @@
+
+import { Box, Button,   Text } from "@chakra-ui/react";
+import React from "react";
+
 import { Box, Button, Flex, Image, Text, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   Link,
   useLocation,
@@ -8,10 +13,12 @@ import {
 import { addToCartData } from "../Redux/cartReducer/Cart.action";
 import "./ProductCard.scss";
 const ProductCard = ({ productData }) => {
+
   const toast = useToast()
   const dispatch = useDispatch();
   const userEmail = useSelector( (store) => store.Auth_reducer?.userDetails?.email );
   const [hoverBtn, setHoverBtn] = useState(false);
+
   const location = useLocation();
 
   return (
@@ -32,6 +39,7 @@ const ProductCard = ({ productData }) => {
             bg='black'
             borderRadius={'none'}
             _hover={{colorScheme:"blackAlpha"}}
+           
             color='white'
             position={"absolute"}
             bottom="0"
@@ -55,11 +63,11 @@ const ProductCard = ({ productData }) => {
 
       <Box flexDirection={"column"} className="product-details">
         <Text fontSize={"md"}>{productData.name}</Text>
-        <Text fontSize={"sm"} textDecoration={"line-through"}>
-          INR {productData.discounted_price}
+        <Text color='red' fontSize={"sm"} textDecoration={"line-through"}>
+          INR {productData.discounted_price || Math.floor(Math.random()*17000) }
         </Text>
-        <Text fontSize={"sm"} fontWeight={"bold"}>
-          INR {productData.price}
+        <Text  fontSize={"sm"} fontWeight={"bold"}>
+          INR {productData.price || Math.floor(Math.random()*17000)}
         </Text>
       </Box>
     </div>

@@ -1,4 +1,4 @@
-import {  Box,  Text,  Flex,  Button, Alert, AlertIcon} from "@chakra-ui/react";
+import {  Box,  Text,  Flex,  Button, Alert, AlertIcon, WrapItem, Avatar, Grid} from "@chakra-ui/react";
 import "./Dashboard.css";
 import { BsTagsFill } from "react-icons/bs";
 import { FaRupeeSign, FaUserAlt } from "react-icons/fa";
@@ -44,15 +44,25 @@ const Dashboard = () => {
         {/* Side Bar */}
 
         <Box id="linkBox">
-          <Flex id="usersBox" p="7px 17px" onClick={()=>setProductCompo("user")} className={`linkItem ${productCompo=="user"? "linkActive":""}`}>
+          <Grid textAlign='center' mb='20'>
+
+        <WrapItem justifyContent='center' m='20px'>
+    <Avatar name={userDetails.name} src='https://bit.ly/tioluwani-kolawole' />
+  </WrapItem>
+    <Text fontFamily={"mono"}>{userDetails.name}</Text>
+    <Text fontFamily={"mono"}>{userDetails.email}</Text>
+    <Text fontFamily={"mono"}>{userDetails.mobile}</Text>
+
+          </Grid>
+          <Flex id="usersBox" p="7px 17px" onClick={()=>setProductCompo("user")} className={`linkItem ${productCompo==="user"? "linkActive":""}`}>
             <FaUserAlt />
             <Text pl="15px" >Users</Text>
           </Flex>
-          <Flex id="usersBox" p="7px 17px" className={`linkItem ${productCompo=="product"? "linkActive":""}`} onClick={()=>setProductCompo("product")}>
+          <Flex id="usersBox" p="7px 17px" className={`linkItem ${productCompo==="product"? "linkActive":""}`} onClick={()=>setProductCompo("product")}>
             <BsTagsFill />
             <Text pl="15px" >Products</Text>
           </Flex>
-          <Flex id="usersBox" p="7px 17px" className={`linkItem ${productCompo=="cart"? "linkActive":""}`} onClick={()=>setProductCompo("cart")}>
+          <Flex id="usersBox" p="7px 17px" className={`linkItem ${productCompo==="cart"? "linkActive":""}`} onClick={()=>setProductCompo("cart")}>
             <FaRupeeSign />
             <Text pl="15px">Orders</Text>
           </Flex>
@@ -72,22 +82,22 @@ const Dashboard = () => {
             <Button
               _hover={{ bg: "rgb(134, 130, 238)", color: "white" }}
               mb={2}
-              onClick={()=>dispatch(logout())}
+              onClick={()=>{dispatch(logout()); navigate("/")}   }
             >
               Log Out
             </Button>
           </Flex>
         </Box>
 
-<Box display={`${productCompo=="product"? "block":"none"}`} >
+<Box display={`${productCompo==="product"? "block":"none"}`} >
       <AdminProduct />
 </Box>
-<Box display={`${productCompo=="user"? "block":"none"}`} >
+<Box display={`${productCompo==="user"? "block":"none"}`} >
       <AdminUser />
 </Box>
-{/* <Box display={`${productCompo=="cart"? "block":"none"}`} >      
+ <Box display={`${productCompo==="cart"? "block":"none"}`} >  
       <AdminCart />
-      </Box> */}
+      </Box> 
       </Box>
     </Flex>
   );

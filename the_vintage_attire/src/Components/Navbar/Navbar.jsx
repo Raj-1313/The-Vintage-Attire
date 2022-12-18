@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 import V from "./V.png";
 import { AiOutlineShopping } from "react-icons/ai";
 import "./Navbar.scss";
-import { Flex,Box } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import Login from "../Login";
-import { Button, useDisclosure } from "@chakra-ui/react";
-import { AuthLogin, logout } from "../../Redux/AuthReducer/Auth_actions";
+import { Button } from "@chakra-ui/react";
+import {  logout } from "../../Redux/AuthReducer/Auth_actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const dispatch = useDispatch();
   const [toggle, setToggle] = useState(false);
-  const { userDetails, isAuth,isLoading,isError } = useSelector((store) => store.Auth_reducer);
+  const { userDetails, isAuth } = useSelector((store) => store.Auth_reducer);
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -41,10 +41,20 @@ const Navbar = () => {
               <div className="new-cat-div">
                 <h2>Shop new Arrivals</h2>
                 <ul className="new-cat-ul">
-                  <li>For Women</li>
+                  <li>
+                  <Link to="/product/women">
+                    For Women
+                    </Link>
+                   </li>
+                   <Link to="/product/men">
                   <li>For Men</li>
+                    </Link>
+                   <Link to="/product/kids">
                   <li>For Girls</li>
+                  </Link >
+                  <Link to="/product/kids">
                   <li>For Boys</li>
+                  </Link >
                 </ul>
               </div>
               <div className="new-cat-div">

@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text, Link, Grid, Button } from "@chakra-ui/react";
+import { Box, Flex,  Text } from "@chakra-ui/react";
 import styled from "styled-components";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -123,10 +123,10 @@ transition-duration: 1s;
 transition-property: width;
 `;
 
-const ProductsWrapper = styled.div`
-display: flex;
-justify-content: space-between;
-width: 100%;
-`;
+// const ProductsWrapper = styled.div`
+// display: flex;
+// justify-content: space-between;
+// width: 100%;
+// `;
 
 export default HomeShopPage;

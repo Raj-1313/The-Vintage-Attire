@@ -8,9 +8,8 @@ import {
   useColorModeValue as mode,
 } from "@chakra-ui/react";
 import { Link as ReactLink } from "react-router-dom";
-import axios from "axios";
+
 import * as React from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import BannerAd from "../../Components/BannerAd";
@@ -37,7 +36,7 @@ const Cart = () => {
 
   const dispatch = useDispatch()
 
-  const { cartData,cartLength,subTotalAmt,isLoading, isError } = useSelector((store) => {return store.CartReducer}, shallowEqual);
+  const { cartData,cartLength,subTotalAmt} = useSelector((store) => {return store.CartReducer}, shallowEqual);
   
   const userEmail = useSelector(
     (store) => store.Auth_reducer?.userDetails?.email
@@ -46,7 +45,7 @@ const Cart = () => {
   
   useEffect(() => {
     dispatch(getCartData(userEmail))
-  }, [dispatch, cartLength]);
+  }, [dispatch, cartLength,userEmail]);
 
   // useEffect(() => {
   //   const cartLength = cartData.length;
