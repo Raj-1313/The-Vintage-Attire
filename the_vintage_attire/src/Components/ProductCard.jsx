@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Text, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,6 +8,7 @@ import {
 import { addToCartData } from "../Redux/cartReducer/Cart.action";
 import "./ProductCard.scss";
 const ProductCard = ({ productData }) => {
+  const toast = useToast()
   const dispatch = useDispatch();
   const userEmail = useSelector( (store) => store.Auth_reducer?.userDetails?.email );
   const [hoverBtn, setHoverBtn] = useState(false);
@@ -36,7 +37,15 @@ const ProductCard = ({ productData }) => {
             bottom="0"
             left="0"
             w="full"
-            onClick={() => dispatch(addToCartData(productData._id,userEmail))}
+            onClick={() => dispatch(addToCartData(productData._id,userEmail)).then(res =>{
+              toast({
+                title: 'This item Added to your cart.',
+                status: 'info',
+                duration: 5000,
+                position:"top",
+                isClosable: true,
+              })
+            })}
             className="hover-btn"
           >
             Add to Cart

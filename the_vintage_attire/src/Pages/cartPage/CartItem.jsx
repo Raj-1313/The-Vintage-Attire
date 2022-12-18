@@ -1,4 +1,4 @@
-import { CloseButton, Flex, Link } from "@chakra-ui/react";
+import { CloseButton, Flex, Link, useToast } from "@chakra-ui/react";
 import * as React from "react";
 import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
@@ -10,6 +10,7 @@ import {
 import { useDispatch } from "react-redux";
 
 export const CartItem = (props) => {
+  const toast = useToast()
   const dispatch = useDispatch();
   console.log(props);
   const {
@@ -58,6 +59,13 @@ export const CartItem = (props) => {
           aria-label={`Delete ${name} from cart`}
           onClick={() =>
             dispatch(deleteCartItem(id)).then(res =>{
+              toast({
+                title: 'Item deleted from your cart successfully.',
+                status: 'success',
+                duration: 5000,
+                position:"top",
+                isClosable: true,
+              })
               dispatch(getCartData(props.userEmail))
             })
           }

@@ -9,7 +9,6 @@ const getCartData = (userMail) => (dispatch) => {
     })
     .then((res) => {
       dispatch({ type: types.CART_SUCCESS, payload: res.data });
-      // return res
     })
     .catch((err) => {
       dispatch({ type: types.CART_FAILURE });
@@ -72,11 +71,8 @@ const deleteCartItem = (id) => (dispatch) => {
   return axios
     .delete(`https://vintage-attire-deploy.onrender.com/cart/${id}`)
     .then((res) => {
-      console.log(res);
-      alert("Item removed from cart");
     })
     .catch((err) => {
-      alert("sorry there is an error");
     });
 };
 
