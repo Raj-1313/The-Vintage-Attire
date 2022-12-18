@@ -27,6 +27,7 @@ const ProductCard = ({ productData }) => {
             bg='black'
             borderRadius={'none'}
             _hover={{colorScheme:"blackAlpha"}}
+           
             color='white'
             position={"absolute"}
             bottom="0"
@@ -41,11 +42,11 @@ const ProductCard = ({ productData }) => {
 
       <Box flexDirection={"column"} className="product-details">
         <Text fontSize={"md"}>{productData.name}</Text>
-        <Text fontSize={"sm"} textDecoration={"line-through"}>
-          INR {productData.discounted_price}
+        <Text color='red' fontSize={"sm"} textDecoration={"line-through"}>
+          INR {productData.discounted_price || Math.floor(Math.random()*17000) }
         </Text>
-        <Text fontSize={"sm"} fontWeight={"bold"}>
-          INR {productData.price}
+        <Text  fontSize={"sm"} fontWeight={"bold"}>
+          INR {productData.price || Math.floor(Math.random()*17000)}
         </Text>
       </Box>
     </div>

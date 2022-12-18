@@ -41,10 +41,20 @@ const Navbar = () => {
               <div className="new-cat-div">
                 <h2>Shop new Arrivals</h2>
                 <ul className="new-cat-ul">
-                  <li>For Women</li>
+                  <li>
+                  <Link to="/product/women">
+                    For Women
+                    </Link>
+                  </li>
+                  <Link to="/product/men">
                   <li>For Men</li>
+                    </Link>
+                  <Link to="/product/kids">
                   <li>For Girls</li>
+                  </Link >
+                  <Link to="/product/kids">
                   <li>For Boys</li>
+                  </Link >
                 </ul>
               </div>
               <div className="new-cat-div">
