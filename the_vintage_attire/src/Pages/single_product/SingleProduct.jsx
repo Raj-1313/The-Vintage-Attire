@@ -24,6 +24,8 @@ const product = {
 };
 
 const SingleProduct = () => {
+  const location = useLocation()
+  const { id } = useParams();
   const { data } = useSelector(store =>store.AppReducer)
   
   const [singleProdData, setSingleProdData] = useState(product)

@@ -1,7 +1,11 @@
 import {AUTH_FAILURE,AUTH_REQUEST,AUTH_SUCCESS,AUTHSIGNUP_FAILURE,AUTHSIGNUP_REQUEST,AUTHSIGNUP_SUCCESS,LOGOUT} from "./Auth_actionsTypes"
 
 const localData= JSON.parse(localStorage.getItem("loginData")) || null
+
 const loginToken= localStorage.getItem("loginToken")|| null
+
+// const loginToken= JSON.parse(localStorage.getItem("loginToken")) || null
+
 
 
 const initialState = {
