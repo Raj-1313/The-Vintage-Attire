@@ -7,6 +7,7 @@ import BannerAd from "../../Components/BannerAd";
 import { useLocation, useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
+import { useLocation, useParams } from "react-router-dom";
 
 const product = {
   imgUrl:
@@ -23,8 +24,9 @@ const product = {
 };
 
 const SingleProduct = () => {
-  const location = useLocation();
-  console.log(location);
+  const location = useLocation()
+  const { id } =useParams
+  console.log("id",id)
   const [wishList, setWishList] = useState(false);
 
   const handleChangeWishList = () => {

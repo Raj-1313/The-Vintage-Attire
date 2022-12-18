@@ -15,7 +15,8 @@ export const reducer = (state=initialState,{type,payload}) =>{
             case types.CART_REQUEST:{
                 return {
                     ...state,
-                    isLoading:true
+                    isLoading:true,
+                    isError:false
                 }
             }
             case types.CART_SUCCESS:{
@@ -23,6 +24,7 @@ export const reducer = (state=initialState,{type,payload}) =>{
                 return {
                     ...state,
                     isLoading:false,
+                    isError:false,
                     cartData:payload,
                     cartLength:payload.length,
                     subTotalAmt:findTotalSum(payload)
@@ -58,6 +60,7 @@ export const reducer = (state=initialState,{type,payload}) =>{
                     isButtonError:true
                 }
             }
+          
             default :{
                 return state
             }
