@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-content: space-between;
+  justify-content: space-around;
   z-index: 12;
   background: white;
   position: fixed;
@@ -661,11 +661,13 @@
     display: none;
   }
 }
-// .navbar-logo{
-//   @media screen and (max-width:768px) {
-//     display: none;
-// }
-// }
+  // .navbar-logo{
+  //   @media screen and (max-width:1025px) {
+  //     margin: auto;
+  //     text-align: center;
+  //     border: 1px solid black;
+  // }
+  // }
 
 .right-navbar {
   width: 15%;

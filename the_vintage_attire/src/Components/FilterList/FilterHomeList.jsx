@@ -2,10 +2,10 @@ import { Box, Flex, Image, Text } from '@chakra-ui/react';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { getMenData, getMenDatabySearch } from '../../Redux/AppReducer/App.actions';
+import { getHomeData, getKidsData, getMenData, getMenDatabySearch } from '../../Redux/AppReducer/App.actions';
 import ProductCard from '../ProductCard';
 
-const FilterMenList = () => {
+const FilterHomeList = () => {
     // const data = useSelector(store=>store.AppReducer.data);
 
     // console.log(data)
@@ -30,7 +30,7 @@ const FilterMenList = () => {
                     // _order:sortBy
                 }
             }
-            dispatch(getMenData(getSearchParams))
+            dispatch(getHomeData(getSearchParams))
         }
     },[location.search])
   return (
@@ -42,5 +42,5 @@ const FilterMenList = () => {
   )
 }
 
-export default FilterMenList
+export default FilterHomeList
 
