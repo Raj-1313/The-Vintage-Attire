@@ -1,6 +1,6 @@
 import { Box, Flex, Image, Text, Link, Grid, Button } from "@chakra-ui/react";
 import styled from "styled-components";
-import React from "react";
+import React,{useState} from "react";
 import { useNavigate } from "react-router-dom";
 import FilterMenComponent from "../../Components/FilterComponents/FilterMenComponent";
 import Navbar from "../../Components/Navbar/Navbar";
@@ -8,6 +8,8 @@ import FilterMenList from "../../Components/FilterList/FilterMenList";
 
 const MensPage = () => {
   const navigate = useNavigate();
+  const [FilterComponentText ,setFilterComponentText] = useState(false);
+  
   return (
     <>
       <Navbar />
@@ -36,18 +38,29 @@ const MensPage = () => {
         {/* <FilterArea>
 
         </FilterArea> */}
+        <Box w='full' display='flex' flexDirection='column' border='1px solid green'>
+           <Box display={'flex'} w='30%' border='1px solid black'>
+        <Box onClick={()=>setFilterComponentText((p)=>!p)}>{FilterComponentText ? 'Hide Filter' : 'Show Filter'}</Box>
+        <Box></Box>
+      </Box>
 
         <ProductsWrapper w='full'>
-          <FilterComponentWrapper>
+         { FilterComponentText && <FilterComponentWrapper>
 
         <FilterMenComponent/>
-          </FilterComponentWrapper>
+          </FilterComponentWrapper>}
 
-          <MenListWrapper>
+      { FilterComponentText ? <Box w='100%' >
 
-      <FilterMenList/>
-          </MenListWrapper>
+  <FilterMenList/>
+      </Box>  : <Box w='70%' >
+
+<FilterMenList/>
+    </Box>}
+
         </ProductsWrapper>
+        </Box>
+
       </Box>
     </>
   );
@@ -56,7 +69,6 @@ const MensPage = () => {
 export default MensPage;
 const FilterComponentWrapper = styled.div`
 width:25%;
-
 border:1px solid black;
 `
 const MenListWrapper = styled.div`

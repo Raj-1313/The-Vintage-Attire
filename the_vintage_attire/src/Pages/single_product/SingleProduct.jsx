@@ -4,6 +4,7 @@ import BreadCrumb from "./BreadCrumb";
 import ProductImageBox from "./ProductImageBox";
 import ProductDetailBox from "./ProductDetailBox";
 import BannerAd from "../../Components/BannerAd";
+import { useLocation, useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 
@@ -22,6 +23,8 @@ const product = {
 };
 
 const SingleProduct = () => {
+  const location = useLocation();
+  console.log(location);
   const [wishList, setWishList] = useState(false);
 
   const handleChangeWishList = () => {
