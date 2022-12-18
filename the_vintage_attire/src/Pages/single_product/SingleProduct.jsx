@@ -31,6 +31,7 @@ const SingleProduct = () => {
   const [singleProdData, setSingleProdData] = useState(product)
   console.log(singleProdData)
 
+
 useEffect(()=>{
       let singleData = data?.find((item) =>item._id===id)
       if(singleData){
