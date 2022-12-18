@@ -7,136 +7,129 @@ import {
   Stack,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
+import { Link as ReactLink } from "react-router-dom";
 import axios from "axios";
 import * as React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import BannerAd from "../../Components/BannerAd";
+import Footer from "../../Components/Footer/Footer";
+import Navbar from "../../Components/Navbar/Navbar";
 import { CartItem } from "./CartItem";
 import { CartOrderSummary } from "./CartOrderSummary";
+import { getCartData } from "../../Redux/cartReducer/Cart.action";
+import { BiArrowBack } from "react-icons/bi";
 
-export const cartData = [
-    {
-      id: '1',
-      price: 150,
-      currency: 'INR',
-      name: 'Ferragamo bag',
-      description: 'Tan, 40mm',
-      quantity: 3,
-      imageUrl:
-        'https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80',
-    },
-    {
-      id: '2',
-      price: 150,
-      currency: 'INR',
-      name: 'Bamboo Tan',
-      description: 'Tan, 40mm',
-      quantity: 2,
-      imageUrl:
-        'https://images.unsplash.com/photo-1591561954557-26941169b49e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80',
-    },
-    {
-      id: '3',
-      price: 150,
-      currency: 'INR',
-      name: 'Yeezy Sneakers',
-      description: 'Tan, 40mm',
-      quantity: 3,
-      imageUrl:
-        'https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80',
-    },
-  ]
+// const getCartData = async (data) => {
+//   let res = await axios.get(`https://vintage-attire-deploy.onrender.com/cart`, {
+//     headers: data,
+//   });
+//   return res.data;
+// };
 
-
-
-const getCartData = (data) =>{
-  return axios.get(`https://vintage-attire-server-new.onrender.com/cart`,data)
-              
-}
+// const initialData={
+//   cartLength:0,
+//   subTotalAmt:0
+// }
 
 const Cart = () => {
-  const [cartD,setCartData] = useState( cartData||[])
-  const dispatch = useDispatch()
-  const userEmail = useSelector(store =>store.Auth_reducer.userDetails.email)
-  console.log("cart",userEmail)
 
-  useEffect(() =>{
-    getCartData({
-      userMail:"@rasd"
-  }).then(res =>{
-      alert("fff")
-      setCartData(res)
-      console.log(res)
-    })
-    .catch((err) =>{
-      console.log(err);
-    })
-  },[])
+  const dispatch = useDispatch()
+  const userEmail = useSelector(
+    (store) => store.Auth_reducer?.userDetails?.email
+  );
+
+  const { cartData,cartLength,subTotalAmt,isLoading, isError } = useSelector((store) => {return store.CartReducer}, shallowEqual);
+  // const cartLength = cartData.length;
+  // const subTotalAmt = cartData?.reduce((total, item) => {
+  //   total += item.count * item.data[0].price;
+  //   return total;
+  // }, 0);
+
+  
+  useEffect(() => {
+    dispatch(getCartData(userEmail))
+    console.log("cart", cartData, isLoading, isError);
+  }, [userEmail,cartData,cartLength,subTotalAmt]);
+
+  // useEffect(() => {
+  //   const cartLength = cartData.length;
+  //   setTotalCartItems(cartLength);
+  //   const subTotal = cartData?.reduce((total, item) => {
+  //     total += item.count * item.data[0].price;
+  //     return total;
+  //   }, 0);
+  //   setSubTotal(subTotal);
+  // }, [cartData, cartData.length]);
 
   return (
-    <Box
-    maxW={{
-      base: "3xl",
-      lg: "7xl",
-    }}
-    mx="auto"
-    px={{
-      base: "4",
-      md: "8",
-      lg: "12",
-    }}
-    py={{
-      base: "6",
-      md: "8",
-      lg: "12",
-    }}
-  >
-    <Stack
-      direction={{
-        base: "column",
-        lg: "row",
-      }}
-      align={{
-        lg: "flex-start",
-      }}
-      spacing={{
-        base: "8",
-        md: "16",
-      }}
-    >
-      <Stack
-        spacing={{
-          base: "8",
-          md: "10",
+    <>
+      <Navbar />
+      <BannerAd />
+      <Box
+        maxW={{
+          base: "3xl",
+          lg: "7xl",
         }}
-        flex="2"
+        mt={20}
+        mx="auto"
+        px={{
+          base: "4",
+          md: "8",
+          lg: "12",
+        }}
+        py={{
+          base: "6",
+          md: "8",
+          lg: "12",
+        }}
       >
-        <Heading fontSize="2xl" fontWeight="extrabold">
-          SHOPPING BAG (3 ITEMS)
-        </Heading>
+        <Stack
+          direction={{
+            base: "column",
+            sm: "row",
+          }}
+          align={{
+            lg: "flex-start",
+          }}
+          spacing={{
+            base: "8",
+            md: "16",
+          }}
+        >
+          <Stack
+            spacing={{
+              base: "8",
+              md: "10",
+            }}
+            flex="2"
+          >
+            <Heading fontSize="2xl" fontWeight="extrabold">
+              SHOPPING BAG ({cartLength} ITEMS)
+            </Heading>
 
-        <Stack bg='white'  spacing="6">
-          {cartD.map((item) => (
-            <CartItem key={item.id} {...item} />
-          ))}
+            <Stack bg="white" spacing="6">
+              {cartData.map((item, i) => {
+                return <CartItem key={item.data[0]._id} {...item} />;
+              }, 0)}
+            </Stack>
+          </Stack>
+
+         {cartLength>0? <Flex direction="column" align="center" flex="1">
+            <CartOrderSummary subTotal={subTotalAmt} />
+            <HStack mt="6" fontWeight="semibold">
+              <p>or</p>
+              <Link as={ReactLink} to="/" color={mode("blue.500", "blue.200")}>
+                Continue shopping
+              </Link>
+            </HStack>
+          </Flex>: <Link as={ReactLink} to="/"><BiArrowBack /> </Link>}
         </Stack>
-      </Stack>
+      </Box>
+      <Footer />
+    </>
+  );
+};
 
-      <Flex direction="column" align="center" flex="1">
-        <CartOrderSummary />
-        <HStack mt="6" fontWeight="semibold">
-          <p>or</p>
-          <Link color={mode("blue.500", "blue.200")}>Continue shopping</Link>
-        </HStack>
-      </Flex>
-    </Stack>
-  </Box>
-  )
-}
-
-export default Cart
- 
-    
- 
-
+export default Cart;

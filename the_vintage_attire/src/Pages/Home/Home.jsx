@@ -724,6 +724,7 @@ const Home = () => {
             </Grid>
           </Box>
         </Box>
+
         <Footer />
         {/* <Box></Box> */}
       </Box>
