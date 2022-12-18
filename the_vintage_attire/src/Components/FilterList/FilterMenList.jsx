@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { getMenData, getMenDatabySearch } from '../../Redux/AppReducer/App.actions';
+import ProductCard from '../ProductCard';
 
 const FilterMenList = () => {
     // const data = useSelector(store=>store.AppReducer.data);
@@ -33,21 +34,9 @@ const FilterMenList = () => {
         }
     },[location.search])
   return (
-    <Box display={'grid'} gridTemplateColumns='repeat(3,1fr)' gap='1rem'>
+    <Box display={'grid'} gridTemplateColumns='repeat(3,1fr)' gap='1rem' border='1px solid black'>
         {books.map((item,index)=>{
-            return <Box key={index} >
-                <Box overflow='hidden' >
-                <Image src={item.imgUrl} _hover={{ transform: "scale(1.15)", transformOrigin: "50% 50%" }}
-                transition="transform .5s"/>
-                </Box>
-
-                <Flex flexDirection={'column'} >
-                    <Text fontSize={'md'}>{item.name}</Text>
-                    <Text fontSize={'sm'} textDecoration={'line-through'}>INR {item.discounted_price}</Text>
-                    <Text fontSize={'sm'} fontWeight={"bold"}>INR {item.price}</Text>
-
-                </Flex>
-            </Box>
+            return <ProductCard productData={item} key = {index} />
         })}
     </Box>
   )
