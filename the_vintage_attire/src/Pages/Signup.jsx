@@ -13,6 +13,10 @@ import {
   Text,
   Box,
   HStack,
+  Alert,
+  AlertIcon,
+  Flex,
+  Grid,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthSignUp } from "../Redux/AuthReducer/Auth_actions";
@@ -20,6 +24,8 @@ import { useNavigate} from "react-router-dom"
 import { FaHome } from "react-icons/fa";
 
 const Signup = () => {
+  const [userExist,setUserExist]= useState(false)
+  const [userCreated,setUserCreated]= useState(false)
   const navigate = useNavigate()
   const [backgr,setBackground]= useState("")
   const {isAuth} = useSelector(store=> store.Auth_reducer)
@@ -51,6 +57,21 @@ const Signup = () => {
     ) {
       dispatch(AuthSignUp(dataSign)).then((res)=>{
         console.log(res)
+        if(res.data== "User already exists"){
+          setTimeout(() =>{
+            setUserExist(false)
+            navigate("/")
+          },2000)          
+          setUserExist(true)
+        }
+        if(res.data?.redirect){
+          setTimeout(() =>{
+            setUserCreated(false)
+            navigate("/")
+          },2000)
+          setUserCreated(true)
+
+        }
         // return Navigate("/")
       }).catch((err) => alert(err.message) )
     }
@@ -143,7 +164,21 @@ const Signup = () => {
            
           </ModalContent>
         </Modal>
-      
+        <Grid justifyContent='center' alignItems={'center'} >
+
+      {
+        userExist && <Alert status='warning'>
+          <AlertIcon />
+          Seems your account is  Exist, Login now
+        </Alert>
+      }
+      {
+        userCreated && <Alert status='success'>
+          <AlertIcon />
+          Account Created Successfully
+        </Alert>
+      }
+      </Grid>
     </>
   );
 };
