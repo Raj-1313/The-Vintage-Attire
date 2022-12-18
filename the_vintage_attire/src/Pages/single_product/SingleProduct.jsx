@@ -24,12 +24,17 @@ const product = {
 };
 
 const SingleProduct = () => {
+
   const { id } = useParams();
+
+  const location = useLocation()
+
   const { data } = useSelector(store =>store.AppReducer)
+  const { id } =useParams()
   
   const [singleProdData, setSingleProdData] = useState(product)
   console.log(singleProdData)
- 
+
 
 useEffect(()=>{
       let singleData = data?.find((item) =>item._id===id)

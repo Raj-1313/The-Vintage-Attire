@@ -10,6 +10,7 @@ import {
   Spacer,
   Stack,
   Text,
+  useToast,
   VStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
@@ -20,6 +21,7 @@ import { addToCartData } from "../../Redux/cartReducer/Cart.action";
 // import StarRatingComponent from "react-star-rating-component";
 
 const ProductDetailBox = (props) => {
+  const toast = useToast()
   const dispatch = useDispatch();
   const userEmail = useSelector( (store) => store.Auth_reducer?.userDetails?.email );
   const [resize, setSize] = useState("");
@@ -110,7 +112,15 @@ const ProductDetailBox = (props) => {
             borderRadius="none"
             bgColor="black"
             color="white"
-            onClick={() => dispatch(addToCartData(_id,userEmail))}
+            onClick={() => dispatch(addToCartData(_id,userEmail)).then(res =>{
+              toast({
+                title: 'This item Added to your cart.',
+                status: 'info',
+                duration: 5000,
+                position:"top",
+                isClosable: true,
+              })
+            })}
           >
             ADD TO CARD
           </Button>

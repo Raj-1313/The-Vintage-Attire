@@ -104,7 +104,7 @@ const Cart = () => {
             </Heading>
 
             <Stack bg="white" spacing="6">
-              {cartData.map((item, i) => {
+              {cartData?.map((item, i) => {
                 return <CartItem key={item.data[0]._id} userEmail={userEmail} {...item} />;
               }, 0)}
             </Stack>

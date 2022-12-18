@@ -9,7 +9,6 @@ const getCartData = (userMail) => (dispatch) => {
     })
     .then((res) => {
       dispatch({ type: types.CART_SUCCESS, payload: res.data });
-      // return res
     })
     .catch((err) => {
       dispatch({ type: types.CART_FAILURE });
@@ -68,22 +67,14 @@ const decrementCartCount = (prodId, userMail) => (dispatch) => {
 };
 
 const deleteCartItem = (id) => (dispatch) => {
-  console.log(id);
-  dispatch({ type: types.BTN_DELETE_CART_REQUEST });
+  
   return axios
     .delete(`https://vintage-attire-deploy.onrender.com/cart/${id}`)
     .then((res) => {
-      console.log(res);
-      alert("Item removed from cart");
     })
     .catch((err) => {
-      alert("sorry there is an error");
     });
 };
-
-// const getSingleProduct =(id) =>{
-//       return axios.get(`https://vintage-attire-deploy.onrender.com/product/${id}`)
-// }
 
 export {
   getCartData,
