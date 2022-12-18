@@ -1,12 +1,5 @@
 import React from 'react'
 
-// const NotFound = () => {
-//   return (
-//     <div>NotFound</div>
-//   )
-// }
-
-// export default NotFound
 
 import { Box, Heading, Text, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
