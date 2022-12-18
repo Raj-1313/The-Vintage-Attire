@@ -7,6 +7,7 @@ import Navbar from '../../Components/Navbar/Navbar';
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import FilterWomenList from '../../Components/FilterList/FilterWomenList';
 import styled from 'styled-components';
+import Footer from '../../Components/Footer/Footer';
 
 
 const WomenPage = () => {
@@ -44,16 +45,20 @@ const WomenPage = () => {
         <Box w="full" display="flex" flexDirection="column" mb="1rem" mt='1rem'>
           <Box
             display={"flex"}
-            w="30%"
-            border="1px solid lightgray"
+            w={{base:"10rem",md:"25%"}}
+            border="1px solid black"
             mb=".5rem"
             bg={"#E2E8F0"}
+            zIndex={{ base:'0',sm:"0",md:'0'}}
+
             position={'sticky'}
+            top='4rem'
           >
             <Box
-              w="100%"
+              w={{base:"90%",md:"100%"}}
               fontFamily="sans"
               fontWeight={"semibold"}
+              
               onClick={() => setFilterComponentText((p) => !p)}
               position={'sticky'}
             >
@@ -61,10 +66,12 @@ const WomenPage = () => {
                 <Box
                   display={"flex"}
                   ml="1rem"
-                  w={"90%"}
+                 
+                  w={{base:"90%",md:"90%"}}
                   alignItems="center"
+                 
                   justifyContent={"space-between"}
-              fontSize={"lg"}
+              fontSize={{base:"sm",md:"lg"}}
 
                 >
                   <Text>Hide Filter</Text>
@@ -76,7 +83,8 @@ const WomenPage = () => {
                   ml="1rem"
                   w={"90%"}
                   alignItems="center"
-              fontSize={"lg"}
+                  
+                  fontSize={{base:"sm",md:"lg"}}
 
                   justifyContent={"space-between"}
                 >
@@ -87,7 +95,7 @@ const WomenPage = () => {
             </Box>
           </Box>
 
-          <ProductsWrapper>
+          <Flex justifyContent={'space-between'} w='full' flexDirection={{base:'column',md:"row"}}>
             {FilterComponentText && (
               <FilterComponentWrapper>
                 <FilterWomenComponent />
@@ -95,16 +103,17 @@ const WomenPage = () => {
             )}
 
             {FilterComponentText ? (
-              <motion.div style={{ width: "69%" }} animate={{ x: [-300, 0] }}>
+              <motion.div style={{ width: "74%",margin:'auto' }} animate={{ x: [-300, 0] }}>
                 <FilterWomenList />
               </motion.div>
             ) : (
-              <Box w="100%">
+              <Box w="100%" m={'auto'}>
                 <FilterWomenList />
               </Box>
             )}
-          </ProductsWrapper>
+          </Flex>
         </Box>
+      <Footer/>
       </Box>
     </>
   );

@@ -1,16 +1,18 @@
-import { Box, Flex, Image, Text, Link, Grid, Button } from "@chakra-ui/react";
+import { Box, Flex, Image, Text, Link, Grid, Button, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 import styled from "styled-components";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FilterMenComponent from "../../Components/FilterComponents/FilterMenComponent";
 import Navbar from "../../Components/Navbar/Navbar";
 import FilterMenList from "../../Components/FilterList/FilterMenList";
 import { motion } from "framer-motion";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
+import Footer from "../../Components/Footer/Footer";
+import { useSelector } from "react-redux";
 const MensPage = () => {
   const navigate = useNavigate();
   const [FilterComponentText, setFilterComponentText] = useState(true);
-
+  
   return (
     <>
       <Navbar />
@@ -39,20 +41,22 @@ const MensPage = () => {
         {/* <FilterArea>
 
         </FilterArea> */}
-        <Box w="full" display="flex" flexDirection="column" mb="1rem" mt='1rem' border={'1px solid black'}>
+        <Box w="full" display="flex" flexDirection="column" mb="1rem" mt='1rem'>
           <Box
             display={"flex"}
-            w="30%"
+            w={{base:"10rem",md:"25%"}}
             border="1px solid black"
             mb=".5rem"
             bg={"#E2E8F0"}
+            zIndex={{ base:'0',sm:"0",md:'0'}}
             position={'sticky'}
             top='4rem'
           >
             <Box
-              w="100%"
+              w={{base:"90%",md:"100%"}}
               fontFamily="sans"
               fontWeight={"semibold"}
+              
               onClick={() => setFilterComponentText((p) => !p)}
               position={'sticky'}
             >
@@ -60,10 +64,12 @@ const MensPage = () => {
                 <Box
                   display={"flex"}
                   ml="1rem"
-                  w={"90%"}
+                 
+                  w={{base:"90%",md:"90%"}}
                   alignItems="center"
+                 
                   justifyContent={"space-between"}
-              fontSize={"lg"}
+              fontSize={{base:"sm",md:"lg"}}
 
                 >
                   <Text>Hide Filter</Text>
@@ -75,7 +81,8 @@ const MensPage = () => {
                   ml="1rem"
                   w={"90%"}
                   alignItems="center"
-              fontSize={"lg"}
+                  
+                  fontSize={{base:"sm",md:"lg"}}
 
                   justifyContent={"space-between"}
                 >
@@ -86,7 +93,7 @@ const MensPage = () => {
             </Box>
           </Box>
 
-          <ProductsWrapper>
+          <Flex justifyContent={'space-between'} w='full' flexDirection={{base:'column',md:"row"}}>
             {FilterComponentText && (
               <FilterComponentWrapper>
                 <FilterMenComponent />
@@ -94,23 +101,24 @@ const MensPage = () => {
             )}
 
             {FilterComponentText ? (
-              <motion.div style={{ width: "69%" }} animate={{ x: [-300, 0] }}>
+              <motion.div style={{ width: "74%",margin:'auto' }} animate={{ x: [-300, 0] }}>
                 <FilterMenList />
               </motion.div>
             ) : (
-              <Box w="100%">
+              <Box w="100%" m={'auto'}>
                 <FilterMenList />
               </Box>
             )}
-          </ProductsWrapper>
+          </Flex>
         </Box>
+      <Footer/>
       </Box>
     </>
   );
 };
 
 const FilterComponentWrapper = styled.div`
-width: 30%;
+width: 25%;
 transition-duration: 1s;
 transition-property: width;
 `;

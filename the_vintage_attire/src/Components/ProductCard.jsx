@@ -23,13 +23,18 @@ const ProductCard = ({ productData }) => {
           </Link>
           <Button
             display="none"
+            // colorScheme={'black'}
+            bg='black'
+            borderRadius={'none'}
+            _hover={{colorScheme:"blackAlpha"}}
+            color='white'
             position={"absolute"}
             bottom="0"
             left="0"
             w="full"
             className="hover-btn"
           >
-            Shop Now
+            Add to Cart
           </Button>
         </Box>
       </div>

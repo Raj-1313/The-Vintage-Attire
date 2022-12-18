@@ -58,7 +58,7 @@ const Home = () => {
               h="2rem"
               w="13%"
               alignItems={"center"}
-              justifyContent={"space-between"}
+              justifyContent={"space-evenly"}
             >
               <Image src={india} h="50%" />
               <Text fontSize={"sm"}>INDIA</Text>
@@ -66,7 +66,8 @@ const Home = () => {
             <Text
               fontSize={"lg"}
               fontWeight="light"
-              mt="3%"
+              // mt="3%"
+              // m='2% 0'
               textTransform="uppercase"
             >
               The Vintage Attire.com Ships All
@@ -74,7 +75,7 @@ const Home = () => {
             <Text
               fontSize={{ md: "2rem", lg: "2rem", xl: "3rem" }}
               fontWeight="500"
-              mt="1%"
+              // mt="1%"
               textDecoration={"underline"}
               textDecorationThickness={"3px"}
             >
@@ -83,40 +84,40 @@ const Home = () => {
             <Box
               display={"flex"}
               flexDirection="column"
-              justifyContent={"center"}
-              mt="2%"
+              justifyContent={"space-evenly"}
+              // mt="4%"
+              // m='3% 0'
               alignItems="center"
             >
               <Text fontWeight={"semibold"} mt="1rem">
                 FLAT RATE SHIPPING
               </Text>
-              <Text fontWeight={"semibold"}>DUTY-FREE SHOPPING IN YOUR</Text>
-              <Text fontWeight={"semibold"}>LOCAL CURRENCY</Text>
-              <Text fontWeight={"semibold"}>NEED HELP?</Text>
-              <Text>email julie@jcrew.com or</Text>
-              <Text>call 1-434-385-5775</Text>
+              <Text m='2% 0' fontWeight={"semibold"}>DUTY-FREE SHOPPING IN YOUR</Text>
+              <Text m='2% 0' fontWeight={"semibold"}>LOCAL CURRENCY</Text>
+              <Text m='2% 0' fontWeight={"semibold"}>NEED HELP?</Text>
+              <Text m='2% 0'>email julie@jcrew.com or</Text>
+              <Text m='2% 0'>call 1-434-385-5775</Text>
               <Button
                 bg="black"
                 color="white"
                 w="14rem"
                 onClick={() => setLoader(false)}
                 borderRadius="none"
-                mt="5%"
+                mt="3%"
                 _hover={"none"}
               >
                 START SHOPPING
               </Button>
               <Link
                 textDecoration={"underline"}
-                mb={{ lg: "14%", xl: "5%" }}
-                mt={{ md: "2rem", lg: "14%", xl: "5%" }}
+                mt='10%'
                 textAlign={"justify"}
                 fontSize="md"
                 letterSpacing={"3px"}
               >
                 Take me to the U.S. site.
               </Link>
-              <Box w="full" bg="lightgray" p="1rem" objectFit={"contain"}>
+              <Box position={'absolute'} bottom='0' w="full" bg="lightgray" p="1rem" objectFit={"contain"}>
                 <Text
                   fontSize={".65rem"}
                   textAlign="center"

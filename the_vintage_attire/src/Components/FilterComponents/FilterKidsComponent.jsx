@@ -6,6 +6,8 @@ import { getKidsData, getMenData, getWomenData } from "../../Redux/AppReducer/Ap
 import { Box, Checkbox, Flex, Select, Stack } from "@chakra-ui/react";
 import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
+import {RiArrowDownSFill} from 'react-icons/ri';
+
 
 const FilterKidsComponent = () => {
   const [data, setData] = useState([]);
@@ -73,7 +75,7 @@ const FilterKidsComponent = () => {
 
 
   return (
-    <Flex padding={'1rem'} justifyContent='space-between' >
+    <Flex padding={'1rem'} justifyContent='space-between' position={'sticky'} top='6rem'>
      
        <FilterMenComponentWrapper >
         {uniqueArr?.map((item, index) => {
@@ -83,28 +85,36 @@ const FilterKidsComponent = () => {
                 display: "flex",
                 justifyContent: "flex-start",
                 alignItems: "center",
-                border: "1px solid black",
+                
               }}
-              key={index}
+              key={index} 
             >
-              <label htmlFor="">
+              
+              <Checkbox
+              
+                onChange={handleFilter}
+                colorScheme="green"
+                value={item}
+                mr='.3rem'
+              ></Checkbox>
+              
+              <label htmlFor="" style={{fontSize:'.85rem',fontWeight:'500',textTransform:'capitalize'}}>
                 {item}{" "}
                 {Object.keys(eachItemLength).length > 0
                   ? `(${eachItemLength[item]})`
                   : ""}
               </label>
-              <Checkbox
-                onChange={handleFilter}
-                colorScheme="green"
-                value={item}
-              ></Checkbox>
             </div>
           );
         })}
           
       </FilterMenComponentWrapper>
       <Box>
-        <Select placeholder="Featured" onChange={handleSort}>
+        <Select placeholder="Featured" icon={<RiArrowDownSFill />} onChange={handleSort} h='2rem'
+        borderRadius={'none'}
+        fontWeight='semibold'
+        size={'sm'}
+        borderColor={'black'} border={'1px solid black'}>
           <option value="asc">Price: Low - High</option>
           <option value="desc">Price: High - Low</option>
           <option value="inc">Sort: A - Z</option>

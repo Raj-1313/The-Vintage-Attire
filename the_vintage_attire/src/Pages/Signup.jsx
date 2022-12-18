@@ -16,9 +16,11 @@ import {
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthSignUp } from "../Redux/AuthReducer/Auth_actions";
-import {Navigate} from "react-router-dom"
+import { useNavigate} from "react-router-dom"
+import { FaHome } from "react-icons/fa";
 
 const Signup = () => {
+  const navigate = useNavigate()
   const [backgr,setBackground]= useState("")
   const {isAuth} = useSelector(store=> store.Auth_reducer)
    console.log(isAuth);
@@ -73,7 +75,8 @@ const Signup = () => {
             >
               Sign Up
             </ModalHeader>
-            <ModalCloseButton />
+
+            {/* <FaHome onClick={() =>navigate('/')} /> */}
 
             <ModalBody pb={6} borderRadius="12">
               <form onSubmit={handleSubmit}>

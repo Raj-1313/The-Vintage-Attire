@@ -9,104 +9,113 @@ import { motion } from "framer-motion";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import FilterKidsComponent from "../../Components/FilterComponents/FilterKidsComponent";
 import FilterKidsList from "../../Components/FilterList/FilterKidsList";
+import Footer from "../../Components/Footer/Footer";
 const KidsPage = () => {
   const navigate = useNavigate();
   const [FilterComponentText, setFilterComponentText] = useState(true);
 
   return (
     <>
-      <Navbar />
-      <Box position="absolute" mt={"4rem"} w={"100%"}>
-        <Flex
-          w={"full"}
-          h="4rem"
-          alignItems={"center"}
-          justifyContent={"center"}
-          fontSize=".85rem"
-          border="1px solid lightgray"
-        >
-          Have a question? We can help.*
-        </Flex>
+    <Navbar />
+    <Box position="absolute" mt={"4rem"} w={"100%"}>
+      <Flex
+        w={"full"}
+        h="4rem"
+        alignItems={"center"}
+        justifyContent={"center"}
+        fontSize=".85rem"
+        border="1px solid lightgray"
+      >
+        Have a question? We can help.*
+      </Flex>
+      <Box
+        w={"full"}
+        textAlign="center"
+        justifyContent={"center"}
+        fontFamily={"sans"}
+        lineHeight="4rem"
+      >
+        <Text fontSize={"2.75rem"}>The Holiday</Text>
+        <Text fontSize={"4.25rem"}>Collection</Text>
+      </Box>
+
+      {/* <FilterArea>
+
+      </FilterArea> */}
+      <Box w="full" display="flex" flexDirection="column" mb="1rem" mt='1rem'>
         <Box
-          w={"full"}
-          textAlign="center"
-          justifyContent={"center"}
-          fontFamily={"sans"}
-          lineHeight="4rem"
+          display={"flex"}
+          w={{base:"10rem",md:"25%"}}
+          border="1px solid black"
+          mb=".5rem"
+          bg={"#E2E8F0"}
+          zIndex={{ base:'0',sm:"0",md:'0'}}
+
+          position={'sticky'}
+          top='4rem'
         >
-          <Text fontSize={"2.75rem"}>The Holiday</Text>
-          <Text fontSize={"4.25rem"}>Collection</Text>
-        </Box>
-
-        {/* <FilterArea>
-
-        </FilterArea> */}
-        <Box w="full" display="flex" flexDirection="column" mb="1rem" mt='1rem'>
           <Box
-            display={"flex"}
-            w="30%"
-            border="1px solid lightgray"
-            mb=".5rem"
-            bg={"#E2E8F0"}
+            w={{base:"90%",md:"100%"}}
+            fontFamily="sans"
+            fontWeight={"semibold"}
+            
+            onClick={() => setFilterComponentText((p) => !p)}
             position={'sticky'}
           >
-            <Box
-              w="100%"
-              fontFamily="sans"
-              fontWeight={"semibold"}
-              onClick={() => setFilterComponentText((p) => !p)}
-              position={'sticky'}
-            >
-              {FilterComponentText ? (
-                <Box
-                  display={"flex"}
-                  ml="1rem"
-                  w={"90%"}
-                  alignItems="center"
-                  justifyContent={"space-between"}
-              fontSize={"lg"}
-
-                >
-                  <Text>Hide Filter</Text>
-                  <GoTriangleUp size={"15px"} />
-                </Box>
-              ) : (
-                <Box
-                  display={"flex"}
-                  ml="1rem"
-                  w={"90%"}
-                  alignItems="center"
-              fontSize={"lg"}
-
-                  justifyContent={"space-between"}
-                >
-                  <Text>Show Filter</Text>
-                  <GoTriangleDown size={"15px"} />
-                </Box>
-              )}
-            </Box>
-          </Box>
-
-          <ProductsWrapper>
-            {FilterComponentText && (
-              <FilterComponentWrapper>
-                <FilterKidsComponent />
-              </FilterComponentWrapper>
-            )}
-
             {FilterComponentText ? (
-              <motion.div style={{ width: "69%" }} animate={{ x: [-300, 0] }}>
-                <FilterKidsList />
-              </motion.div>
+              <Box
+                display={"flex"}
+                ml="1rem"
+               
+                w={{base:"90%",md:"90%"}}
+                alignItems="center"
+               
+                justifyContent={"space-between"}
+            fontSize={{base:"sm",md:"lg"}}
+
+              >
+                <Text>Hide Filter</Text>
+                <GoTriangleUp size={"15px"} />
+              </Box>
             ) : (
-              <Box w="100%">
-                <FilterKidsList />
+              <Box
+                display={"flex"}
+                ml="1rem"
+                w={"90%"}
+                alignItems="center"
+                
+                fontSize={{base:"sm",md:"lg"}}
+
+                justifyContent={"space-between"}
+              >
+                <Text>Show Filter</Text>
+                <GoTriangleDown size={"15px"} />
               </Box>
             )}
-          </ProductsWrapper>
+          </Box>
         </Box>
+
+        <Flex justifyContent={'space-between'} w='full' flexDirection={{base:'column',md:"row"}}>
+          {FilterComponentText && (
+            <FilterComponentWrapper>
+              <FilterKidsComponent />
+            </FilterComponentWrapper>
+          )}
+
+          {FilterComponentText ? (
+            <motion.div style={{ width: "74%",margin:'auto' }} animate={{ x: [-300, 0] }}>
+              <FilterKidsList />
+            </motion.div>
+          ) : (
+            <Box w="100%" m={'auto'}>
+              <FilterKidsList />
+            </Box>
+          )}
+        </Flex>
       </Box>
-    </>
+    <Footer/>
+    </Box>
+  </>
   );
 };
 

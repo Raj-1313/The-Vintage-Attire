@@ -34,11 +34,11 @@ const FilterHomeList = () => {
         }
     },[location.search])
   return (
-    <Box display={'grid'} gridTemplateColumns='repeat(3,1fr)' gap='1rem' >
-        {books.map((item,index)=>{
-            return <ProductCard productData={item} key = {index} />
-        })}
-    </Box>
+    <Box display={'grid'} gridTemplateColumns={{base:'repeat(1,1fr)',sm:"repeat(2,1fr)",md:'repeat(3,1fr)'}} gap='1rem' >
+    {books.map((item,index)=>{
+        return <ProductCard productData={item} key = {index} />
+    })}
+</Box>
   )
 }
 
