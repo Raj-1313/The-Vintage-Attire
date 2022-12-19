@@ -24,6 +24,7 @@ const WomenProductPage = () => {
       w="full"
       h={{ base: "70vh", sm: "80vh", md: "100vh", lg: "110vh" }}
       position="relative"
+      cursor={'pointer'}
     >
       <Image
         zIndex={"0"}
@@ -45,6 +46,8 @@ const WomenProductPage = () => {
         textAlign={"center"}
         fontWeight={"normal"}
         fontFamily={"serif"}
+        onClick={()=>navigate("/product/womenpage")}
+
       >
         <Text fontSize={{ base: "2rem", md: "3.8rem" }} color='red'>
          The Holiday Collection is Here!
@@ -55,7 +58,8 @@ const WomenProductPage = () => {
         <Link textDecoration={'underline'} fontSize='md' onClick={()=>navigate("/product/menspage")}>Shop the latest</Link>
       </Box>
     </Box>
-    <Box w='90%' m='auto' mb='3rem'>
+        
+    <Box onClick={()=>navigate("/product/womenpage")} w='90%' m='auto' mb='3rem' cursor={'pointer'}>
         <Text
           textDecoration={"underline"}
           fontFamily="sans"

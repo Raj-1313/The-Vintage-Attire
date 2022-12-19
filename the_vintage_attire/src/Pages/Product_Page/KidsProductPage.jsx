@@ -25,6 +25,8 @@ const KidsProductPage = () => {
       w="full"
       h={{ base: "70vh", sm: "80vh", md: "100vh", lg: "110vh" }}
       position="relative"
+      cursor={'pointer'}
+      onClick={()=>navigate("/product/kidspage")}
     >
       <Image
         zIndex={"0"}
@@ -98,6 +100,8 @@ const KidsProductPage = () => {
           textAlign='center'
           fontWeight={'normal'}
           mt='2rem'
+          onClick={()=>navigate("/product/kidspage")}
+          cursor='pointer'
         >
           Shops, stories & more
         </Text>

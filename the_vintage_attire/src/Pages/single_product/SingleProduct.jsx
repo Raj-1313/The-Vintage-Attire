@@ -4,7 +4,7 @@ import BreadCrumb from "./BreadCrumb";
 import ProductImageBox from "./ProductImageBox";
 import ProductDetailBox from "./ProductDetailBox";
 import BannerAd from "../../Components/BannerAd";
-import {  useParams } from "react-router-dom";
+import {  useLocation, useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import { useSelector } from "react-redux"
@@ -30,7 +30,6 @@ const SingleProduct = () => {
   const location = useLocation()
 
   const { data } = useSelector(store =>store.AppReducer)
-  const { id } =useParams()
   
   const [singleProdData, setSingleProdData] = useState(product)
   console.log(singleProdData)

@@ -1,7 +1,4 @@
 
-import { Box, Button,   Text } from "@chakra-ui/react";
-import React from "react";
-
 import { Box, Button, Flex, Image, Text, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

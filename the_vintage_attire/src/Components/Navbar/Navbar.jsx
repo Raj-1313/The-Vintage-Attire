@@ -571,7 +571,7 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <a href="">Stories</a>
+            <a href="/">Stories</a>
             {/* Stories Hover / Category */}
             <div className="stories-cat-hover">
               <div className="stories-cat-div">
@@ -642,7 +642,7 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <a href="">Sale</a>
+            <a href="/">Sale</a>
             <div className="sale-cat-hover">
               <div className="wrap-sale">
                 <div className="sale-cat-div">
@@ -740,32 +740,32 @@ const Navbar = () => {
               <HiX onClick={() => setToggle(false)} />
               <ul>
                 <li key={`link-home`}>
-                  <a onClick={() => setToggle(false)} href="#home">
+                  <a onClick={() => setToggle(false)} href="/">
                     New
                   </a>
                 </li>
                 <li key={`link-aboutme`}>
-                  <a onClick={() => setToggle(false)} href="#about me">
+                  <a onClick={() => setToggle(false)} href="/product/women">
                     Women
                   </a>
                 </li>
                 <li key={`link-projects`}>
-                  <a onClick={() => setToggle(false)} href="#projects">
+                  <a onClick={() => setToggle(false)} href="/product/men">
                     Men
                   </a>
                 </li>
                 <li key={`link-skills`}>
-                  <a onClick={() => setToggle(false)} href="#skills">
+                  <a onClick={() => setToggle(false)} href="/product/kids">
                     Kids
                   </a>
                 </li>
                 <li key={`link-contacts`}>
-                  <a onClick={() => setToggle(false)} href="#contacts">
+                  <a onClick={() => setToggle(false)} href="/product/home">
                     Home
                   </a>
                 </li>
                 <li key={`link-resume`}>
-                  <a onClick={() => setToggle(false)} href="">
+                  <a onClick={() => setToggle(false)} href="/">
                     Sale
                   </a>
                 </li>

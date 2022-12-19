@@ -18,8 +18,10 @@ import Footer from "../../Components/Footer/Footer";
 import Login from "../../Components/Login";
 import Navbar from "../../Components/Navbar/Navbar";
 import V from "../../Components/Navbar/V.png";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
   const [loader, setLoader] = useState(true);
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -137,6 +139,7 @@ const Home = () => {
           w="full"
           h={{ base: "70vh", sm: "80vh", md: "100vh", lg: "110vh" }}
           position="relative"
+          onClick={()=>navigate("/product/men")}
         >
           <Image
             zIndex={"0"}
@@ -145,6 +148,7 @@ const Home = () => {
             }
             h="full"
             w="full"
+            cursor={'pointer'}
           />
           <Box
             zIndex={"1"}
@@ -156,6 +160,7 @@ const Home = () => {
             textAlign={"center"}
             fontWeight={"normal"}
             fontFamily={"serif"}
+            cursor='pointer'
           >
             <Text fontSize={{ base: "2rem", md: "4.5rem" }}>
               The J.Crew Gift Guide
@@ -182,6 +187,7 @@ const Home = () => {
                 fontSize={{ base: "10px", sm: "14px", md: "sm" }}
                 fontWeight={"500"}
                 fontFamily="sans-serif"
+                onClick={()=>navigate("/product/women")}
               >
                 Shop for her
               </Button>
@@ -194,6 +200,7 @@ const Home = () => {
                 fontSize={{ base: "10px", sm: "14px", md: "sm" }}
                 fontWeight={"500"}
                 fontFamily="sans-serif"
+                onClick={()=>navigate("/product/men")}
               >
                 Shop for him
               </Button>
@@ -206,6 +213,7 @@ const Home = () => {
                 fontSize={{ base: "10px", sm: "14px", md: "sm" }}
                 fontWeight={"500"}
                 fontFamily="sans-serif"
+                onClick={()=>navigate("/product/kids")}
               >
                 Shop for girls
               </Button>
@@ -218,6 +226,7 @@ const Home = () => {
                 fontSize={{ base: "10px", sm: "14px", md: "sm" }}
                 fontWeight={"500"}
                 fontFamily="sans-serif"
+                onClick={()=>navigate("/product/kids")}
               >
                 Shop for boys
               </Button>
@@ -229,6 +238,7 @@ const Home = () => {
                 mt="8px"
                 fontSize={{ base: "10px", sm: "14px", md: "sm" }}
                 fontWeight={"500"}
+                onClick={()=>navigate("/product/home")}
                 fontFamily="sans-serif"
               >
                 Shop for the home
@@ -244,6 +254,7 @@ const Home = () => {
           mr="auto"
           mt="2.5rem"
           bg="white"
+          onClick={()=>navigate("/product/women")}
         >
           <Box position={"relative"}>
             <Image
@@ -457,6 +468,7 @@ const Home = () => {
                 cursor={"pointer"}
                 fontFamily="sans-serif"
                 textDecoration={"underline"}
+                onClick={()=>navigate("/product/kids")}
               >
                 Shop girls
               </Link>
@@ -466,6 +478,7 @@ const Home = () => {
                 cursor={"pointer"}
                 fontFamily="sans-serif"
                 textDecoration={"underline"}
+                onClick={()=>navigate("/product/kids")}
               >
                 Shop boys
               </Link>
@@ -543,6 +556,7 @@ const Home = () => {
             border="1px solid grey"
             w={"8rem"}
             _hover={{ bg: "grey", color: "white" }}
+            onClick={()=>navigate("/product/women")}
           >
             Shop Women
           </Button>
@@ -554,6 +568,7 @@ const Home = () => {
             border="1px solid grey"
             w={"8rem"}
             _hover={{ bg: "grey", color: "white" }}
+            onClick={()=>navigate("/product/men")}
           >
             Shop Men
           </Button>
@@ -565,6 +580,7 @@ const Home = () => {
             border="1px solid grey"
             w={"8rem"}
             _hover={{ bg: "grey", color: "white" }}
+            onClick={()=>navigate("/product/kids")}
           >
             Shop Girls
           </Button>
@@ -576,6 +592,7 @@ const Home = () => {
             border="1px solid grey"
             w={"8rem"}
             _hover={{ bg: "grey", color: "white" }}
+            onClick={()=>navigate("/product/kids")}
           >
             Shop Boys
           </Button>
@@ -620,6 +637,7 @@ const Home = () => {
               <Link
                 fontSize={{ base: "14px", md: "14px" }}
                 textDecoration="underline"
+                onClick={()=>navigate("/product/women")}
               >
                 Shop our collab
               </Link>
@@ -638,6 +656,7 @@ const Home = () => {
               <Link
                 fontSize={{ base: "14px", md: "14px" }}
                 textDecoration="underline"
+                onClick={()=>navigate("/product/women")}
               >
                 Shop her story
               </Link>
@@ -656,6 +675,7 @@ const Home = () => {
               <Link
                 fontSize={{ base: "14px", md: "14px" }}
                 textDecoration="underline"
+                onClick={()=>navigate("/product/women")}
               >
                 Shop her story
               </Link>
@@ -673,6 +693,8 @@ const Home = () => {
               templateColumns={{ sm: "repeat(1,1fr  )", md: "repeat(4,1fr)" }}
               gap="10"
               mt="2rem"
+              onClick={()=>navigate("/product/kids")}
+              cursor='pointer'
             >
               <Box display={"flex"} flexDirection="column">
                 <Image src="https://www.jcrew.com/brand_creative/homepage2022/14-Dec3/gifcyb_w_agnetha.jpg" />
