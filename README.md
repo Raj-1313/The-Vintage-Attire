@@ -1,6 +1,9 @@
 # Raj-1313/parallel-question-6309 
 ### Team Collaborated Project Completed in 6 days
 
+The Vintage Attire is an e-commerce website is one that allows people to buy and sell physical goods, services, and digital products over the internet rather than at a brick-and-mortar location. Through an e-commerce website, a business can process orders, accept payments and logistics, and provide customer services.
+User Friendly UI .... 
+
 ## Member
  * Raj Rathore (Admin ,Backend, Authantication, Filtering,Sortion)
  * Krishnan    (Home,Navgation bar, Product_Page)
