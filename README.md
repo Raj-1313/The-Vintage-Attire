@@ -26,7 +26,7 @@ User Friendly UI ....
 * Video    ... Visit: https://drive.google.com/file/d/1lROV409voPJMDPh7Ul0TzWtW1SpPpROm/view?usp=sharing
 
 ### Home
-<img src="https://i.ibb.co/zN2B5V4/Screenshot-2022-12-20-125946.png" alt="Screenshot-2022-12-20-125946" border="0" />
+<img src="https://i.ibb.co/n1yS2B2/home.png" alt="home" border="0">
 
 ### PostCards
 <img src="https://i.ibb.co/BzTv646/Screenshot-2022-12-20-125900.png" alt="Screenshot-2022-12-20-125900" border="0">
