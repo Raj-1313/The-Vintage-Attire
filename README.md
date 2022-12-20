@@ -24,4 +24,5 @@
 * Video    ... Visit: https://drive.google.com/file/d/1lROV409voPJMDPh7Ul0TzWtW1SpPpROm/view?usp=sharing
 
 ## HomePage
-![App Screenshot](https://drive.google.com/file/d/1S6k8yplcHyKFk4TjsPYK4uCWhgT31Hh9/view?usp=sharing)
+![App Screenshot]<img src="https://drive.google.com/file/d/1S6k8yplcHyKFk4TjsPYK4uCWhgT31Hh9/view?usp=sharing" align="center" >
+
