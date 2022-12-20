@@ -21,5 +21,5 @@
 * Deployed ... Visit: https://fantastic-tulumba-28a6ee.netlify.app/
 * Video    ... Visit: https://drive.google.com/file/d/1lROV409voPJMDPh7Ul0TzWtW1SpPpROm/view?usp=sharing
 
+![App Screenshot](https://ibb.co/vDdTB4j)
 
-https://ibb.co/vDdTB4j
