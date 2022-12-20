@@ -1,9 +1,10 @@
-# Raj-1313/parallel-question-6309
+# Raj-1313/parallel-question-6309 
+### Team Collaborated Project Completed in 6 days
 
 ## Member
- * Raj Rathore (Admin ,Backend, Authantication)
- * Krishnan
- * Abdus
+ * Raj Rathore (Admin ,Backend, Authantication, Filtering,Sortion)
+ * Krishnan    (Home,Navgation bar, Product_Page)
+ * Abdus       (SingleProduct Page, Checkout, Cart)
 
 ## Available Scripts
 * Chakra
@@ -15,7 +16,7 @@
 * Axios
 * SASS
 
-### `npm start`
+
 
 ## Link
 * Deployed ... Visit: https://fantastic-tulumba-28a6ee.netlify.app/
@@ -29,3 +30,6 @@
 
 ### Product Page
 <img src="https://i.ibb.co/C60XJtH/Screenshot-2022-12-20-125919.png" alt="Screenshot-2022-12-20-125919" border="0">
+
+### Admin Section
+<img src="https://i.ibb.co/pRb4tF4/Screenshot-2022-12-20-145320.png" alt="Screenshot-2022-12-20-145320" border="0">
