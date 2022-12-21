@@ -5,9 +5,9 @@ The Vintage Attire is an e-commerce website is one that allows people to buy and
 User Friendly UI .... 
 
 ## Member
- * Raj Rathore .(Admin ,Backend, Authantication, Filtering,Sortion)
- * Krishnan K. .(Home,Navgation bar, PostCards ,Product_Page)
- * Abdus Salam. (SingleProduct Page, Checkout, Cart, Payment)
+ * Raj Rathore..(Admin ,Backend, Authantication, Filtering,Sortion)
+ * Krishnan K...(Home,Navgation bar, PostCards ,Product_Page)
+ * Abdus Salam..(SingleProduct Page, Checkout, Cart, Payment)
 
 ## Available Scripts
 * Chakra
