@@ -4,7 +4,7 @@
 The Vintage Attire is an e-commerce website is one that allows people to buy and sell physical goods, services, and digital products over the internet rather than at a brick-and-mortar location. Through an e-commerce website, a business can process orders, accept payments and logistics, and provide customer services.
 User Friendly UI .... 
 
-## Member
+## Member (Assigned To)
  * Raj Rathore..(Admin ,Backend, Authantication, Filtering,Sortion)
  * Krishnan K...(Home,Navgation bar, PostCards ,Product_Page)
  * Abdus Salam..(SingleProduct Page, Checkout, Cart, Payment)
