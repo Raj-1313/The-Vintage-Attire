@@ -6,8 +6,8 @@ User Friendly UI ....
 
 ## Member
  * Raj Rathore (Admin ,Backend, Authantication, Filtering,Sortion)
- * Krishnan    (Home,Navgation bar, Product_Page)
- * Abdus       (SingleProduct Page, Checkout, Cart)
+ * Krishnan    (Home,Navgation bar, PostCards ,Product_Page)
+ * Abdus       (SingleProduct Page, Checkout, Cart, Payment)
 
 ## Available Scripts
 * Chakra
