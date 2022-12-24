@@ -66,10 +66,7 @@ const Dashboard = () => {
             <FaRupeeSign />
             <Text pl="15px">Orders</Text>
           </Flex>
-          {/* <Flex id="usersBox" p="7px 17px" className="linkItem">
-            <CiDiscount1 />
-            <Text pl="15px">Discounts</Text>
-          </Flex> */}
+    
         </Box>
       </Box>
 
