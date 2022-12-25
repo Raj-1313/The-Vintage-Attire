@@ -9,7 +9,7 @@ import {
   Tbody,
   Td,
   Img,
-  Button,Modal,  ModalOverlay,  ModalHeader,  ModalContent,  ModalCloseButton,  ModalBody,  Input, Flex, useDisclosure
+  Button,Modal,  ModalOverlay,  ModalHeader,  ModalContent,  ModalCloseButton,  ModalBody,  Input, Flex, useDisclosure, Grid
 } from "@chakra-ui/react";
 import { deleteAdminCart,  getAdminCart, patchAdminCart } from "../../Redux/AdminReducer/Admin.action";
 import { useDispatch, useSelector } from "react-redux";
@@ -66,45 +66,34 @@ if(isError){
   return (
 <>
 
-    <Box id="bodyComponent" m="30px" p="30px">
+    <Box  m="30px" p="30px">
      
-      <Table size="sm" variant="striped" colorScheme="telegram">
-        <Thead>
-          <Tr>
-           
-            <Th>Name</Th>
-            <Th>Email</Th>
-            <Th>Quantity</Th>
-            <Th>Category</Th>
-            <Th>Price </Th>
-            <Th>Discounted Price</Th>
-            <Th>Type</Th>
-            <Th>Admin Powers</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
+     
+        
+        <Grid mt='15' gridTemplateColumns={{base:"repeat(2,1fr)",md:"repeat(3,1fr)",lg:"repeat(4,1fr)"}} gap='2'>
           {previewData &&
             previewData.map((data) => {
               return (
-                <Tr key={data._id}  maxH="50px">
-                <Td>{data?.data[0].name}</Td>
-                <Td>{data.userMail}</Td>
-                <Td>{data.count}</Td>
-                <Td>{data?.data[0].category}</Td>
-                <Td>₹{data?.data[0].price}</Td>
-                <Td>₹{data?.data[0].discounted_price}</Td>
-                <Td>{data?.data[0].type}</Td>
+          <Box w={{base:'40vw',md:"25vw",lg:"15vw"}}   className="cardCart" p='10' textAlign='center'> 
+
+  <Text fontWeight='bold'>{data?.data[0].name}</Text>
+                <Text>{data.userMail}</Text>
+                <Text>{data.count}</Text>
+                <Text>{data?.data[0].category}</Text>
+                <Text>₹{data?.data[0].price}</Text>
+                <Text>₹{data?.data[0].discounted_price}</Text>
+                <Text>{data?.data[0].type}</Text>
               
-                <Td>
+                <Box>
                    
                     <Button onClick={()=>dispatch(deleteAdminCart(data._id))}>Delete</Button>
-                  </Td>
-                </Tr>
-                
+          
+  </Box>
+</Box>
               );
             })}
-        </Tbody>
-      </Table>
+        </Grid>
+     
     </Box>
     </>
   );
