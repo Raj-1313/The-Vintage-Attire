@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Admin.css"
 import {
   Box,
   Text,
@@ -9,7 +10,7 @@ import {
   Tbody,
   Td,
   Img,
-  Button,Modal,  ModalOverlay,  ModalHeader,  ModalContent,  ModalCloseButton,  ModalBody,  Input, Flex, useDisclosure
+  Button,Modal,  ModalOverlay,  ModalHeader,  ModalContent,  ModalCloseButton,  ModalBody,  Input, Flex, useDisclosure, Grid
 } from "@chakra-ui/react";
 import { deleteAdminProduct, getAdminProduct, patchAdminProduct, postAdminProduct } from "../../Redux/AdminReducer/Admin.action";
 import { useDispatch, useSelector } from "react-redux";
@@ -71,15 +72,15 @@ const AdminProduct = () => {
   }, []);
 
 
-if(isLoading){
-  return <Loading/>
-}
+// if(isLoading){
+//   return <Loading/>
+// }
 
 
   return (
 <>
 <Modal isOpen={openModel} onClose={()=>setOpenModel(false)} scrollBehavior="inside">
-          <ModalOverlay />
+          <ModalOverlay w='100vw' h='100vh' />
           <ModalContent>
             <ModalHeader>{isUpdateToPost?"Post":"Update"} Profile</ModalHeader>
             <ModalCloseButton />
@@ -155,57 +156,37 @@ if(isLoading){
           </ModalContent>
         </Modal>
 
-    <Box id="bodyComponent" m="30px" p="30px">
+    <Box  m="30px" p="30px" > 
       <Flex>
         <Button onClick={()=>{
           setUpdateToPost(true)
           setOpenModel(true)
           }} >Post</Button>
       </Flex>
-      <Table size="sm" variant="striped" colorScheme="telegram">
-        <Thead>
-          <Tr>
-            <Th>Image</Th>
-            <Th>Name</Th>
-            <Th>Type</Th>
-            <Th>Category</Th>
-            <Th>Price </Th>
-            <Th>Discounted Price</Th>
-            <Th>Description</Th>
-            <Th>Admin Powers</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
+          <Grid gridTemplateColumns={{base:"repeat(2,1fr)",lg:"repeat(4,1fr)",xl:"repeat(5,1fr)"}} gap='2'>
           {previewData &&
             previewData.map((data) => {
               return (
-                <Tr key={data._id}  maxH="50px">
-                  <Td>
-
-                    <Box>                      
-                    <Img objectFit='contain' mixBlendMode='multiply' src={data.imgUrl} alt="not found"   w='100px' h='90px'  />
-                    </Box>
-                  </Td>
-                  <Td>{data.name}</Td>
-                  <Td>{data.type}</Td>
-                  <Td>{data.category}</Td>
-                  <Td>₹{data.price}</Td>
-                  <Td>₹{data.discounted_price}</Td>
-                  <Td>
-                    <Box maxH="81px" maxW="70%" overflowY="hidden">
-                      <Text>{data.description}</Text>
-                    </Box>
-                  </Td>
-                  <Td>
-                    <Button onClick={()=>handleUpdate(data)}>Edit</Button>
-                    <Button onClick={()=>dispatch(deleteAdminProduct(data._id))}>Delete</Button>
-                  </Td>
-                </Tr>
-                
+              
+                <Box  w={{base:'40vw',md:"25vw",lg:"15vw"}} className="card" maxH='300px' key={data._id} pb='2' >
+                <Box className="img" overflow='hidden' >
+                <Img objectFit='contain' src={data.imgUrl} alt="not found" />
+                </Box>
+                  <Box className="info">
+                    <Text fontWeight='bold' >{data.name}</Text>
+                    <Flex justifyContent='space-around'>
+                    <p>{data.category}</p>
+                    <p>{data.type}</p>
+                    </Flex>
+                  </Box>
+                  <Flex justifyContent='space-between'gap='3' >
+                  <Button size='sm' colorScheme='blue' onClick={()=>handleUpdate(data)}>Edit</Button>
+                 <Button size='sm' colorScheme='blue' onClick={()=>dispatch(deleteAdminProduct(data._id))}>Delete</Button>
+                  </Flex>
+                </Box>      
               );
             })}
-        </Tbody>
-      </Table>
+      </Grid>
     </Box>
     </>
   );

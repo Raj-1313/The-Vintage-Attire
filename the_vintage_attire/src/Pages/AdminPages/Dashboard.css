@@ -2,52 +2,17 @@
 
 
 
-/* Universal Sytyles */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    font-family: "Inter", sans-serif;
-    background-color: #f9fafb;
-}
-.btn{
-    padding: 6px 12px;
-    border: 1px solid #e5e7eb;
-    background-color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
-/* Custom Styles */
-
-#lhsBox{
-    border-right: 1px solid #e5e7eb;
-    background-color: white;
-    position: fixed;
-}
 #navbarBox{
-    width: 100%;
-    align-items: center;
-    background-color: white;
+    background-color: #ffffff;
     border-bottom: 1px solid #e5e7eb;
+    align-items: center; 
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 1;
-    height: 60px;
+    z-index: 100;
 }
-#bodyComponent{
-    border-radius: 8px;
-    background-color: rgba(238, 209, 209, 0.548);
-    border: 1px solid #094acc;
-}
-#titleBox{
-    /* color: rgb(134, 130, 238); */
-    background-color: #f3f4f6;
+
+#titleBox{   
     padding: 5px;
     border-radius: 3px;
     cursor: pointer;
@@ -68,3 +33,6 @@ body{
     color: rgb(134, 130, 238);
     background-color: #f3f4f6;
 }
+
+
+
