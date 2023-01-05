@@ -1,13 +1,13 @@
-# Raj-1313/parallel-question-6309 
+# The Vintage Attire
 ### Team Collaborated Project Completed in 6 days
 
 The Vintage Attire is an e-commerce website is one that allows people to buy and sell physical goods, services, and digital products over the internet rather than at a brick-and-mortar location. Through an e-commerce website, a business can process orders, accept payments and logistics, and provide customer services.
 User Friendly UI .... 
 
 ## Member (Assigned To)
- * Raj Rathore..(Admin ,Backend, Authantication, Filtering,Sortion)
- * Krishnan K...(Home,Navgation bar, PostCards ,Product_Page)
- * Abdus Salam..(SingleProduct Page, Checkout, Cart, Payment)
+ * Raj Rathore..(Admin Section, Backend, Authantication)
+ * Krishnan K...(Home,Navgation bar, PostCards ,Product_Pages)
+ * Abdus Salam..(SingleProduct Pages, Checkout, Cart, Payment)
 
 ## Available Scripts
 * Chakra
@@ -22,7 +22,7 @@ User Friendly UI ....
 
 
 ## Link
-* Deployed ... Visit: https://fantastic-tulumba-28a6ee.netlify.app/
+* Deployed ... Visit: https://vintageattire.netlify.app/
 * Video    ... Visit: https://drive.google.com/file/d/1lROV409voPJMDPh7Ul0TzWtW1SpPpROm/view?usp=sharing
 
 ### Home
