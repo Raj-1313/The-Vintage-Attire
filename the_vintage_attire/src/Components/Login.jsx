@@ -110,15 +110,15 @@ const navigate = useNavigate()
                 onChange={({ target }) => handleSelect(target)}
               />
         
-              <Button w='full'  type="submit" colorScheme="green" size="md" >
+              <Button w='full' disabled={dataSign.email.length==0 && dataSign.password.length==0}  type="submit" colorScheme="green" size="md" >
                 Login Now
               </Button>
             </form>
           </ModalBody>
 
-          <ModalFooter  bg='blackAlpha.600' color='white'  borderRadius='12'>
+          <ModalFooter  bg='blackAlpha.600' color='white' w='90%' p='10px' m='auto'  borderRadius='12'>
             {/* <Button onClick={onClose}>Cancel</Button> */}
-            <Text fontSize="sm" textAlign="left">
+            <Text fontSize="sm" textAlign="left" lineHeight='15px'>
               This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
             </Text>
           </ModalFooter>
