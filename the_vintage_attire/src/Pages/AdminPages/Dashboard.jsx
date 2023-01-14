@@ -15,7 +15,8 @@ import { memo, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Redux/AuthReducer/Auth_actions";
 import { useNavigate } from "react-router-dom";
-import { HamburgerIcon } from "@chakra-ui/icons";
+// import { HamburgerIcon } from "@chakra-ui/icons";
+import {HamburgerIcon} from '@chakra-ui/icons'
 
 const Dashboard = () => {
   const dispatch= useDispatch()

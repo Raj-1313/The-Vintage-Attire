@@ -749,11 +749,12 @@
     position: fixed;
     top: 0;
     bottom: 0;
+    // border:1px solid black;
     left: 0;
     z-index: 5;
     padding: 1rem;
     width: 70%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -795,7 +796,7 @@
           text-transform: uppercase;
           font-weight: 500;
           transition: all 0.3s ease-in-out;
-
+          // border:1px solid black;
           &:hover {
             color: black;
           }

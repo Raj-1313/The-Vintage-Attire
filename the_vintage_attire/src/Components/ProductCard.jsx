@@ -17,7 +17,8 @@ const ProductCard = ({ productData }) => {
   const [hoverBtn, setHoverBtn] = useState(false);
 
   const location = useLocation();
-
+  const auth = useSelector((store)=>store.Auth_reducer.isAuth);
+console.log(auth)
   return (
     <div key={productData.id} className="product-container">
       <div className="product-box">
@@ -32,11 +33,11 @@ const ProductCard = ({ productData }) => {
           </Link>
           <Button
             display="none"
-            // colorScheme={'black'}
             bg='black'
             borderRadius={'none'}
             _hover={{colorScheme:"blackAlpha"}}
-           
+          //  isDisabled={auth}
+          disabled={!auth}
             color='white'
             position={"absolute"}
             bottom="0"

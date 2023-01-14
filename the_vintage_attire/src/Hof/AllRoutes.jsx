@@ -31,7 +31,7 @@ const AllRoutes = () => {
         <Route path='/product/home' element={<HomeShopPage/>}></Route>
         {/* <Route path='/product/accessories' element={<AccessoriesProductPage/>}></Route> */}
         <Route path='/cart' element={<PrivateRoute><Cart/></PrivateRoute> }></Route>
-        <Route path='/cart/checkout' element={ <Checkout/>}></Route>
+        <Route path='/cart/checkout' element={ <PrivateRoute><Checkout/></PrivateRoute>}></Route>
         <Route path='/product/:id' element={<PrivateRoute><SingleProduct/></PrivateRoute>}></Route>
         {/* <Route path='/payment' element={<Payment/>}></Route> */}
         <Route path='*' element={<NotFound/>}></Route>
