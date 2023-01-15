@@ -36,3 +36,7 @@ User Friendly UI ....
 
 ### Admin Section
 <img src="https://i.ibb.co/pRb4tF4/Screenshot-2022-12-20-145320.png" alt="Screenshot-2022-12-20-145320" border="0">
+
+### Payment
+![payment](https://user-images.githubusercontent.com/101567617/212526156-20fcea62-8c71-48d8-ab50-f697a73f6884.JPG)
+
