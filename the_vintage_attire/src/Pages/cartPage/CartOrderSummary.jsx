@@ -9,6 +9,7 @@ import {
   } from '@chakra-ui/react'
   import * as React from 'react'
   import { FaArrowRight } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 import Payment from '../../Components/Payment/Payment'
   import { formatPrice } from './PriceTag'
   const OrderSummaryItem = (props) => {
@@ -24,6 +25,7 @@ import Payment from '../../Components/Payment/Payment'
   }
   
   export const CartOrderSummary = ({subTotal=0}) => {
+    const navigate =useNavigate()
     return (
       <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
         <Heading size="md">ORDER SUMMARY</Heading>
@@ -49,10 +51,10 @@ import Payment from '../../Components/Payment/Payment'
             </Text>
           </Flex>
         </Stack>
-        <Payment/>
-        {/* <Button  size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
+       
+        <Button  onClick={()=>navigate('/cart/checkout')} size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
           Checkout
-        </Button> */}
+        </Button>
       </Stack>
     )
   }
