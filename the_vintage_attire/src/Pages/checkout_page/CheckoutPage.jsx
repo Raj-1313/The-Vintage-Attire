@@ -13,7 +13,11 @@ import {
   InputLeftAddon,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, shallowEqual } from "react-redux";
+// import { shallowEqual, useDispatch, useSelector } from "react-redux";
+
+import RazorPay from '../payment/RazorPay'
+
 // import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 const initialData = {
@@ -28,6 +32,7 @@ const initialData = {
 }
 
 export default function CheckoutPage() {
+  const { subTotalAmt } = useSelector((store) => {return store.CartReducer}, shallowEqual);
   const [deliveryData, setDeliveryData] = useState(initialData)
   const {userDetails} = useSelector(store =>store.Auth_reducer)
   console.log(userDetails)
@@ -45,10 +50,9 @@ export default function CheckoutPage() {
 
   return (
     <Flex
-      minH={"100vh"}
       align={"center"}
       justify={"center"}
-      bg={useColorModeValue("gray.50", "gray.800")}
+      
     >
       <Stack spacing={8} mx={"auto"} maxW={{base:"md",md:"xl"}} py={12} px={6}>
         <Stack align={"center"}>
@@ -111,17 +115,7 @@ export default function CheckoutPage() {
               </InputGroup>
             </FormControl>
             <Stack spacing={10} pt={2}>
-              <Button
-                loadingText="Submitting"
-                size="lg"
-                bg={"blue.400"}
-                color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
-              >
-               CONTINUE TO PAYMENT
-              </Button>
+               <RazorPay details={deliveryData} totalprice={subTotalAmt} />
             </Stack>
           </Stack>
         </Box>

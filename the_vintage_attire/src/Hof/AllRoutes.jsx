@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import Payment from '../Pages/payment/Payment'
 import Dashboard from '../Pages/AdminPages/Dashboard'
 import Cart  from '../Pages/cartPage/Cart'
 import Checkout from '../Pages/checkout_page/CheckoutPage'
@@ -33,7 +34,7 @@ const AllRoutes = () => {
         <Route path='/cart' element={<PrivateRoute><Cart/></PrivateRoute> }></Route>
         <Route path='/cart/checkout' element={ <Checkout/>}></Route>
         <Route path='/product/:id' element={<PrivateRoute><SingleProduct/></PrivateRoute>}></Route>
-        {/* <Route path='/payment' element={<Payment/>}></Route> */}
+        <Route path='/payment' element={<Payment/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
             {/* private Routes need to be done */}
     </Routes>
